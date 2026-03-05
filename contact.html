@@ -793,7 +793,7 @@
               id="enquiryForm"
               name="contact"
               method="POST"
-              novalidate
+              action="/thank-you.html"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
               aria-label="Enquiry form"
@@ -1237,54 +1237,6 @@
       const serviceSelect = document.getElementById('service');
       if (serviceSelect) serviceSelect.value = 'In-Person Sessions';
     }
-
-    // Form submission — Netlify Forms with success state
-    const form = document.getElementById('enquiryForm');
-    const successBox = document.getElementById('formSuccess');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      // Basic client-side validation feedback
-      const required = form.querySelectorAll('[required]');
-      let valid = true;
-      required.forEach(field => {
-        if (!field.value.trim()) {
-          field.style.borderColor = '#c0392b';
-          valid = false;
-        } else {
-          field.style.borderColor = '';
-        }
-      });
-      if (!valid) return;
-
-      const submitBtn = form.querySelector('[type="submit"]');
-      submitBtn.textContent = 'Sending…';
-      submitBtn.disabled = true;
-
-      try {
-        const formData = new FormData(form);
-        const response = await fetch('/contact.html', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams(formData).toString(),
-        });
-
-        if (response.ok) {
-          form.style.display = 'none';
-          successBox.classList.add('visible');
-          successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        } else {
-          submitBtn.textContent = 'Send Enquiry';
-          submitBtn.disabled = false;
-          alert('Something went wrong. Please try emailing hello@openhorizonslearning.ae directly.');
-        }
-      } catch {
-        submitBtn.textContent = 'Send Enquiry';
-        submitBtn.disabled = false;
-        alert('Something went wrong. Please try emailing hello@openhorizonslearning.ae directly.');
-      }
-    });
 
     // Scroll animations
     const observer = new IntersectionObserver(
