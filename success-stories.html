@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Results — Open Horizons Learning Support</title>
+  <meta name="description" content="How Open Horizons has helped students across Dubai and Abu Dhabi international schools build confidence, close gaps, and achieve measurable academic progress." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       DESIGN SYSTEM — OHLS
+    ============================================================ */
+    :root {
+      --navy:        #0f1f38;
+      --navy-mid:    #1a3255;
+      --navy-light:  #223d66;
+      --gold:        #c9a84c;
+      --gold-light:  #e8c97a;
+      --cream:       #f9f6f0;
+      --warm-white:  #fdfbf7;
+      --text:        #2a2a2a;
+      --text-light:  #6b6b6b;
+      --border:      rgba(201, 168, 76, 0.25);
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'DM Sans', sans-serif;
+      --nav-height:  72px;
+      --section-pad: clamp(64px, 8vw, 112px);
+      --container:   1160px;
+      --radius:      4px;
+      --transition:  0.25s ease;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font-body); font-weight: 400; font-size: 16px; line-height: 1.7; color: var(--text); background: var(--warm-white); }
+
+    .container  { max-width: var(--container); margin: 0 auto; padding: 0 clamp(20px, 5vw, 48px); }
+    .section    { padding: var(--section-pad) 0; }
+    .section--cream { background: var(--cream); }
+    .section--navy  { background: var(--navy); color: var(--warm-white); }
+    .page-body  { padding-top: var(--nav-height); }
+
+    .eyebrow {
+      display: flex; align-items: center; gap: 12px;
+      font-family: var(--font-body); font-weight: 500; font-size: 11px;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px;
+    }
+    .eyebrow::before { content: ''; display: block; width: 32px; height: 1.5px; background: var(--gold); flex-shrink: 0; }
+
+    .section-title { font-family: var(--font-display); font-weight: 600; font-size: clamp(32px, 4vw, 48px); line-height: 1.15; color: var(--navy); margin-bottom: 20px; }
+    .section-title em { font-style: italic; font-weight: 300; color: var(--gold-light); }
+    .section--navy .section-title { color: var(--warm-white); }
+
+    .section-lead { font-size: 17px; font-weight: 300; color: var(--text-light); max-width: 600px; line-height: 1.8; }
+    .section--navy .section-lead { color: rgba(253,251,247,0.72); }
+
+    .btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-body); font-weight: 500; font-size: 13px; letter-spacing: 0.06em; text-decoration: none; border: none; cursor: pointer; transition: background var(--transition), color var(--transition), transform var(--transition); border-radius: var(--radius); padding: 12px 24px; }
+    .btn--gold    { background: var(--gold); color: var(--navy); }
+    .btn--gold:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn--outline { background: transparent; color: var(--gold); border: 1.5px solid var(--gold); }
+    .btn--outline:hover { background: var(--gold); color: var(--navy); }
+    .btn--ghost   { background: transparent; color: var(--warm-white); border: 1.5px solid rgba(255,255,255,0.3); }
+    .btn--ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .fade-up:nth-child(2) { transition-delay: 0.08s; }
+    .fade-up:nth-child(3) { transition-delay: 0.16s; }
+    .fade-up:nth-child(4) { transition-delay: 0.24s; }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-height); background: var(--navy); border-bottom: 1px solid rgba(201,168,76,0.15); display: flex; align-items: center; }
+    .nav__inner { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 clamp(20px, 5vw, 48px); }
+    .nav__logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1.15; }
+    .nav__logo-primary { font-family: var(--font-display); font-weight: 600; font-size: 18px; letter-spacing: 0.02em; color: var(--warm-white); }
+    .nav__logo-sub { font-family: var(--font-body); font-weight: 300; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); }
+    .nav__links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav__links a { font-family: var(--font-body); font-weight: 400; font-size: 13px; letter-spacing: 0.03em; color: rgba(253,251,247,0.78); text-decoration: none; padding: 6px 14px; border-radius: var(--radius); transition: color var(--transition), background var(--transition); position: relative; }
+    .nav__links a:hover { color: var(--warm-white); background: rgba(255,255,255,0.06); }
+    .nav__links a.active { color: var(--gold); }
+    .nav__links a.active::after { content: ''; position: absolute; bottom: -2px; left: 14px; right: 14px; height: 1.5px; background: var(--gold); opacity: 0.6; }
+    .nav__cta { margin-left: 16px; }
+    .nav__toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav__toggle span { display: block; width: 24px; height: 1.5px; background: var(--warm-white); transition: transform 0.25s, opacity 0.25s; }
+    .nav__mobile { display: none; position: fixed; top: var(--nav-height); left: 0; right: 0; background: var(--navy); border-top: 1px solid rgba(201,168,76,0.15); padding: 16px 0 24px; z-index: 99; }
+    .nav__mobile.open { display: block; }
+    .nav__mobile a { display: block; font-family: var(--font-body); font-weight: 400; font-size: 15px; color: rgba(253,251,247,0.85); text-decoration: none; padding: 12px clamp(20px,5vw,48px); border-bottom: 1px solid rgba(201,168,76,0.08); transition: color var(--transition); }
+    .nav__mobile a:hover, .nav__mobile a.active { color: var(--gold); }
+    .nav__mobile .nav__mobile-cta { margin: 16px clamp(20px,5vw,48px) 0; display: block; text-align: center; }
+
+    /* ============================================================
+       PAGE HERO
+    ============================================================ */
+    .results-hero {
+      background: var(--navy);
+      padding: clamp(72px, 10vw, 120px) 0 clamp(64px, 8vw, 96px);
+      position: relative;
+      overflow: hidden;
+    }
+    .results-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 70% at 95% 15%, rgba(201,168,76,0.07) 0%, transparent 65%),
+        radial-gradient(ellipse 45% 60% at 0% 100%, rgba(26,50,85,0.5) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .results-hero__inner { position: relative; z-index: 1; max-width: 700px; }
+    .results-hero__title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(38px, 5.5vw, 64px);
+      line-height: 1.08;
+      color: var(--warm-white);
+      margin-bottom: 24px;
+    }
+    .results-hero__title em { font-style: italic; font-weight: 300; color: var(--gold-light); }
+    .results-hero__lead {
+      font-size: clamp(15px, 1.8vw, 17px);
+      font-weight: 300;
+      color: rgba(253,251,247,0.72);
+      line-height: 1.85;
+      max-width: 560px;
+      margin-bottom: 40px;
+    }
+
+    /* Outcome pillars strip */
+    .outcome-pillars {
+      display: flex;
+      gap: 0;
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 4px;
+      overflow: hidden;
+      max-width: 520px;
+    }
+    .outcome-pillar {
+      flex: 1;
+      padding: 16px 18px;
+      background: rgba(255,255,255,0.03);
+      border-right: 1px solid rgba(201,168,76,0.15);
+      text-align: center;
+    }
+    .outcome-pillar:last-child { border-right: none; }
+    .outcome-pillar__icon {
+      width: 28px; height: 28px;
+      margin: 0 auto 8px;
+      color: var(--gold);
+    }
+    .outcome-pillar__icon svg { width: 100%; height: 100%; }
+    .outcome-pillar__label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(253,251,247,0.55);
+      line-height: 1.4;
+    }
+
+    /* ============================================================
+       PLACEHOLDER NOTICE BANNER
+       Remove this section once real stories are added
+    ============================================================ */
+    .placeholder-notice {
+      background: rgba(201,168,76,0.08);
+      border: 1px dashed rgba(201,168,76,0.4);
+      border-radius: 4px;
+      padding: 16px 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+    .placeholder-notice__icon {
+      width: 18px; height: 18px; flex-shrink: 0; margin-top: 2px; color: var(--gold);
+    }
+    .placeholder-notice__text {
+      font-size: 13px; font-weight: 300; color: var(--text-light); line-height: 1.65;
+    }
+    .placeholder-notice__text strong { font-weight: 500; color: var(--navy); }
+
+    /* ============================================================
+       CASE STUDY CARDS
+    ============================================================ */
+    .cases__intro { max-width: 640px; margin-bottom: 52px; }
+
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: var(--border);
+      border: 1.5px solid var(--border);
+    }
+
+    .case-card {
+      background: var(--warm-white);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Coloured top accent per subject */
+    .case-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gold);
+    }
+
+    .case-card__header {
+      padding: 32px 32px 0;
+    }
+    .case-card__subject {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .case-card__student {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 22px;
+      color: var(--navy);
+      margin-bottom: 4px;
+      line-height: 1.2;
+    }
+    .case-card__context {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--text-light);
+      letter-spacing: 0.04em;
+      margin-bottom: 20px;
+    }
+
+    /* Before/After split */
+    .case-card__split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5px;
+      background: var(--border);
+      margin: 0 32px 24px;
+    }
+    .case-card__half {
+      padding: 16px 18px;
+    }
+    .case-card__half--before { background: var(--cream); }
+    .case-card__half--after  { background: rgba(201,168,76,0.06); }
+    .case-card__half-label {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .case-card__half--before .case-card__half-label { color: var(--text-light); }
+    .case-card__half--after  .case-card__half-label { color: var(--gold); }
+    .case-card__half-text {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+    .case-card__half--before .case-card__half-text { color: var(--text-light); }
+    .case-card__half--after  .case-card__half-text { color: var(--navy); font-weight: 400; }
+
+    .case-card__body {
+      padding: 0 32px 32px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .case-card__narrative {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1.75;
+      flex-grow: 1;
+    }
+
+    /* Placeholder overlay for unreleased stories */
+    .case-card--placeholder .case-card__body {
+      position: relative;
+    }
+    .case-card--placeholder::after {
+      content: 'Story coming soon';
+      position: absolute;
+      bottom: 24px;
+      left: 32px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(201,168,76,0.5);
+    }
+    .case-card--placeholder .case-card__narrative {
+      filter: blur(3.5px);
+      user-select: none;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+    .case-card--placeholder .case-card__half-text {
+      filter: blur(3.5px);
+      user-select: none;
+      pointer-events: none;
+    }
+
+    /* ============================================================
+       TESTIMONIALS
+    ============================================================ */
+    .testimonials__intro { max-width: 600px; margin-bottom: 52px; }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: var(--border);
+      border: 1.5px solid var(--border);
+    }
+
+    .testimonial-card {
+      background: var(--cream);
+      padding: 36px 32px 40px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .testimonial-card__quote-mark {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: 80px;
+      line-height: 0.7;
+      color: var(--gold);
+      opacity: 0.3;
+      margin-bottom: 16px;
+      display: block;
+      user-select: none;
+      aria-hidden: true;
+    }
+
+    .testimonial-card__text {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 17px;
+      font-style: italic;
+      color: var(--navy);
+      line-height: 1.65;
+      flex-grow: 1;
+      margin-bottom: 28px;
+    }
+
+    .testimonial-card__author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-top: 1px solid var(--border);
+      padding-top: 20px;
+    }
+    .testimonial-card__avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--navy);
+      border: 1.5px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .testimonial-card__name {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 1px;
+    }
+    .testimonial-card__detail {
+      font-size: 11.5px;
+      font-weight: 300;
+      color: var(--text-light);
+    }
+
+    /* Placeholder testimonial state */
+    .testimonial-card--placeholder .testimonial-card__text {
+      filter: blur(4px);
+      user-select: none;
+      pointer-events: none;
+      opacity: 0.5;
+    }
+    .testimonial-card--placeholder .testimonial-card__name,
+    .testimonial-card--placeholder .testimonial-card__detail {
+      filter: blur(3px);
+      user-select: none;
+      opacity: 0.4;
+    }
+    .testimonial-card--placeholder::after {
+      content: 'Testimonial coming soon';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      white-space: nowrap;
+      background: rgba(249,246,240,0.9);
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+    }
+
+    /* ============================================================
+       SCHOOLS SERVED STRIP
+    ============================================================ */
+    .schools-strip {
+      border-top: 1.5px solid var(--border);
+      border-bottom: 1.5px solid var(--border);
+      padding: 32px 0;
+      overflow: hidden;
+    }
+    .schools-strip__label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .schools-strip__label::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1.5px;
+      background: var(--gold);
+    }
+    .schools-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .school-pill {
+      font-size: 12.5px;
+      font-weight: 300;
+      color: var(--text-light);
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 6px 16px;
+      white-space: nowrap;
+    }
+
+    /* ============================================================
+       WHAT PROGRESS MEANS — how we measure
+    ============================================================ */
+    .progress-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: start;
+    }
+    .progress-body p {
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(253,251,247,0.78);
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+    .progress-body p:last-child { margin-bottom: 0; }
+    .progress-body strong { font-weight: 500; color: var(--warm-white); }
+
+    .progress-metrics {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5px;
+      background: rgba(201,168,76,0.15);
+      border: 1px solid rgba(201,168,76,0.2);
+    }
+    .progress-metric {
+      background: rgba(15,31,56,0.65);
+      padding: 20px 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .progress-metric__icon {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .progress-metric__icon svg { width: 16px; height: 16px; color: var(--gold); }
+    .progress-metric__title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--warm-white);
+      margin-bottom: 3px;
+    }
+    .progress-metric__desc {
+      font-size: 12.5px;
+      font-weight: 300;
+      color: rgba(253,251,247,0.55);
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+       CTA BAND
+    ============================================================ */
+    .cta-band { background: var(--navy); padding: 72px 0; text-align: center; position: relative; overflow: hidden; }
+    .cta-band::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 100% at 50% 50%, rgba(201,168,76,0.07) 0%, transparent 70%); pointer-events: none; }
+    .cta-band__inner { position: relative; z-index: 1; }
+    .cta-band__title { font-family: var(--font-display); font-weight: 600; font-size: clamp(28px, 4vw, 44px); color: var(--warm-white); margin-bottom: 12px; line-height: 1.2; }
+    .cta-band__title em { font-style: italic; font-weight: 300; color: var(--gold-light); }
+    .cta-band__sub { font-size: 15px; font-weight: 300; color: rgba(253,251,247,0.62); margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-band__actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .footer { background: var(--navy); border-top: 1px solid rgba(201,168,76,0.2); padding: 64px 0 0; color: rgba(253,251,247,0.72); }
+    .footer__grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(201,168,76,0.15); }
+    .footer__brand-name    { font-family: var(--font-display); font-weight: 600; font-size: 20px; color: var(--warm-white); margin-bottom: 4px; }
+    .footer__brand-tagline { font-family: var(--font-body); font-weight: 300; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .footer__brand-desc    { font-size: 13.5px; font-weight: 300; line-height: 1.75; margin-bottom: 24px; max-width: 280px; }
+    .footer__inperson { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 500; color: var(--gold); text-decoration: none; letter-spacing: 0.04em; border-bottom: 1px solid rgba(201,168,76,0.3); padding-bottom: 2px; transition: color var(--transition), border-color var(--transition); }
+    .footer__inperson:hover { color: var(--gold-light); border-color: var(--gold-light); }
+    .footer__inperson svg { width: 13px; height: 13px; flex-shrink: 0; }
+    .footer__col-title { font-family: var(--font-body); font-weight: 500; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .footer__list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer__list a { font-size: 14px; font-weight: 300; color: rgba(253,251,247,0.68); text-decoration: none; transition: color var(--transition); }
+    .footer__list a:hover { color: var(--gold-light); }
+    .footer__contact-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13.5px; font-weight: 300; margin-bottom: 10px; line-height: 1.55; }
+    .footer__contact-item svg { width: 14px; height: 14px; flex-shrink: 0; margin-top: 3px; color: var(--gold); }
+    .footer__contact-item a { color: rgba(253,251,247,0.68); text-decoration: none; transition: color var(--transition); }
+    .footer__contact-item a:hover { color: var(--gold-light); }
+    .footer__bottom { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; flex-wrap: wrap; gap: 12px; }
+    .footer__legal { font-size: 12px; font-weight: 300; color: rgba(253,251,247,0.38); line-height: 1.6; }
+    .footer__licence { display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 400; color: rgba(253,251,247,0.38); letter-spacing: 0.03em; }
+    .footer__licence-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); opacity: 0.5; flex-shrink: 0; }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 960px) {
+      .nav__links, .nav__cta { display: none; }
+      .nav__toggle { display: flex; }
+      .cases-grid          { grid-template-columns: 1fr; }
+      .testimonials-grid   { grid-template-columns: 1fr; }
+      .progress-grid       { grid-template-columns: 1fr; gap: 40px; }
+      .footer__grid        { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+    @media (max-width: 640px) {
+      .outcome-pillars     { flex-wrap: wrap; }
+      .footer__grid        { grid-template-columns: 1fr; gap: 32px; }
+      .footer__bottom      { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .cta-band__actions   { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Open Horizons Learning Support — Home">
+        <span class="nav__logo-primary">Open Horizons</span>
+        <span class="nav__logo-sub">Learning Support</span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="approach.html">Approach</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="success-stories.html" class="active" aria-current="page">Results</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="btn btn--gold nav__cta">Enquire Now</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav__mobile" id="navMobile" role="menu">
+    <a href="index.html" role="menuitem">Home</a>
+    <a href="about.html" role="menuitem">About</a>
+    <a href="approach.html" role="menuitem">Approach</a>
+    <a href="services.html" role="menuitem">Services</a>
+    <a href="success-stories.html" class="active" role="menuitem">Results</a>
+    <a href="contact.html" role="menuitem">Contact</a>
+    <a href="contact.html" class="btn btn--gold nav__mobile-cta" role="menuitem">Enquire Now</a>
+  </div>
+
+
+  <main class="page-body">
+
+    <!-- ============================================================
+         HERO
+    ============================================================ -->
+    <section class="results-hero" aria-label="Student results overview">
+      <div class="container">
+        <div class="results-hero__inner">
+          <div class="eyebrow">Student Results</div>
+          <h1 class="results-hero__title">
+            Progress that<br>
+            <em>outlasts the sessions.</em>
+          </h1>
+          <p class="results-hero__lead">
+            The measure of effective tutoring is not performance during sessions —
+            it is what changes in school. These are the outcomes that matter:
+            genuine understanding, recovered confidence, and independent learning
+            habits that continue when the tutoring ends.
+          </p>
+          <div class="outcome-pillars" role="list" aria-label="Key outcome areas">
+            <div class="outcome-pillar" role="listitem">
+              <div class="outcome-pillar__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M12 20V10M17 20V4M7 20v-6"/>
+                </svg>
+              </div>
+              <div class="outcome-pillar__label">Academic Progress</div>
+            </div>
+            <div class="outcome-pillar" role="listitem">
+              <div class="outcome-pillar__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <circle cx="12" cy="12" r="9"/>
+                  <path d="M12 8v4l3 3"/>
+                </svg>
+              </div>
+              <div class="outcome-pillar__label">Learner Confidence</div>
+            </div>
+            <div class="outcome-pillar" role="listitem">
+              <div class="outcome-pillar__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M5 3h14M5 3v6a7 7 0 0014 0V3"/>
+                  <path d="M9 13l2 2 4-4"/>
+                </svg>
+              </div>
+              <div class="outcome-pillar__label">Independence</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         CASE STUDIES
+    ============================================================ -->
+    <section class="section" aria-labelledby="cases-heading">
+      <div class="container">
+
+        <div class="cases__intro fade-up">
+          <div class="eyebrow">Student Stories</div>
+          <h2 class="section-title" id="cases-heading">
+            Real students.<br>
+            <em>Real challenges.</em>
+          </h2>
+          <p class="section-lead">
+            Each case study follows the same structure — the challenge the student
+            faced, the approach taken, and what changed as a result. Names and
+            identifying details are anonymised with parent permission.
+          </p>
+        </div>
+
+        <!-- Placeholder notice — remove once real stories are published -->
+        <div class="placeholder-notice" role="note">
+          <svg class="placeholder-notice__icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="10" cy="10" r="8"/>
+            <path d="M10 9v5M10 7h.01"/>
+          </svg>
+          <p class="placeholder-notice__text">
+            <strong>For Grant:</strong> These cards are ready to populate with real student stories.
+            Replace the blurred placeholder content with actual case studies — each card has
+            fields for subject, student descriptor, school/year context, a before/after split,
+            and a short narrative. Remove the <code>case-card--placeholder</code> class and
+            this notice banner once live stories are added.
+          </p>
+        </div>
+
+        <div class="cases-grid" role="list">
+
+          <!-- Case Study 1 — PLACEHOLDER -->
+          <article class="case-card case-card--placeholder fade-up" role="listitem">
+            <div class="case-card__header">
+              <div class="case-card__subject">Mathematics · KS2</div>
+              <div class="case-card__student">Student A</div>
+              <div class="case-card__context">Year 5 · British Curriculum · Dubai</div>
+            </div>
+            <div class="case-card__split" role="presentation">
+              <div class="case-card__half case-card__half--before">
+                <div class="case-card__half-label">Before</div>
+                <div class="case-card__half-text">Struggling with fractions and place value. Avoiding maths homework. Growing anxiety before assessments.</div>
+              </div>
+              <div class="case-card__half case-card__half--after">
+                <div class="case-card__half-label">After</div>
+                <div class="case-card__half-text">Confident with fractions. Completing classwork independently. Assessment scores improved significantly.</div>
+              </div>
+            </div>
+            <div class="case-card__body">
+              <p class="case-card__narrative">
+                Diagnostic assessment revealed that the student's difficulty with fractions stemmed from
+                an unresolved gap in understanding of part-whole relationships from Year 3. Once
+                this was addressed conceptually — before any procedural practice — progress was rapid.
+                Six sessions to rebuild the foundation; four more to reach and exceed year-group expectations.
+              </p>
+            </div>
+          </article>
+
+          <!-- Case Study 2 — PLACEHOLDER -->
+          <article class="case-card case-card--placeholder fade-up" role="listitem">
+            <div class="case-card__header">
+              <div class="case-card__subject">English · KS3</div>
+              <div class="case-card__student">Student B</div>
+              <div class="case-card__context">Year 7 · Cambridge International · Abu Dhabi</div>
+            </div>
+            <div class="case-card__split" role="presentation">
+              <div class="case-card__half case-card__half--before">
+                <div class="case-card__half-label">Before</div>
+                <div class="case-card__half-text">Producing short, underdeveloped written responses. Difficulty structuring arguments. Low confidence in English lessons.</div>
+              </div>
+              <div class="case-card__half case-card__half--after">
+                <div class="case-card__half-label">After</div>
+                <div class="case-card__half-text">Writing extended, structured responses with clear argument development. Teacher noted marked improvement in written work.</div>
+              </div>
+            </div>
+            <div class="case-card__body">
+              <p class="case-card__narrative">
+                The student was producing factually accurate work but lacked the structural
+                framework to develop ideas at length. Sessions focused on paragraph construction,
+                argument sequencing, and using textual evidence effectively — skills not explicitly
+                taught at school but assumed. Parent reported that the student now approaches
+                written tasks with considerably less resistance.
+              </p>
+            </div>
+          </article>
+
+          <!-- Case Study 3 — PLACEHOLDER -->
+          <article class="case-card case-card--placeholder fade-up" role="listitem">
+            <div class="case-card__header">
+              <div class="case-card__subject">Science · KS3</div>
+              <div class="case-card__student">Student C</div>
+              <div class="case-card__context">Year 8 · British Curriculum · Dubai</div>
+            </div>
+            <div class="case-card__split" role="presentation">
+              <div class="case-card__half case-card__half--before">
+                <div class="case-card__half-label">Before</div>
+                <div class="case-card__half-text">Memorising facts without understanding. Unable to apply knowledge to unfamiliar questions. Predicted to underperform in end-of-year assessments.</div>
+              </div>
+              <div class="case-card__half case-card__half--after">
+                <div class="case-card__half-label">After</div>
+                <div class="case-card__half-text">Approaching unfamiliar questions with structured reasoning. End-of-year result significantly above school prediction.</div>
+              </div>
+            </div>
+            <div class="case-card__body">
+              <p class="case-card__narrative">
+                The student had been taught to memorise definitions and model answers rather than
+                to reason through scientific problems. Sessions rebuilt the conceptual understanding
+                behind each topic area — particularly forces, energy, and cell biology — enabling
+                the student to tackle questions they had never seen before. Study skills coaching
+                was added in the final four weeks before assessments.
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         TESTIMONIALS
+    ============================================================ -->
+    <section class="section section--cream" aria-labelledby="testimonials-heading">
+      <div class="container">
+
+        <div class="testimonials__intro fade-up">
+          <div class="eyebrow">From Parents</div>
+          <h2 class="section-title" id="testimonials-heading">
+            In their <em>own words.</em>
+          </h2>
+          <p class="section-lead">
+            The most meaningful feedback comes from the families who have seen
+            the change in their child week by week.
+          </p>
+        </div>
+
+        <div class="testimonials-grid" role="list">
+
+          <!-- Testimonial 1 — PLACEHOLDER -->
+          <article class="testimonial-card testimonial-card--placeholder fade-up" role="listitem">
+            <span class="testimonial-card__quote-mark" aria-hidden="true">"</span>
+            <p class="testimonial-card__text">
+              We noticed a difference within the first three sessions. Not just in his
+              maths results — in the way he talks about school. He used to say he was
+              bad at maths. He doesn't say that anymore.
+            </p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar" aria-hidden="true">SM</div>
+              <div>
+                <div class="testimonial-card__name">Parent of Year 5 student</div>
+                <div class="testimonial-card__detail">Brighton College Dubai</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Testimonial 2 — PLACEHOLDER -->
+          <article class="testimonial-card testimonial-card--placeholder fade-up" role="listitem">
+            <span class="testimonial-card__quote-mark" aria-hidden="true">"</span>
+            <p class="testimonial-card__text">
+              What I appreciated most was that Grant explained everything clearly —
+              what he found in the first session, what he was working on, and why.
+              We always knew what was happening and why it mattered.
+            </p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar" aria-hidden="true">RK</div>
+              <div>
+                <div class="testimonial-card__name">Parent of Year 7 student</div>
+                <div class="testimonial-card__detail">GEMS Cambridge International Abu Dhabi</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Testimonial 3 — PLACEHOLDER -->
+          <article class="testimonial-card testimonial-card--placeholder fade-up" role="listitem">
+            <span class="testimonial-card__quote-mark" aria-hidden="true">"</span>
+            <p class="testimonial-card__text">
+              She went from dreading her science tests to actually looking forward
+              to them. I didn't think that was possible. The exam result spoke for
+              itself, but the confidence shift was what really mattered to us.
+            </p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar" aria-hidden="true">AT</div>
+              <div>
+                <div class="testimonial-card__name">Parent of Year 8 student</div>
+                <div class="testimonial-card__detail">Repton Dubai</div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         SCHOOLS SERVED
+    ============================================================ -->
+    <section class="section" aria-labelledby="schools-heading">
+      <div class="container">
+        <div class="schools-strip">
+          <div class="schools-strip__label" id="schools-heading">Schools currently served</div>
+          <div class="schools-list" role="list">
+            <span class="school-pill" role="listitem">NLCS Dubai</span>
+            <span class="school-pill" role="listitem">Brighton College Dubai</span>
+            <span class="school-pill" role="listitem">RGS Dubai</span>
+            <span class="school-pill" role="listitem">GEMS Cambridge International Abu Dhabi</span>
+            <span class="school-pill" role="listitem">Repton Dubai</span>
+            <span class="school-pill" role="listitem">Nord Anglia Dubai</span>
+          </div>
+        </div>
+        <p style="margin-top: 20px; font-size: 13px; font-weight: 300; color: var(--text-light);">
+          This list grows as the business does. Students from any British, Cambridge, IB, or American
+          curriculum school in Dubai or Abu Dhabi are welcome to
+          <a href="contact.html" style="color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.4);">enquire</a>.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         HOW PROGRESS IS MEASURED — navy section
+    ============================================================ -->
+    <section class="section section--navy" aria-labelledby="progress-heading">
+      <div class="container">
+        <div class="progress-grid">
+
+          <div class="progress-body fade-up">
+            <div class="eyebrow">How We Measure Progress</div>
+            <h2 class="section-title" id="progress-heading">
+              More than <em>test scores.</em>
+            </h2>
+            <p>
+              Academic assessment scores are useful signals — but they are lagging
+              indicators. By the time a test result reflects a change, the real shift
+              has already happened in how a student thinks about the subject and
+              approaches their work.
+            </p>
+            <p>
+              Open Horizons tracks progress across three dimensions: academic attainment,
+              learner confidence, and independence. All three are reported to parents
+              at regular intervals — <strong>not just "going well"</strong>, but specific,
+              honest observations about what has changed and what is still being worked on.
+            </p>
+            <p>
+              This means parents always have a clear and accurate picture — and
+              it means progress is meaningful rather than simply reassuring.
+            </p>
+          </div>
+
+          <div class="fade-up">
+            <div class="progress-metrics" role="list">
+              <div class="progress-metric" role="listitem">
+                <div class="progress-metric__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M12 20V10M17 20V4M7 20v-6"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="progress-metric__title">Academic Attainment</div>
+                  <div class="progress-metric__desc">School assessment scores, in-session accuracy rates, and mastery of specific curriculum objectives tracked against goals set at programme outset.</div>
+                </div>
+              </div>
+              <div class="progress-metric" role="listitem">
+                <div class="progress-metric__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="12" cy="12" r="9"/>
+                    <path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="progress-metric__title">Learner Confidence</div>
+                  <div class="progress-metric__desc">Willingness to attempt difficult problems, language used when talking about the subject, and visible anxiety levels before and during tasks — observed and reported honestly.</div>
+                </div>
+              </div>
+              <div class="progress-metric" role="listitem">
+                <div class="progress-metric__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M12 3l9 5v5c0 5-4 9-9 10C3 22 3 18 3 13V8l9-5z"/>
+                    <path d="M9 12l2 2 4-4"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="progress-metric__title">Independence</div>
+                  <div class="progress-metric__desc">Ability to initiate tasks without prompting, apply learned strategies to new problems, and manage revision without external structure — the long-term goal of every programme.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         CTA BAND
+    ============================================================ -->
+    <section class="cta-band" aria-labelledby="cta-heading">
+      <div class="container">
+        <div class="cta-band__inner fade-up">
+          <h2 class="cta-band__title" id="cta-heading">
+            Ready to see what's <em>possible?</em>
+          </h2>
+          <p class="cta-band__sub">
+            Every programme starts with an honest diagnostic conversation —
+            no assumptions, no generic plans.
+          </p>
+          <div class="cta-band__actions">
+            <a href="contact.html" class="btn btn--gold">Make an Enquiry</a>
+            <a href="services.html" class="btn btn--ghost">View Services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__brand-name">Open Horizons</div>
+          <div class="footer__brand-tagline">UAE-Based. Globally Aligned. Personally Delivered.</div>
+          <p class="footer__brand-desc">Evidence-informed online tutoring for international school students across Dubai and Abu Dhabi. Maths, Science, and English — KS1 to KS3.</p>
+          <a href="contact.html?enquiry=inperson" class="footer__inperson">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="6" r="2.5"/><path d="M3 14c0-3 2.2-5 5-5s5 2 5 5"/></svg>
+            Interested in in-person sessions? Ask us
+          </a>
+        </div>
+        <div>
+          <div class="footer__col-title">Navigation</div>
+          <ul class="footer__list" role="list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Grant</a></li>
+            <li><a href="approach.html">Our Approach</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="success-stories.html">Results</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__col-title">Services</div>
+          <ul class="footer__list" role="list">
+            <li><a href="services.html#individual">One-to-One Tutoring</a></li>
+            <li><a href="services.html#study-skills">Study Skills Coaching</a></li>
+            <li><a href="services.html#homeschool">Homeschool Support</a></li>
+            <li><a href="services.html#workshops">Parent Workshops</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__col-title">Contact</div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 4l6 5 6-5M2 4h12v9H2z"/></svg>
+            <a href="mailto:hello@openhorizonslearning.ae">hello@openhorizonslearning.ae</a>
+          </div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="6" r="2.5"/><path d="M3 14c0-3 2.2-5 5-5s5 2 5 5"/></svg>
+            <span>Serving Dubai &amp; Abu Dhabi</span>
+          </div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="2"/><path d="M5 8h6M8 5v6"/></svg>
+            <a href="contact.html">Make an Enquiry</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__legal">
+          &copy; <span id="footerYear"></span> Open Horizons Learning Support FZ-LLC. All rights reserved.<br>
+          <span style="font-size:11px;">openhorizonslearning.ae</span>
+        </div>
+        <div class="footer__licence">
+          <span class="footer__licence-dot"></span>
+          RAKEZ Licensed · Ras Al Khaimah Economic Zone
+          <span class="footer__licence-dot"></span>
+          Federal Private Tutoring Permit Holder
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+    const toggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('navMobile');
+    toggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+      const spans = toggle.querySelectorAll('span');
+      if (isOpen) {
+        spans[0].style.transform = 'translateY(6.5px) rotate(45deg)';
+        spans[1].style.opacity  = '0';
+        spans[2].style.transform = 'translateY(-6.5px) rotate(-45deg)';
+      } else {
+        spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+      }
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', false);
+        toggle.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+      });
+    });
+    document.addEventListener('click', e => {
+      if (!toggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+        mobileMenu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', false);
+        toggle.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+      }
+    });
+
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+      }),
+      { threshold: 0.08 }
+    );
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    const nav = document.querySelector('.nav');
+    window.addEventListener('scroll', () => {
+      nav.style.boxShadow = window.scrollY > 8 ? '0 2px 24px rgba(15,31,56,0.35)' : 'none';
+    }, { passive: true });
+  </script>
+
+</body>
+</html>

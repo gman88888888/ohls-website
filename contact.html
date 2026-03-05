@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Open Horizons Learning Support</title>
+  <meta name="description" content="Enquire about tutoring for your child. Online tutoring in Maths, Science, and English for primary and lower secondary students across Dubai and Abu Dhabi international schools." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       DESIGN SYSTEM — OHLS
+    ============================================================ */
+    :root {
+      --navy:        #0f1f38;
+      --navy-mid:    #1a3255;
+      --navy-light:  #223d66;
+      --gold:        #c9a84c;
+      --gold-light:  #e8c97a;
+      --cream:       #f9f6f0;
+      --warm-white:  #fdfbf7;
+      --text:        #2a2a2a;
+      --text-light:  #6b6b6b;
+      --border:      rgba(201, 168, 76, 0.25);
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'DM Sans', sans-serif;
+      --nav-height:  72px;
+      --section-pad: clamp(64px, 8vw, 112px);
+      --container:   1160px;
+      --radius:      4px;
+      --transition:  0.25s ease;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font-body); font-weight: 400; font-size: 16px; line-height: 1.7; color: var(--text); background: var(--warm-white); }
+
+    .container  { max-width: var(--container); margin: 0 auto; padding: 0 clamp(20px, 5vw, 48px); }
+    .section    { padding: var(--section-pad) 0; }
+    .section--cream { background: var(--cream); }
+    .section--navy  { background: var(--navy); color: var(--warm-white); }
+    .page-body  { padding-top: var(--nav-height); }
+
+    .eyebrow {
+      display: flex; align-items: center; gap: 12px;
+      font-family: var(--font-body); font-weight: 500; font-size: 11px;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px;
+    }
+    .eyebrow::before { content: ''; display: block; width: 32px; height: 1.5px; background: var(--gold); flex-shrink: 0; }
+
+    .section-title { font-family: var(--font-display); font-weight: 600; font-size: clamp(32px, 4vw, 48px); line-height: 1.15; color: var(--navy); margin-bottom: 20px; }
+    .section-title em { font-style: italic; font-weight: 300; color: var(--gold-light); }
+    .section--navy .section-title { color: var(--warm-white); }
+
+    .section-lead { font-size: 17px; font-weight: 300; color: var(--text-light); max-width: 600px; line-height: 1.8; }
+
+    .btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-body); font-weight: 500; font-size: 13px; letter-spacing: 0.06em; text-decoration: none; border: none; cursor: pointer; transition: background var(--transition), color var(--transition), transform var(--transition); border-radius: var(--radius); padding: 12px 24px; }
+    .btn--gold    { background: var(--gold); color: var(--navy); }
+    .btn--gold:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn--outline { background: transparent; color: var(--gold); border: 1.5px solid var(--gold); }
+    .btn--outline:hover { background: var(--gold); color: var(--navy); }
+    .btn--ghost   { background: transparent; color: var(--warm-white); border: 1.5px solid rgba(255,255,255,0.3); }
+    .btn--ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .fade-up:nth-child(2) { transition-delay: 0.08s; }
+    .fade-up:nth-child(3) { transition-delay: 0.16s; }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-height); background: var(--navy); border-bottom: 1px solid rgba(201,168,76,0.15); display: flex; align-items: center; }
+    .nav__inner { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 clamp(20px, 5vw, 48px); }
+    .nav__logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1.15; }
+    .nav__logo-primary { font-family: var(--font-display); font-weight: 600; font-size: 18px; letter-spacing: 0.02em; color: var(--warm-white); }
+    .nav__logo-sub { font-family: var(--font-body); font-weight: 300; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); }
+    .nav__links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav__links a { font-family: var(--font-body); font-weight: 400; font-size: 13px; letter-spacing: 0.03em; color: rgba(253,251,247,0.78); text-decoration: none; padding: 6px 14px; border-radius: var(--radius); transition: color var(--transition), background var(--transition); position: relative; }
+    .nav__links a:hover { color: var(--warm-white); background: rgba(255,255,255,0.06); }
+    .nav__links a.active { color: var(--gold); }
+    .nav__links a.active::after { content: ''; position: absolute; bottom: -2px; left: 14px; right: 14px; height: 1.5px; background: var(--gold); opacity: 0.6; }
+    .nav__cta { margin-left: 16px; }
+    .nav__toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav__toggle span { display: block; width: 24px; height: 1.5px; background: var(--warm-white); transition: transform 0.25s, opacity 0.25s; }
+    .nav__mobile { display: none; position: fixed; top: var(--nav-height); left: 0; right: 0; background: var(--navy); border-top: 1px solid rgba(201,168,76,0.15); padding: 16px 0 24px; z-index: 99; }
+    .nav__mobile.open { display: block; }
+    .nav__mobile a { display: block; font-family: var(--font-body); font-weight: 400; font-size: 15px; color: rgba(253,251,247,0.85); text-decoration: none; padding: 12px clamp(20px,5vw,48px); border-bottom: 1px solid rgba(201,168,76,0.08); transition: color var(--transition); }
+    .nav__mobile a:hover, .nav__mobile a.active { color: var(--gold); }
+    .nav__mobile .nav__mobile-cta { margin: 16px clamp(20px,5vw,48px) 0; display: block; text-align: center; }
+
+    /* ============================================================
+       PAGE HERO
+    ============================================================ */
+    .contact-hero {
+      background: var(--navy);
+      padding: clamp(72px, 10vw, 120px) 0 clamp(64px, 8vw, 96px);
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 55% 70% at 90% 20%, rgba(201,168,76,0.07) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 55% at 5% 95%,  rgba(26,50,85,0.55) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .contact-hero__inner {
+      position: relative; z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .contact-hero__title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(36px, 5vw, 60px);
+      line-height: 1.1;
+      color: var(--warm-white);
+      margin-bottom: 20px;
+    }
+    .contact-hero__title em { font-style: italic; font-weight: 300; color: var(--gold-light); }
+    .contact-hero__lead {
+      font-size: clamp(14px, 1.7vw, 16px);
+      font-weight: 300;
+      color: rgba(253,251,247,0.72);
+      line-height: 1.85;
+      margin-bottom: 32px;
+      max-width: 480px;
+    }
+
+    /* Response expectation strip */
+    .response-strip {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5px;
+      background: rgba(201,168,76,0.15);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .response-strip__item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(15,31,56,0.7);
+      padding: 14px 20px;
+    }
+    .response-strip__icon {
+      width: 18px; height: 18px;
+      flex-shrink: 0;
+      color: var(--gold);
+    }
+    .response-strip__label {
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(253,251,247,0.8);
+    }
+    .response-strip__label span {
+      display: block;
+      font-size: 11px;
+      font-weight: 300;
+      color: rgba(253,251,247,0.45);
+      margin-top: 1px;
+    }
+
+    /* Contact methods on the right */
+    .contact-hero__methods {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .contact-method {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 24px;
+      text-decoration: none;
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 4px;
+      background: rgba(255,255,255,0.03);
+      transition: background var(--transition), border-color var(--transition);
+    }
+    .contact-method:hover {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(201,168,76,0.4);
+    }
+    .contact-method__icon {
+      width: 44px; height: 44px;
+      border: 1.5px solid rgba(201,168,76,0.3);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-method__icon svg { width: 20px; height: 20px; color: var(--gold); }
+    .contact-method__label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2px;
+    }
+    .contact-method__value {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--warm-white);
+    }
+    .contact-method__note {
+      font-size: 11.5px;
+      font-weight: 300;
+      color: rgba(253,251,247,0.45);
+      margin-top: 1px;
+    }
+
+    /* WhatsApp method — slightly differentiated */
+    .contact-method--whatsapp {
+      border-color: rgba(37,211,102,0.2);
+    }
+    .contact-method--whatsapp:hover {
+      border-color: rgba(37,211,102,0.4);
+      background: rgba(37,211,102,0.04);
+    }
+    .contact-method--whatsapp .contact-method__icon {
+      border-color: rgba(37,211,102,0.3);
+    }
+    .contact-method--whatsapp .contact-method__icon svg { color: #25d366; }
+    .contact-method--whatsapp .contact-method__label { color: #25d366; }
+
+    /* ============================================================
+       ENQUIRY FORM
+    ============================================================ */
+    .form-section {
+      padding: var(--section-pad) 0;
+    }
+    .form-section__inner {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    /* Form */
+    .enquiry-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+    }
+    .form-label .required {
+      color: var(--gold);
+      margin-left: 3px;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      font-family: var(--font-body);
+      font-size: 14.5px;
+      font-weight: 300;
+      color: var(--text);
+      background: var(--warm-white);
+      border: 1.5px solid rgba(42,42,42,0.15);
+      border-radius: var(--radius);
+      padding: 12px 16px;
+      transition: border-color var(--transition), box-shadow var(--transition);
+      width: 100%;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    .form-input::placeholder,
+    .form-textarea::placeholder { color: rgba(42,42,42,0.35); }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
+    }
+
+    /* Custom select arrow */
+    .form-select-wrap {
+      position: relative;
+    }
+    .form-select-wrap::after {
+      content: '';
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 5px solid var(--text-light);
+      pointer-events: none;
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 120px;
+      line-height: 1.65;
+    }
+
+    /* Checkbox group */
+    .form-checkgroup {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .form-check {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      font-size: 13.5px;
+      font-weight: 300;
+      color: var(--text);
+    }
+    .form-check input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--gold);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    /* Submit button full width */
+    .form-submit {
+      width: 100%;
+      justify-content: center;
+      padding: 15px 24px;
+      font-size: 14px;
+      letter-spacing: 0.07em;
+    }
+
+    /* Privacy note */
+    .form-privacy {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1.6;
+      text-align: center;
+    }
+    .form-privacy a { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.3); }
+
+    /* Success state */
+    .form-success {
+      display: none;
+      padding: 32px;
+      text-align: center;
+      border: 1.5px solid var(--gold);
+      border-radius: var(--radius);
+      background: rgba(201,168,76,0.05);
+    }
+    .form-success.visible { display: block; }
+    .form-success__icon {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: rgba(201,168,76,0.15);
+      border: 1.5px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .form-success__icon svg { width: 22px; height: 22px; color: var(--gold); }
+    .form-success__title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 24px;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .form-success__text {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       SIDEBAR — what happens next + service area
+    ============================================================ */
+    .contact-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      position: sticky;
+      top: calc(var(--nav-height) + 32px);
+    }
+
+    .sidebar-card {
+      border-left: 3px solid var(--gold);
+      padding: 24px 24px 28px;
+      background: var(--cream);
+    }
+    .sidebar-card__title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 19px;
+      color: var(--navy);
+      margin-bottom: 14px;
+      line-height: 1.25;
+    }
+    .sidebar-card__title em { font-style: italic; font-weight: 300; color: var(--gold-light); }
+
+    .next-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .next-step {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+    }
+    .next-step:last-child { border-bottom: none; padding-bottom: 0; }
+    .next-step__num {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 20px;
+      color: var(--gold);
+      opacity: 0.7;
+      line-height: 1;
+      flex-shrink: 0;
+      width: 20px;
+      margin-top: 2px;
+    }
+    .next-step__title {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 2px;
+    }
+    .next-step__desc {
+      font-size: 12.5px;
+      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* Service area card */
+    .area-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .area-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13.5px;
+      font-weight: 300;
+      color: var(--text);
+    }
+    .area-item::before {
+      content: '';
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+    .area-note {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1.65;
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+    }
+    .area-note a {
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(201,168,76,0.3);
+    }
+
+    /* Licence card */
+    .licence-card {
+      padding: 18px 20px;
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .licence-card__row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--text-light);
+    }
+    .licence-card__dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: 0.6;
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+       FAQ ACCORDION (compact version)
+    ============================================================ */
+    .faq-compact__intro { max-width: 640px; margin-bottom: 40px; }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5px;
+      background: var(--border);
+      border: 1.5px solid var(--border);
+    }
+    .faq-item { background: var(--warm-white); overflow: hidden; }
+    .faq-item.open { background: var(--cream); }
+    .faq-item__trigger {
+      width: 100%; background: none; border: none;
+      padding: 20px 28px; display: flex; align-items: center;
+      justify-content: space-between; gap: 16px;
+      cursor: pointer; text-align: left;
+    }
+    .faq-item__question {
+      font-family: var(--font-display);
+      font-weight: 600; font-size: 18px;
+      color: var(--navy); line-height: 1.3;
+    }
+    .faq-item__chevron {
+      width: 20px; height: 20px; flex-shrink: 0;
+      color: var(--gold); transition: transform 0.3s ease;
+    }
+    .faq-item.open .faq-item__chevron { transform: rotate(180deg); }
+    .faq-item__body { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .faq-item.open .faq-item__body { max-height: 400px; }
+    .faq-item__answer {
+      padding: 0 28px 24px;
+      font-size: 14.5px; font-weight: 300;
+      color: var(--text-light); line-height: 1.8;
+    }
+    .faq-item__answer strong { font-weight: 500; color: var(--navy); }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .footer { background: var(--navy); border-top: 1px solid rgba(201,168,76,0.2); padding: 64px 0 0; color: rgba(253,251,247,0.72); }
+    .footer__grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(201,168,76,0.15); }
+    .footer__brand-name    { font-family: var(--font-display); font-weight: 600; font-size: 20px; color: var(--warm-white); margin-bottom: 4px; }
+    .footer__brand-tagline { font-family: var(--font-body); font-weight: 300; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .footer__brand-desc    { font-size: 13.5px; font-weight: 300; line-height: 1.75; margin-bottom: 24px; max-width: 280px; }
+    .footer__inperson { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 500; color: var(--gold); text-decoration: none; letter-spacing: 0.04em; border-bottom: 1px solid rgba(201,168,76,0.3); padding-bottom: 2px; transition: color var(--transition), border-color var(--transition); }
+    .footer__inperson:hover { color: var(--gold-light); border-color: var(--gold-light); }
+    .footer__inperson svg { width: 13px; height: 13px; flex-shrink: 0; }
+    .footer__col-title { font-family: var(--font-body); font-weight: 500; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .footer__list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer__list a { font-size: 14px; font-weight: 300; color: rgba(253,251,247,0.68); text-decoration: none; transition: color var(--transition); }
+    .footer__list a:hover { color: var(--gold-light); }
+    .footer__contact-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13.5px; font-weight: 300; margin-bottom: 10px; line-height: 1.55; }
+    .footer__contact-item svg { width: 14px; height: 14px; flex-shrink: 0; margin-top: 3px; color: var(--gold); }
+    .footer__contact-item a { color: rgba(253,251,247,0.68); text-decoration: none; transition: color var(--transition); }
+    .footer__contact-item a:hover { color: var(--gold-light); }
+    .footer__bottom { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; flex-wrap: wrap; gap: 12px; }
+    .footer__legal { font-size: 12px; font-weight: 300; color: rgba(253,251,247,0.38); line-height: 1.6; }
+    .footer__licence { display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 400; color: rgba(253,251,247,0.38); letter-spacing: 0.03em; }
+    .footer__licence-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); opacity: 0.5; flex-shrink: 0; }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 960px) {
+      .nav__links, .nav__cta { display: none; }
+      .nav__toggle { display: flex; }
+      .contact-hero__inner { grid-template-columns: 1fr; gap: 40px; }
+      .form-section__inner { grid-template-columns: 1fr; gap: 48px; }
+      .contact-sidebar { position: static; }
+      .footer__grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+    @media (max-width: 640px) {
+      .form-row { grid-template-columns: 1fr; }
+      .footer__grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer__bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Open Horizons Learning Support — Home">
+        <span class="nav__logo-primary">Open Horizons</span>
+        <span class="nav__logo-sub">Learning Support</span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="approach.html">Approach</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="success-stories.html">Results</a></li>
+        <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="btn btn--gold nav__cta">Enquire Now</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav__mobile" id="navMobile" role="menu">
+    <a href="index.html" role="menuitem">Home</a>
+    <a href="about.html" role="menuitem">About</a>
+    <a href="approach.html" role="menuitem">Approach</a>
+    <a href="services.html" role="menuitem">Services</a>
+    <a href="success-stories.html" role="menuitem">Results</a>
+    <a href="contact.html" class="active" role="menuitem">Contact</a>
+    <a href="contact.html" class="btn btn--gold nav__mobile-cta" role="menuitem">Enquire Now</a>
+  </div>
+
+
+  <main class="page-body">
+
+    <!-- ============================================================
+         HERO
+    ============================================================ -->
+    <section class="contact-hero" aria-label="Contact Open Horizons">
+      <div class="container">
+        <div class="contact-hero__inner">
+
+          <!-- Left: heading + response info -->
+          <div>
+            <div class="eyebrow">Get in Touch</div>
+            <h1 class="contact-hero__title">
+              Start with<br>
+              a <em>conversation.</em>
+            </h1>
+            <p class="contact-hero__lead">
+              Every enquiry is read personally. There is no automated sales process —
+              just a straightforward conversation about your child's situation and
+              whether Open Horizons is the right fit.
+            </p>
+            <div class="response-strip" role="list" aria-label="Response expectations">
+              <div class="response-strip__item" role="listitem">
+                <svg class="response-strip__icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <circle cx="10" cy="10" r="8"/>
+                  <path d="M10 6v4l2.5 2.5"/>
+                </svg>
+                <div class="response-strip__label">
+                  Response within 24 hours
+                  <span>All enquiries responded to personally, Monday–Friday</span>
+                </div>
+              </div>
+              <div class="response-strip__item" role="listitem">
+                <svg class="response-strip__icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M3 5h14M3 10h9M3 15h11"/>
+                </svg>
+                <div class="response-strip__label">
+                  No obligation
+                  <span>An enquiry is just a conversation — not a commitment</span>
+                </div>
+              </div>
+              <div class="response-strip__item" role="listitem">
+                <svg class="response-strip__icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <circle cx="10" cy="8" r="3"/>
+                  <path d="M4 18c0-3.5 2.7-5.5 6-5.5s6 2 6 5.5"/>
+                </svg>
+                <div class="response-strip__label">
+                  Handled personally by Grant
+                  <span>You are not emailing a team — you are emailing the tutor</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: contact methods -->
+          <div class="contact-hero__methods">
+
+            <!-- Email -->
+            <a href="/cdn-cgi/l/email-protection#80e8e5ececefc0eff0e5eee8eff2e9faefeef3ece5e1f2eee9eee7aee1e5" class="contact-method" aria-label="Email Open Horizons">
+              <div class="contact-method__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M3 6l9 7 9-7M3 6h18v13H3z"/>
+                </svg>
+              </div>
+              <div>
+                <div class="contact-method__label">Email</div>
+                <div class="contact-method__value"><span class="__cf_email__" data-cfemail="8ce4e9e0e0e3cce3fce9e2e4e3fee5f6e3e2ffe0e9edfee2e5e2eba2ede9">[email&#160;protected]</span></div>
+                <div class="contact-method__note">Preferred for initial enquiries</div>
+              </div>
+            </a>
+
+            <!-- WhatsApp — PLACEHOLDER number, update before launch -->
+            <a href="https://wa.me/971569705112" class="contact-method contact-method--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Open Horizons">
+              <div class="contact-method__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M3 21l1.5-5.5A8.5 8.5 0 1 1 9 17.5L3 21z"/>
+                  <path d="M9.5 8.5c.5 1 1.5 3 3.5 3.5"/>
+                </svg>
+              </div>
+              <div>
+                <div class="contact-method__label">WhatsApp</div>
+                <div class="contact-method__value">+971 56 970 5112</div>
+                <div class="contact-method__note">Quick questions and scheduling</div>
+              </div>
+            </a>
+
+            <!-- In-person enquiry -->
+            <a href="#form" class="contact-method" aria-label="Ask about in-person sessions">
+              <div class="contact-method__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <circle cx="12" cy="8" r="4"/>
+                  <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+                </svg>
+              </div>
+              <div>
+                <div class="contact-method__label">In-Person Sessions</div>
+                <div class="contact-method__value">Available on request</div>
+                <div class="contact-method__note">Federal tutoring permit held — ask for details</div>
+              </div>
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         ENQUIRY FORM + SIDEBAR
+    ============================================================ -->
+    <section class="form-section" id="form" aria-labelledby="form-heading">
+      <div class="container">
+        <div class="form-section__inner">
+
+          <!-- Form column -->
+          <div>
+            <div class="eyebrow" style="margin-bottom: 8px;">Enquiry Form</div>
+            <h2 class="section-title" id="form-heading" style="margin-bottom: 8px;">
+              Tell us about <em>your child.</em>
+            </h2>
+            <p class="section-lead" style="margin-bottom: 32px; font-size: 15px;">
+              The more context you can share, the more useful the first response will be.
+              All fields marked <span style="color: var(--gold);">✦</span> are required.
+            </p>
+
+            <!-- Success message (shown after submit) -->
+            <div class="form-success" id="formSuccess" role="alert" aria-live="polite">
+              <div class="form-success__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M5 13l4 4L19 7"/>
+                </svg>
+              </div>
+              <div class="form-success__title">Enquiry received</div>
+              <p class="form-success__text">
+                Thank you — Grant will be in touch within 24 hours (Monday to Friday).
+                If your enquiry is urgent, feel free to follow up via WhatsApp.
+              </p>
+            </div>
+
+            <!-- The form -->
+            <form
+              class="enquiry-form"
+              id="enquiryForm"
+              action="https://formspree.io/f/XXXXXXXX"
+              method="POST"
+              novalidate
+              aria-label="Enquiry form"
+            >
+              <!-- NOTE: Replace the Formspree action URL above with your actual endpoint -->
+              <!-- Sign up free at formspree.io — no server required -->
+
+              <!-- Name row -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="firstName">First Name <span class="required" aria-hidden="true">✦</span></label>
+                  <input class="form-input" type="text" id="firstName" name="firstName" placeholder="e.g. Sarah" required autocomplete="given-name" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="lastName">Last Name <span class="required" aria-hidden="true">✦</span></label>
+                  <input class="form-input" type="text" id="lastName" name="lastName" placeholder="e.g. Al-Hassan" required autocomplete="family-name" />
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="form-group">
+                <label class="form-label" for="email">Email Address <span class="required" aria-hidden="true">✦</span></label>
+                <input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email" />
+              </div>
+
+              <!-- School + Year group -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="school">Child's School</label>
+                  <input class="form-input" type="text" id="school" name="school" placeholder="e.g. Brighton College Dubai" autocomplete="off" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="yearGroup">Year Group <span class="required" aria-hidden="true">✦</span></label>
+                  <div class="form-select-wrap">
+                    <select class="form-select" id="yearGroup" name="yearGroup" required>
+                      <option value="" disabled selected>Select year group</option>
+                      <optgroup label="KS1">
+                        <option value="Year 1">Year 1</option>
+                        <option value="Year 2">Year 2</option>
+                      </optgroup>
+                      <optgroup label="KS2">
+                        <option value="Year 3">Year 3</option>
+                        <option value="Year 4">Year 4</option>
+                        <option value="Year 5">Year 5</option>
+                        <option value="Year 6">Year 6</option>
+                      </optgroup>
+                      <optgroup label="KS3">
+                        <option value="Year 7">Year 7</option>
+                        <option value="Year 8">Year 8</option>
+                        <option value="Year 9">Year 9</option>
+                      </optgroup>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Service interest -->
+              <div class="form-group">
+                <label class="form-label" for="service">Service Interest <span class="required" aria-hidden="true">✦</span></label>
+                <div class="form-select-wrap">
+                  <select class="form-select" id="service" name="service" required>
+                    <option value="" disabled selected>Select a service</option>
+                    <option value="One-to-One Tutoring">One-to-One Tutoring</option>
+                    <option value="Comprehensive Package">Comprehensive Package</option>
+                    <option value="Homeschool Support">Homeschool Support</option>
+                    <option value="Study Skills Coaching">Study Skills Coaching</option>
+                    <option value="Parent Workshop">Parent Workshop</option>
+                    <option value="In-Person Sessions">In-Person Sessions (enquiry)</option>
+                    <option value="Not sure">Not sure — need a recommendation</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Subject interest -->
+              <div class="form-group">
+                <fieldset style="border: none; padding: 0;">
+                  <legend class="form-label" style="margin-bottom: 10px;">Subject(s) of Interest</legend>
+                  <div class="form-checkgroup">
+                    <label class="form-check">
+                      <input type="checkbox" name="subjects" value="Mathematics" />
+                      Mathematics
+                    </label>
+                    <label class="form-check">
+                      <input type="checkbox" name="subjects" value="Science" />
+                      Science
+                    </label>
+                    <label class="form-check">
+                      <input type="checkbox" name="subjects" value="English" />
+                      English
+                    </label>
+                    <label class="form-check">
+                      <input type="checkbox" name="subjects" value="Not sure" />
+                      Not sure yet
+                    </label>
+                  </div>
+                </fieldset>
+              </div>
+
+              <!-- Free text -->
+              <div class="form-group">
+                <label class="form-label" for="message">Tell us about your child's situation <span class="required" aria-hidden="true">✦</span></label>
+                <textarea
+                  class="form-textarea"
+                  id="message"
+                  name="message"
+                  placeholder="A brief description of where your child is struggling, any relevant context, and what you are hoping to achieve. The more you share, the more useful the first response will be."
+                  required
+                ></textarea>
+              </div>
+
+              <!-- How did you hear -->
+              <div class="form-group">
+                <label class="form-label" for="source">How did you hear about Open Horizons?</label>
+                <div class="form-select-wrap">
+                  <select class="form-select" id="source" name="source">
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="School recommendation">School recommendation</option>
+                    <option value="Parent recommendation">Recommendation from another parent</option>
+                    <option value="Google search">Google search</option>
+                    <option value="Social media">Social media</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn--gold form-submit">
+                <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M3 10h14M10 4l7 6-7 6"/>
+                </svg>
+                Send Enquiry
+              </button>
+
+              <p class="form-privacy">
+                Your information is used solely to respond to this enquiry and will not
+                be shared with third parties. View our
+                <a href="#">Privacy Policy</a>.
+              </p>
+
+            </form>
+          </div>
+
+          <!-- Sidebar column -->
+          <aside class="contact-sidebar fade-up" aria-label="Enquiry information">
+
+            <!-- What happens next -->
+            <div class="sidebar-card">
+              <div class="sidebar-card__title">What happens <em>next.</em></div>
+              <div class="next-steps" role="list">
+                <div class="next-step" role="listitem">
+                  <div class="next-step__num">1</div>
+                  <div>
+                    <div class="next-step__title">You submit the form</div>
+                    <div class="next-step__desc">Grant reads every enquiry personally — usually within a few hours during the school week.</div>
+                  </div>
+                </div>
+                <div class="next-step" role="listitem">
+                  <div class="next-step__num">2</div>
+                  <div>
+                    <div class="next-step__title">A personal response within 24 hours</div>
+                    <div class="next-step__desc">A reply addressing your specific situation — not a template. If more information is needed, Grant will ask.</div>
+                  </div>
+                </div>
+                <div class="next-step" role="listitem">
+                  <div class="next-step__num">3</div>
+                  <div>
+                    <div class="next-step__title">A brief introductory call (optional)</div>
+                    <div class="next-step__desc">If it would help to speak before committing, a short call can be arranged at a convenient time.</div>
+                  </div>
+                </div>
+                <div class="next-step" role="listitem">
+                  <div class="next-step__num">4</div>
+                  <div>
+                    <div class="next-step__title">Diagnostic first session</div>
+                    <div class="next-step__desc">If you decide to proceed, the first session is always diagnostic — finding the root of the difficulty before any teaching begins.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service area -->
+            <div class="sidebar-card">
+              <div class="sidebar-card__title">Service <em>area.</em></div>
+              <div class="area-list" role="list">
+                <div class="area-item" role="listitem">Online — serving all Dubai schools</div>
+                <div class="area-item" role="listitem">Online — serving all Abu Dhabi schools</div>
+                <div class="area-item" role="listitem">British, Cambridge, IB &amp; American curricula</div>
+                <div class="area-item" role="listitem">KS1 through KS3</div>
+              </div>
+              <p class="area-note">
+                Sessions are delivered online, making location within the UAE no barrier.
+                In-person sessions may be available on request —
+                <a href="#form">include this in your enquiry</a>.
+              </p>
+            </div>
+
+            <!-- Licence credentials -->
+            <div class="licence-card">
+              <div class="licence-card__row">
+                <span class="licence-card__dot"></span>
+                RAKEZ Licensed FZ-LLC
+              </div>
+              <div class="licence-card__row">
+                <span class="licence-card__dot"></span>
+                Federal Private Tutoring Permit
+              </div>
+              <div class="licence-card__row">
+                <span class="licence-card__dot"></span>
+                openhorizonslearning.ae
+              </div>
+            </div>
+
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         FAQ — contact-specific questions
+    ============================================================ -->
+    <section class="section section--cream" id="faq" aria-labelledby="faq-heading">
+      <div class="container">
+        <div class="faq-compact__intro fade-up">
+          <div class="eyebrow">Before You Enquire</div>
+          <h2 class="section-title" id="faq-heading">
+            Quick <em>answers.</em>
+          </h2>
+          <p class="section-lead">
+            The most common questions asked before a first enquiry.
+            More detailed answers about services and pricing are on the
+            <a href="services.html#faq" style="color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.35);">Services FAQ</a>.
+          </p>
+        </div>
+
+        <div class="faq-list fade-up" role="list">
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__trigger" aria-expanded="false">
+              <span class="faq-item__question">I'm not sure which service is right — is that okay?</span>
+              <svg class="faq-item__chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 7.5l5 5 5-5"/></svg>
+            </button>
+            <div class="faq-item__body">
+              <p class="faq-item__answer">
+                Completely fine — it is one of the most common things people say. Select "Not sure — need a recommendation"
+                in the form, describe your child's situation, and the response will include a specific recommendation.
+                There is no obligation attached to asking.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__trigger" aria-expanded="false">
+              <span class="faq-item__question">How quickly can sessions start?</span>
+              <svg class="faq-item__chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 7.5l5 5 5-5"/></svg>
+            </button>
+            <div class="faq-item__body">
+              <p class="faq-item__answer">
+                In most cases, a first session can be arranged within the same week as the initial enquiry.
+                If your situation is time-sensitive — an upcoming assessment, for instance — please mention
+                this in your message and scheduling will be prioritised accordingly.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__trigger" aria-expanded="false">
+              <span class="faq-item__question">Do you tutor outside Dubai and Abu Dhabi?</span>
+              <svg class="faq-item__chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 7.5l5 5 5-5"/></svg>
+            </button>
+            <div class="faq-item__body">
+              <p class="faq-item__answer">
+                Sessions are delivered fully online, so location within the UAE is not a barrier.
+                <strong>Students outside the UAE</strong> are considered on a case-by-case basis —
+                time zone compatibility and curriculum alignment are the main factors. Get in touch
+                and this can be explored in the initial conversation.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__trigger" aria-expanded="false">
+              <span class="faq-item__question">What platform are sessions held on?</span>
+              <svg class="faq-item__chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 7.5l5 5 5-5"/></svg>
+            </button>
+            <div class="faq-item__body">
+              <p class="faq-item__answer">
+                Sessions use a digital whiteboard environment — interactive, real-time, and designed for
+                one-to-one academic work rather than general video calling. Students need a stable internet
+                connection and a device with a screen large enough to work comfortably. Full technical
+                details are shared before the first session.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-item__trigger" aria-expanded="false">
+              <span class="faq-item__question">Can I observe a session as a parent?</span>
+              <svg class="faq-item__chevron" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 7.5l5 5 5-5"/></svg>
+            </button>
+            <div class="faq-item__body">
+              <p class="faq-item__answer">
+                For younger students in KS1, a parent presence during the session is welcome and sometimes
+                helpful. For older students, sessions are generally more effective when the student works
+                independently — this builds the confidence and self-direction that is one of the core goals
+                of the programme. <strong>Post-session progress notes and regular parent updates</strong>
+                are provided as the structured alternative to observation.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__brand-name">Open Horizons</div>
+          <div class="footer__brand-tagline">UAE-Based. Globally Aligned. Personally Delivered.</div>
+          <p class="footer__brand-desc">Evidence-informed online tutoring for international school students across Dubai and Abu Dhabi. Maths, Science, and English — KS1 to KS3.</p>
+          <a href="contact.html?enquiry=inperson" class="footer__inperson">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="6" r="2.5"/><path d="M3 14c0-3 2.2-5 5-5s5 2 5 5"/></svg>
+            Interested in in-person sessions? Ask us
+          </a>
+        </div>
+        <div>
+          <div class="footer__col-title">Navigation</div>
+          <ul class="footer__list" role="list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Grant</a></li>
+            <li><a href="approach.html">Our Approach</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="success-stories.html">Results</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__col-title">Services</div>
+          <ul class="footer__list" role="list">
+            <li><a href="services.html#individual">One-to-One Tutoring</a></li>
+            <li><a href="services.html#study-skills">Study Skills Coaching</a></li>
+            <li><a href="services.html#homeschool">Homeschool Support</a></li>
+            <li><a href="services.html#workshops">Parent Workshops</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__col-title">Contact</div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 4l6 5 6-5M2 4h12v9H2z"/></svg>
+            <a href="/cdn-cgi/l/email-protection#18707d7474775877687d7670776a716277766b747d796a7671767f36797d"><span class="__cf_email__" data-cfemail="dbb3beb7b7b49bb4abbeb5b3b4a9b2a1b4b5a8b7bebaa9b5b2b5bcf5babe">[email&#160;protected]</span></a>
+          </div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="6" r="2.5"/><path d="M3 14c0-3 2.2-5 5-5s5 2 5 5"/></svg>
+            <span>Serving Dubai &amp; Abu Dhabi</span>
+          </div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="2"/><path d="M5 8h6M8 5v6"/></svg>
+            <a href="contact.html">Make an Enquiry</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__legal">
+          &copy; <span id="footerYear"></span> Open Horizons Learning Support FZ-LLC. All rights reserved.<br>
+          <span style="font-size:11px;">openhorizonslearning.ae</span>
+        </div>
+        <div class="footer__licence">
+          <span class="footer__licence-dot"></span>
+          RAKEZ Licensed · Ras Al Khaimah Economic Zone
+          <span class="footer__licence-dot"></span>
+          Federal Private Tutoring Permit Holder
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+    // Mobile nav
+    const toggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('navMobile');
+    toggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+      const spans = toggle.querySelectorAll('span');
+      if (isOpen) {
+        spans[0].style.transform = 'translateY(6.5px) rotate(45deg)';
+        spans[1].style.opacity  = '0';
+        spans[2].style.transform = 'translateY(-6.5px) rotate(-45deg)';
+      } else {
+        spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+      }
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', false);
+        toggle.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+      });
+    });
+    document.addEventListener('click', e => {
+      if (!toggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+        mobileMenu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', false);
+        toggle.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+      }
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-item__trigger').forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const item = trigger.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq-item__trigger').setAttribute('aria-expanded', false);
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          trigger.setAttribute('aria-expanded', true);
+        }
+      });
+    });
+
+    // Pre-select service from URL param: contact.html?enquiry=inperson
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('enquiry') === 'inperson') {
+      const serviceSelect = document.getElementById('service');
+      if (serviceSelect) serviceSelect.value = 'In-Person Sessions';
+    }
+
+    // Form submission — Formspree with success state
+    const form = document.getElementById('enquiryForm');
+    const successBox = document.getElementById('formSuccess');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Basic client-side validation feedback
+      const required = form.querySelectorAll('[required]');
+      let valid = true;
+      required.forEach(field => {
+        if (!field.value.trim()) {
+          field.style.borderColor = '#c0392b';
+          valid = false;
+        } else {
+          field.style.borderColor = '';
+        }
+      });
+      if (!valid) return;
+
+      const submitBtn = form.querySelector('[type="submit"]');
+      submitBtn.textContent = 'Sending…';
+      submitBtn.disabled = true;
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          form.style.display = 'none';
+          successBox.classList.add('visible');
+          successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          submitBtn.textContent = 'Send Enquiry';
+          submitBtn.disabled = false;
+          alert('Something went wrong. Please try emailing hello@openhorizonslearning.ae directly.');
+        }
+      } catch {
+        submitBtn.textContent = 'Send Enquiry';
+        submitBtn.disabled = false;
+        alert('Something went wrong. Please try emailing hello@openhorizonslearning.ae directly.');
+      }
+    });
+
+    // Scroll animations
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); o

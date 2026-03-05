@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Open Horizons Learning Support — Evidence-Based Online Tutoring, Dubai &amp; Abu Dhabi</title>
+  <meta name="description" content="UAE-Based. Globally Aligned. Personally Delivered. Evidence-informed online tutoring in Maths, Science, and English for international school students across Dubai and Abu Dhabi — KS1 to KS3." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       DESIGN SYSTEM — OHLS
+    ============================================================ */
+    :root {
+      --navy:        #0f1f38;
+      --navy-mid:    #1a3255;
+      --navy-light:  #223d66;
+      --gold:        #c9a84c;
+      --gold-light:  #e8c97a;
+      --cream:       #f9f6f0;
+      --warm-white:  #fdfbf7;
+      --text:        #2a2a2a;
+      --text-light:  #6b6b6b;
+      --border:      rgba(201, 168, 76, 0.25);
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'DM Sans', sans-serif;
+      --nav-height:  72px;
+      --section-pad: clamp(64px, 8vw, 112px);
+      --container:   1160px;
+      --radius:      4px;
+      --transition:  0.25s ease;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font-body); font-weight: 400; font-size: 16px; line-height: 1.7; color: var(--text); background: var(--warm-white); }
+
+    .container  { max-width: var(--container); margin: 0 auto; padding: 0 clamp(20px, 5vw, 48px); }
+    .section    { padding: var(--section-pad) 0; }
+    .section--cream { background: var(--cream); }
+    .section--navy  { background: var(--navy); color: var(--warm-white); }
+    .page-body  { padding-top: var(--nav-height); }
+
+    .eyebrow {
+      display: flex; align-items: center; gap: 12px;
+      font-family: var(--font-body); font-weight: 500; font-size: 11px;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px;
+    }
+    .eyebrow::before { content: ''; display: block; width: 32px; height: 1.5px; background: var(--gold); flex-shrink: 0; }
+
+    .section-title { font-family: var(--font-display); font-weight: 600; font-size: clamp(32px, 4vw, 48px); line-height: 1.15; color: var(--navy); margin-bottom: 20px; }
+    .section-title em { font-style: italic; font-weight: 300; color: var(--gold-light); }
+    .section--navy .section-title { color: var(--warm-white); }
+
+    .section-lead { font-size: 17px; font-weight: 300; color: var(--text-light); max-width: 600px; line-height: 1.8; }
+    .section--navy .section-lead { color: rgba(253,251,247,0.72); }
+
+    .btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-body); font-weight: 500; font-size: 13px; letter-spacing: 0.06em; text-decoration: none; border: none; cursor: pointer; transition: background var(--transition), color var(--transition), transform var(--transition); border-radius: var(--radius); padding: 12px 24px; }
+    .btn--gold    { background: var(--gold); color: var(--navy); }
+    .btn--gold:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn--outline { background: transparent; color: var(--gold); border: 1.5px solid var(--gold); }
+    .btn--outline:hover { background: var(--gold); color: var(--navy); }
+    .btn--ghost   { background: transparent; color: var(--warm-white); border: 1.5px solid rgba(255,255,255,0.3); }
+    .btn--ghost:hover { border-color: var(--gold); color: var(--gold); }
+    .btn--text    { background: transparent; color: var(--gold); border: none; padding-left: 0; padding-right: 0; letter-spacing: 0.05em; }
+    .btn--text:hover { color: var(--navy); }
+    .btn--text svg { transition: transform var(--transition); }
+    .btn--text:hover svg { transform: translateX(4px); }
+
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .fade-up:nth-child(2) { transition-delay: 0.08s; }
+    .fade-up:nth-child(3) { transition-delay: 0.16s; }
+    .fade-up:nth-child(4) { transition-delay: 0.24s; }
+    .fade-up:nth-child(5) { transition-delay: 0.32s; }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-height); background: var(--navy); border-bottom: 1px solid rgba(201,168,76,0.15); display: flex; align-items: center; }
+    .nav__inner { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 clamp(20px, 5vw, 48px); }
+    .nav__logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1.15; }
+    .nav__logo-primary { font-family: var(--font-display); font-weight: 600; font-size: 18px; letter-spacing: 0.02em; color: var(--warm-white); }
+    .nav__logo-sub { font-family: var(--font-body); font-weight: 300; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); }
+    .nav__links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav__links a { font-family: var(--font-body); font-weight: 400; font-size: 13px; letter-spacing: 0.03em; color: rgba(253,251,247,0.78); text-decoration: none; padding: 6px 14px; border-radius: var(--radius); transition: color var(--transition), background var(--transition); position: relative; }
+    .nav__links a:hover { color: var(--warm-white); background: rgba(255,255,255,0.06); }
+    .nav__links a.active { color: var(--gold); }
+    .nav__links a.active::after { content: ''; position: absolute; bottom: -2px; left: 14px; right: 14px; height: 1.5px; background: var(--gold); opacity: 0.6; }
+    .nav__cta { margin-left: 16px; }
+    .nav__toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav__toggle span { display: block; width: 24px; height: 1.5px; background: var(--warm-white); transition: transform 0.25s, opacity 0.25s; }
+    .nav__mobile { display: none; position: fixed; top: var(--nav-height); left: 0; right: 0; background: var(--navy); border-top: 1px solid rgba(201,168,76,0.15); padding: 16px 0 24px; z-index: 99; }
+    .nav__mobile.open { display: block; }
+    .nav__mobile a { display: block; font-family: var(--font-body); font-weight: 400; font-size: 15px; color: rgba(253,251,247,0.85); text-decoration: none; padding: 12px clamp(20px,5vw,48px); border-bottom: 1px solid rgba(201,168,76,0.08); transition: color var(--transition); }
+    .nav__mobile a:hover, .nav__mobile a.active { color: var(--gold); }
+    .nav__mobile .nav__mobile-cta { margin: 16px clamp(20px,5vw,48px) 0; display: block; text-align: center; }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    .hero {
+      background: var(--navy);
+      min-height: calc(100vh - var(--nav-height));
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: clamp(80px, 12vw, 140px) 0 clamp(64px, 8vw, 96px);
+    }
+
+    /* Layered background gradients */
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 65% 75% at 95% 15%, rgba(201,168,76,0.09) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 80% at 5% 95%,  rgba(26,50,85,0.7)    0%, transparent 55%),
+        radial-gradient(ellipse 80% 50% at 50% 110%, rgba(15,31,56,0.9)   0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Subtle grid texture */
+    .hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+      background-size: 64px 64px;
+      pointer-events: none;
+    }
+
+    .hero__inner {
+      position: relative; z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 80px;
+      align-items: center;
+      width: 100%;
+    }
+
+    /* Left */
+    .hero__tagline {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero__tagline::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1.5px;
+      background: var(--gold);
+    }
+
+    .hero__title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(44px, 6.5vw, 78px);
+      line-height: 1.05;
+      color: var(--warm-white);
+      margin-bottom: 28px;
+      letter-spacing: -0.01em;
+    }
+    .hero__title em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--gold-light);
+      display: block;
+    }
+
+    .hero__sub {
+      font-size: clamp(15px, 1.8vw, 17px);
+      font-weight: 300;
+      color: rgba(253,251,247,0.68);
+      line-height: 1.85;
+      max-width: 520px;
+      margin-bottom: 40px;
+    }
+    .hero__sub strong {
+      font-weight: 500;
+      color: rgba(253,251,247,0.88);
+    }
+
+    .hero__actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* Right — credential card */
+    .hero__card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,168,76,0.22);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .hero__card-header {
+      padding: 24px 28px 20px;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+    }
+    .hero__card-name {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 21px;
+      color: var(--warm-white);
+      margin-bottom: 3px;
+    }
+    .hero__card-role {
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* Stats 2x2 grid */
+    .hero__stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5px;
+      background: rgba(201,168,76,0.12);
+    }
+    .hero__stat {
+      background: rgba(15,31,56,0.75);
+      padding: 20px 22px;
+    }
+    .hero__stat-num {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 28px;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .hero__stat-label {
+      font-size: 10.5px;
+      font-weight: 400;
+      color: rgba(253,251,247,0.5);
+      letter-spacing: 0.04em;
+      line-height: 1.4;
+    }
+
+    /* Curricula list */
+    .hero__card-curricula {
+      padding: 16px 28px;
+      border-top: 1px solid rgba(201,168,76,0.15);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .hero__curricula-pill {
+      font-size: 10.5px;
+      font-weight: 400;
+      color: rgba(253,251,247,0.55);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,168,76,0.18);
+      border-radius: 100px;
+      padding: 4px 12px;
+      white-space: nowrap;
+    }
+
+    /* Licence note */
+    .hero__card-licence {
+      padding: 12px 28px 20px;
+      font-size: 10.5px;
+      font-weight: 300;
+      color: rgba(253,251,247,0.3);
+      letter-spacing: 0.04em;
+      line-height: 1.6;
+    }
+
+    /* Scroll indicator */
+    .hero__scroll {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      opacity: 0.4;
+      animation: scrollBob 2.4s ease-in-out infinite;
+    }
+    .hero__scroll span {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .hero__scroll svg { width: 16px; height: 16px; color: var(--gold); }
+    @keyframes scrollBob {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ============================================================
+       TRUST BAR — schools strip below hero
+    ============================================================ */
+    .trust-bar {
+      background: var(--cream);
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .trust-bar__inner {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .trust-bar__label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .trust-bar__schools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .trust-bar__school {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--text-light);
+      background: var(--warm-white);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 5px 14px;
+      white-space: nowrap;
+    }
+
+    /* ============================================================
+       WHY OHLS — the difference
+    ============================================================ */
+    .why__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .why__body p {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+    .why__body strong { font-weight: 500; color: var(--navy); }
+    .why__body p:last-of-type { margin-bottom: 28px; }
+
+    .why__pillars {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5px;
+      background: var(--border);
+      border: 1.5px solid var(--border);
+    }
+    .why-pillar {
+      background: var(--cream);
+      padding: 24px 28px;
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .why-pillar__num {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 28px;
+      color: var(--gold);
+      opacity: 0.5;
+      line-height: 1;
+    }
+    .why-pillar__title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 19px;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .why-pillar__desc {
+      font-size: 13.5px;
+      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       SERVICES PREVIEW — 3 core cards condensed
+    ============================================================ */
+    .services-preview__intro {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 40px;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .services-preview__grid {
+      display: grid;
+      grid-template-columns: 1fr 1.08fr 1fr;
+      gap: 1.5px;
+      background: var(--border);
+      border: 1.5px solid var(--border);
+      margin-bottom: 20px;
+    }
+
+    .preview-card {
+      background: var(--warm-white);
+      padding: 32px 28px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .preview-card--featured {
+      background: var(--navy);
+      position: relative;
+    }
+    .preview-card--featured::before {
+      content: 'Most Popular';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 6px;
+    }
+    .preview-card--featured { padding-top: 48px; }
+
+    .preview-card__icon {
+      width: 40px; height: 40px;
+      border: 1.5px solid var(--border);
+      border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+    }
+    .preview-card--featured .preview-card__icon { border-color: rgba(201,168,76,0.3); }
+    .preview-card__icon svg { width: 18px; height: 18px; color: var(--gold); }
+
+    .preview-card__name {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 22px;
+      color: var(--navy);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    .preview-card--featured .preview-card__name { color: var(--warm-white); }
+
+    .preview-card__desc {
+      font-size: 13.5px;
+      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1.75;
+      flex-grow: 1;
+      margin-bottom: 24px;
+    }
+    .preview-card--featured .preview-card__desc { color: rgba(253,251,247,0.65); }
+
+    .preview-card__link {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border-bottom: 1px solid rgba(201,168,76,0.3);
+      padding-bottom: 2px;
+      align-self: flex-start;
+      transition: color var(--transition), border-color var(--transition);
+    }
+    .preview-card__link:hover { color: var(--navy); border-color: var(--navy); }
+    .preview-card--featured .preview-card__link:hover { color: var(--gold-light); border-color: var(--gold-light); }
+    .preview-card__link svg { width: 12px; height: 12px; transition: transform var(--transition); }
+    .preview-card__link:hover svg { transform: translateX(3px); }
+
+    .services-preview__footer {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1.65;
+    }
+    .services-preview__footer a {
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(201,168,76,0.35);
+    }
+
+    /* ============================================================
+       FRAMEWORKS — condensed 3-column
+    ============================================================ */
+    .frameworks__intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: end;
+      margin-bottom: 48px;
+    }
+    .frameworks__intro-right {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .frameworks-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: rgba(201,168,76,0.15);
+      border: 1px solid rgba(201,168,76,0.2);
+    }
+    .framework-flash {
+      background: rgba(15,31,56,0.7);
+      padding: 28px 26px 32px;
+    }
+    .framework-flash__num {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: 40px;
+      color: rgba(201,168,76,0.2);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .framework-flash__name {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--warm-white);
+      margin-bottom: 3px;
+      line-height: 1.25;
+    }
+    .framework-flash__author {
+      font-size: 10.5px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .framework-flash__desc {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(253,251,247,0.55);
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       TESTIMONIALS — single featured + 2 minor
+    ============================================================ */
+    .testimonials__layout {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 1.5px;
+      background: var(--border);
+      border: 1.5px solid var(--border);
+    }
+    .testimonial-featured {
+      background: var(--navy);
+      padding: 44px 40px 48px;
+      display: flex;
+      flex-direction: column;
+    }
+    .testimonial-featured__quote {
+      font-family: var(--font-display);
+      font-size: 80px;
+      font-weight: 300;
+      color: var(--gold);
+      opacity: 0.25;
+      line-height: 0.7;
+      margin-bottom: 20px;
+      user-select: none;
+    }
+    .testimonial-featured__text {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(18px, 2vw, 22px);
+      font-style: italic;
+      color: var(--warm-white);
+      line-height: 1.6;
+      flex-grow: 1;
+      margin-bottom: 32px;
+    }
+    .testimonial-featured__author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .testimonial-featured__avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--navy-mid);
+      border: 1.5px solid var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .testimonial-featured__name {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--warm-white);
+      margin-bottom: 2px;
+    }
+    .testimonial-featured__detail {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(253,251,247,0.45);
+    }
+
+    .testimonials-minor {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5px;
+      background: var(--border);
+    }
+    .testimonial-minor {
+      background: var(--cream);
+      padding: 28px 32px;
+      flex: 1;
+    }
+    .testimonial-minor__text {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--navy);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .testimonial-minor__author {
+      font-size: 11.5px;
+      font-weight: 500;
+      color: var(--gold);
+    }
+    .testimonial-minor__detail {
+      font-size: 11px;
+      font-weight: 300;
+      color: var(--text-light);
+    }
+
+    /* Placeholder blur state — remove class when real quotes added */
+    .testimonial--placeholder .testimonial-featured__text,
+    .testimonial--placeholder .testimonial-minor__text {
+      filter: blur(4px);
+      user-select: none;
+      pointer-events: none;
+    }
+    .testimonial--placeholder .testimonial-featured__name,
+    .testimonial--placeholder .testimonial-featured__detail,
+    .testimonial--placeholder .testimonial-minor__author,
+    .testimonial--placeholder .testimonial-minor__detail {
+      filter: blur(3px);
+      user-select: none;
+      opacity: 0.4;
+    }
+
+    /* ============================================================
+       ABOUT TEASER
+    ============================================================ */
+    .about-teaser {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-teaser__body p {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+    .about-teaser__body strong { font-weight: 500; color: var(--navy); }
+    .about-teaser__body p:last-of-type { margin-bottom: 28px; }
+
+    .about-teaser__card {
+      background: var(--cream);
+      border-left: 3px solid var(--gold);
+      padding: 32px 32px 36px;
+    }
+    .about-teaser__card-name {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 22px;
+      color: var(--navy);
+      margin-bottom: 3px;
+    }
+    .about-teaser__card-role {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .about-teaser__highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .about-teaser__highlight {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13.5px;
+      font-weight: 300;
+      color: var(--text);
+    }
+    .about-teaser__highlight::before {
+      content: '';
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+       CTA BAND
+    ============================================================ */
+    .cta-band {
+      background: var(--navy);
+      padding: 80px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-band::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 65% 110% at 50% 50%, rgba(201,168,76,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-band__inner { position: relative; z-index: 1; }
+    .cta-band__eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .cta-band__eyebrow::before, .cta-band__eyebrow::after {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1.5px;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+    .cta-band__title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(32px, 4.5vw, 52px);
+      color: var(--warm-white);
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+    .cta-band__title em { font-style: italic; font-weight: 300; color: var(--gold-light); }
+    .cta-band__sub {
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(253,251,247,0.6);
+      margin-bottom: 36px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.75;
+    }
+    .cta-band__actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .footer { background: var(--navy); border-top: 1px solid rgba(201,168,76,0.2); padding: 64px 0 0; color: rgba(253,251,247,0.72); }
+    .footer__grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(201,168,76,0.15); }
+    .footer__brand-name    { font-family: var(--font-display); font-weight: 600; font-size: 20px; color: var(--warm-white); margin-bottom: 4px; }
+    .footer__brand-tagline { font-family: var(--font-body); font-weight: 300; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .footer__brand-desc    { font-size: 13.5px; font-weight: 300; line-height: 1.75; margin-bottom: 24px; max-width: 280px; }
+    .footer__inperson { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 500; color: var(--gold); text-decoration: none; letter-spacing: 0.04em; border-bottom: 1px solid rgba(201,168,76,0.3); padding-bottom: 2px; transition: color var(--transition), border-color var(--transition); }
+    .footer__inperson:hover { color: var(--gold-light); border-color: var(--gold-light); }
+    .footer__inperson svg { width: 13px; height: 13px; flex-shrink: 0; }
+    .footer__col-title { font-family: var(--font-body); font-weight: 500; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .footer__list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer__list a { font-size: 14px; font-weight: 300; color: rgba(253,251,247,0.68); text-decoration: none; transition: color var(--transition); }
+    .footer__list a:hover { color: var(--gold-light); }
+    .footer__contact-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13.5px; font-weight: 300; margin-bottom: 10px; line-height: 1.55; }
+    .footer__contact-item svg { width: 14px; height: 14px; flex-shrink: 0; margin-top: 3px; color: var(--gold); }
+    .footer__contact-item a { color: rgba(253,251,247,0.68); text-decoration: none; transition: color var(--transition); }
+    .footer__contact-item a:hover { color: var(--gold-light); }
+    .footer__bottom { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; flex-wrap: wrap; gap: 12px; }
+    .footer__legal { font-size: 12px; font-weight: 300; color: rgba(253,251,247,0.38); line-height: 1.6; }
+    .footer__licence { display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 400; color: rgba(253,251,247,0.38); letter-spacing: 0.03em; }
+    .footer__licence-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); opacity: 0.5; flex-shrink: 0; }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 960px) {
+      .nav__links, .nav__cta { display: none; }
+      .nav__toggle { display: flex; }
+      .hero__inner         { grid-template-columns: 1fr; }
+      .hero__card          { max-width: 420px; }
+      .hero__scroll        { display: none; }
+      .why__grid           { grid-template-columns: 1fr; gap: 40px; }
+      .services-preview__grid { grid-template-columns: 1fr; }
+      .frameworks__intro   { grid-template-columns: 1fr; gap: 24px; }
+      .frameworks__intro-right { justify-content: flex-start; }
+      .frameworks-grid     { grid-template-columns: 1fr; }
+      .testimonials__layout { grid-template-columns: 1fr; }
+      .about-teaser        { grid-template-columns: 1fr; gap: 40px; }
+      .footer__grid        { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+    @media (max-width: 640px) {
+      .trust-bar__inner    { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .hero__stats         { grid-template-columns: 1fr 1fr; }
+      .footer__grid        { grid-template-columns: 1fr; gap: 32px; }
+      .footer__bottom      { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .cta-band__actions   { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Open Horizons Learning Support — Home">
+        <span class="nav__logo-primary">Open Horizons</span>
+        <span class="nav__logo-sub">Learning Support</span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="approach.html">Approach</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="success-stories.html">Results</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="btn btn--gold nav__cta">Enquire Now</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav__mobile" id="navMobile" role="menu">
+    <a href="index.html" class="active" role="menuitem">Home</a>
+    <a href="about.html" role="menuitem">About</a>
+    <a href="approach.html" role="menuitem">Approach</a>
+    <a href="services.html" role="menuitem">Services</a>
+    <a href="success-stories.html" role="menuitem">Results</a>
+    <a href="contact.html" role="menuitem">Contact</a>
+    <a href="contact.html" class="btn btn--gold nav__mobile-cta" role="menuitem">Enquire Now</a>
+  </div>
+
+
+  <main class="page-body">
+
+    <!-- ============================================================
+         HERO
+    ============================================================ -->
+    <section class="hero" aria-label="Open Horizons Learning Support">
+      <div class="container">
+        <div class="hero__inner">
+
+          <!-- Left: headline -->
+          <div>
+            <div class="hero__tagline">UAE-Based · Globally Aligned · Personally Delivered</div>
+            <h1 class="hero__title">
+              Learning built on
+              <em>evidence,<br>not assumption.</em>
+            </h1>
+            <p class="hero__sub">
+              Online tutoring in <strong>Maths, Science, and English</strong> for
+              international school students across Dubai and Abu Dhabi —
+              grounded in educational research, built around your child's
+              specific gaps, and designed to develop independence
+              that outlasts the sessions.
+            </p>
+            <div class="hero__actions">
+              <a href="contact.html" class="btn btn--gold">
+                Make an Enquiry
+                <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 10h12M10 4l6 6-6 6"/></svg>
+              </a>
+              <a href="approach.html" class="btn btn--ghost">How It Works</a>
+            </div>
+          </div>
+
+          <!-- Right: credential card -->
+          <div class="hero__card" aria-label="Grant Crossman credentials">
+            <div class="hero__card-header">
+              <div class="hero__card-name">Grant Crossman</div>
+              <div class="hero__card-role">Founder &amp; Lead Tutor · Open Horizons</div>
+            </div>
+            <div class="hero__stats" role="list">
+              <div class="hero__stat" role="listitem">
+                <div class="hero__stat-num">10+</div>
+                <div class="hero__stat-label">Years Teaching</div>
+              </div>
+              <div class="hero__stat" role="listitem">
+                <div class="hero__stat-num">3</div>
+                <div class="hero__stat-label">Core Subjects</div>
+              </div>
+              <div class="hero__stat" role="listitem">
+                <div class="hero__stat-num" style="font-size:20px;">MEd</div>
+                <div class="hero__stat-label">Univ. of Birmingham Dubai</div>
+              </div>
+              <div class="hero__stat" role="listitem">
+                <div class="hero__stat-num" style="font-size:18px;">KS1–3</div>
+                <div class="hero__stat-label">Primary &amp; Lower Secondary</div>
+              </div>
+            </div>
+            <div class="hero__card-curricula" role="list" aria-label="Curricula covered">
+              <span class="hero__curricula-pill" role="listitem">British National Curriculum</span>
+              <span class="hero__curricula-pill" role="listitem">IB PYP</span>
+              <span class="hero__curricula-pill" role="listitem">Cambridge International</span>
+              <span class="hero__curricula-pill" role="listitem">American Curriculum</span>
+            </div>
+            <div class="hero__card-licence">
+              RAKEZ Licensed FZ-LLC &nbsp;·&nbsp; Federal Private Tutoring Permit
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Scroll nudge -->
+      <div class="hero__scroll" aria-hidden="true">
+        <span>Scroll</span>
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M4 6l4 4 4-4"/>
+        </svg>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         TRUST BAR — schools
+    ============================================================ -->
+    <div class="trust-bar" role="complementary" aria-label="Schools currently served">
+      <div class="container">
+        <div class="trust-bar__inner">
+          <span class="trust-bar__label">Schools served</span>
+          <div class="trust-bar__schools" role="list">
+            <span class="trust-bar__school" role="listitem">NLCS Dubai</span>
+            <span class="trust-bar__school" role="listitem">Brighton College Dubai</span>
+            <span class="trust-bar__school" role="listitem">RGS Dubai</span>
+            <span class="trust-bar__school" role="listitem">GEMS Cambridge International Abu Dhabi</span>
+            <span class="trust-bar__school" role="listitem">Repton Dubai</span>
+            <span class="trust-bar__school" role="listitem">Nord Anglia Dubai</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ============================================================
+         WHY OHLS
+    ============================================================ -->
+    <section class="section" aria-labelledby="why-heading">
+      <div class="container">
+        <div class="why__grid">
+
+          <div class="why__body fade-up">
+            <div class="eyebrow">Why Open Horizons</div>
+            <h2 class="section-title" id="why-heading">
+              Not a repeat of school.<br>
+              <em>A structured alternative.</em>
+            </h2>
+            <p>
+              Most tutoring is reactive — a student struggles, a tutor is found,
+              homework gets reviewed, the cycle continues. Open Horizons operates
+              differently from the first session. Before any teaching begins, a
+              structured diagnostic assessment identifies the specific conceptual
+              gaps driving the difficulty. Instruction then starts from the
+              right place, not an assumed one.
+            </p>
+            <p>
+              This is the difference between addressing a symptom and resolving
+              a cause. Students who have been struggling for months — sometimes
+              years — often find that a relatively short, targeted programme
+              produces the kind of progress that general tutoring never delivered.
+            </p>
+            <a href="approach.html" class="btn btn--text">
+              Read the full approach
+              <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 10h12M10 4l6 6-6 6"/></svg>
+            </a>
+          </div>
+
+          <div class="why__pillars fade-up" role="list">
+            <div class="why-pillar" role="listitem">
+              <div class="why-pillar__num" aria-hidden="true">01</div>
+              <div>
+                <div class="why-pillar__title">Diagnostic Precision</div>
+                <div class="why-pillar__desc">Every programme begins with structured assessment — finding the root of the difficulty, not just its surface symptoms.</div>
+              </div>
+            </div>
+            <div class="why-pillar" role="listitem">
+              <div class="why-pillar__num" aria-hidden="true">02</div>
+              <div>
+                <div class="why-pillar__title">Conceptual Clarity</div>
+                <div class="why-pillar__desc">Understanding before procedure. Reasoning before memorisation. Sessions rebuild from the foundation — not around it.</div>
+              </div>
+            </div>
+            <div class="why-pillar" role="listitem">
+              <div class="why-pillar__num" aria-hidden="true">03</div>
+              <div>
+                <div class="why-pillar__title">Personalised Growth</div>
+                <div class="why-pillar__desc">Individual learning goals, structured parent updates, and metacognitive strategies that extend progress beyond the sessions.</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         SERVICES PREVIEW
+    ============================================================ -->
+    <section class="section section--cream" aria-labelledby="services-heading">
+      <div class="container">
+
+        <div class="services-preview__intro">
+          <div class="fade-up">
+            <div class="eyebrow">Services</div>
+            <h2 class="section-title" id="services-heading" style="margin-bottom: 0;">
+              Three ways to <em>get started.</em>
+            </h2>
+          </div>
+          <div class="fade-up">
+            <a href="services.html" class="btn btn--outline">View all services &amp; pricing</a>
+          </div>
+        </div>
+
+        <div class="services-preview__grid" role="list">
+
+          <article class="preview-card fade-up" role="listitem">
+            <div class="preview-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="7" r="3.5"/><path d="M5 20c0-4 3-6.5 7-6.5s7 2.5 7 6.5"/></svg>
+            </div>
+            <div class="preview-card__name">One-to-One Tutoring</div>
+            <p class="preview-card__desc">Targeted, subject-specific sessions in Maths, Science, or English — built around your child's specific gaps, not a generic syllabus.</p>
+            <a href="services.html#individual" class="preview-card__link">
+              View details
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+            </a>
+          </article>
+
+          <article class="preview-card preview-card--featured fade-up" role="listitem">
+            <div class="preview-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L3 7l9 5 9-5-9-5zM3 17l9 5 9-5M3 12l9 5 9-5"/></svg>
+            </div>
+            <div class="preview-card__name">Comprehensive Package</div>
+            <p class="preview-card__desc">Multi-subject support with a full diagnostic assessment report, personalised learning plan, study skills coaching, and structured parent updates.</p>
+            <a href="services.html#comprehensive" class="preview-card__link">
+              View details
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+            </a>
+          </article>
+
+          <article class="preview-card fade-up" role="listitem">
+            <div class="preview-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12l9-9 9 9M5 10v9a1 1 0 001 1h4v-4h4v4h4a1 1 0 001-1v-9"/></svg>
+            </div>
+            <div class="preview-card__name">Homeschool Support</div>
+            <p class="preview-card__desc">Structured curriculum guidance and subject-specific instruction for families educating at home — rigorous, flexible, and individually paced.</p>
+            <a href="services.html#homeschool" class="preview-card__link">
+              View details
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8h10M8 3l5 5-5 5"/></svg>
+            </a>
+          </article>
+
+        </div>
+
+        <p class="services-preview__footer fade-up">
+          Also available: <a href="services.html#study-skills">Study Skills Coaching</a> and
+          <a href="services.html#workshops">Parent Workshops</a>.
+          All pricing is itemised — <a href="services.html#pricing">read why</a>.
+        </p>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         RESEARCH FRAMEWORKS — condensed
+    ============================================================ -->
+    <section class="section section--navy" aria-labelledby="frameworks-heading">
+      <div class="container">
+
+        <div class="frameworks__intro">
+          <div class="fade-up">
+            <div class="eyebrow">Evidence-Based Practice</div>
+            <h2 class="section-title" id="frameworks-heading">
+              Teaching grounded<br>
+              in <em>research.</em>
+            </h2>
+            <p class="section-lead">
+              Three established bodies of educational research — not buzzwords, but the
+              frameworks that directly shape how every session is designed and delivered.
+            </p>
+          </div>
+          <div class="frameworks__intro-right fade-up">
+            <a href="about.html#frameworks-heading" class="btn btn--ghost">Read the full detail</a>
+          </div>
+        </div>
+
+        <div class="frameworks-grid" role="list">
+          <div class="framework-flash fade-up" role="listitem">
+            <div class="framework-flash__num">01</div>
+            <div class="framework-flash__name">Rosenshine's Principles of Instruction</div>
+            <div class="framework-flash__author">Barak Rosenshine</div>
+            <p class="framework-flash__desc">Ten evidence-backed principles describing how expert teachers introduce content, check for understanding, and build student fluency.</p>
+          </div>
+          <div class="framework-flash fade-up" role="listitem">
+            <div class="framework-flash__num">02</div>
+            <div class="framework-flash__name">Cognitive Load Theory</div>
+            <div class="framework-flash__author">John Sweller</div>
+            <p class="framework-flash__desc">A theory of how working memory processes new information — informing how content is broken down, sequenced, and explained in every session.</p>
+          </div>
+          <div class="framework-flash fade-up" role="listitem">
+            <div class="framework-flash__num">03</div>
+            <div class="framework-flash__name">Hattie's Visible Learning</div>
+            <div class="framework-flash__author">John Hattie</div>
+            <p class="framework-flash__desc">A synthesis of 800+ meta-analyses identifying the highest-impact teaching strategies — separating what works from what is merely popular.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         TESTIMONIALS
+    ============================================================ -->
+    <section class="section section--cream" aria-labelledby="testimonials-heading">
+      <div class="container">
+
+        <div class="fade-up" style="margin-bottom: 40px;">
+          <div class="eyebrow">From Parents</div>
+          <h2 class="section-title" id="testimonials-heading">
+            In their <em>own words.</em>
+          </h2>
+        </div>
+
+        <div class="testimonials__layout" role="list">
+
+          <!-- Featured testimonial — PLACEHOLDER: remove testimonial--placeholder when real quote added -->
+          <div class="testimonial-featured testimonial--placeholder" role="listitem">
+            <div class="testimonial-featured__quote" aria-hidden="true">"</div>
+            <p class="testimonial-featured__text">
+              We noticed a difference within the first three sessions. Not just in his
+              maths results — in the way he talks about school. He used to say he was
+              bad at maths. He doesn't say that anymore.
+            </p>
+            <div class="testimonial-featured__author">
+              <div class="testimonial-featured__avatar" aria-hidden="true">SM</div>
+              <div>
+                <div class="testimonial-featured__name">Parent of Year 5 student</div>
+                <div class="testimonial-featured__detail">Brighton College Dubai</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Minor testimonials -->
+          <div class="testimonials-minor" role="list">
+            <div class="testimonial-minor testimonial--placeholder" role="listitem">
+              <p class="testimonial-minor__text">
+                "What I appreciated most was that Grant explained everything clearly —
+                what he found in the first session, what he was working on, and why."
+              </p>
+              <div class="testimonial-minor__author">Parent of Year 7 student</div>
+              <div class="testimonial-minor__detail">GEMS Cambridge International Abu Dhabi</div>
+            </div>
+            <div class="testimonial-minor testimonial--placeholder" role="listitem">
+              <p class="testimonial-minor__text">
+                "She went from dreading her science tests to actually looking forward
+                to them. The exam result spoke for itself, but the confidence shift
+                was what really mattered to us."
+              </p>
+              <div class="testimonial-minor__author">Parent of Year 8 student</div>
+              <div class="testimonial-minor__detail">Repton Dubai</div>
+            </div>
+          </div>
+
+        </div>
+
+        <p style="margin-top: 20px; font-size: 13px; font-weight: 300; color: var(--text-light);">
+          <a href="success-stories.html" style="color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.4);">Read full student stories and case studies →</a>
+        </p>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         ABOUT TEASER
+    ============================================================ -->
+    <section class="section" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about-teaser">
+
+          <div class="about-teaser__body fade-up">
+            <div class="eyebrow">About the Tutor</div>
+            <h2 class="section-title" id="about-heading">
+              A decade in classrooms.<br>
+              <em>Now working one-to-one.</em>
+            </h2>
+            <p>
+              Open Horizons was founded by Grant Crossman — a UAE-licensed tutor with
+              over ten years of classroom teaching experience across British, American,
+              and IB environments. His approach to private tutoring is shaped by that
+              teaching background and by ongoing postgraduate research at the
+              University of Birmingham Dubai.
+            </p>
+            <p>
+              Tutoring at Open Horizons is not casual academic support. It is structured,
+              evidence-led, and delivered by someone whose entire professional focus
+              is on what actually makes the difference for individual learners.
+            </p>
+            <a href="about.html" class="btn btn--text">
+              Read Grant's full background
+              <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 10h12M10 4l6 6-6 6"/></svg>
+            </a>
+          </div>
+
+          <div class="about-teaser__card fade-up">
+            <div class="about-teaser__card-name">Grant Crossman</div>
+            <div class="about-teaser__card-role">Founder · Open Horizons Learning Support</div>
+            <div class="about-teaser__highlights" role="list">
+              <div class="about-teaser__highlight" role="listitem">10+ years classroom teaching in the UAE</div>
+              <div class="about-teaser__highlight" role="listitem">Maths, Science, and English specialist</div>
+              <div class="about-teaser__highlight" role="listitem">British, American &amp; IB curriculum experience</div>
+              <div class="about-teaser__highlight" role="listitem">MEd in Leadership — Univ. of Birmingham Dubai</div>
+              <div class="about-teaser__highlight" role="listitem">RAKEZ licensed · Federal tutoring permit holder</div>
+            </div>
+            <a href="about.html" class="btn btn--outline">About Grant</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         CTA BAND
+    ============================================================ -->
+    <section class="cta-band" aria-labelledby="cta-heading">
+      <div class="container">
+        <div class="cta-band__inner fade-up">
+          <div class="cta-band__eyebrow">Open Horizons Learning Support</div>
+          <h2 class="cta-band__title" id="cta-heading">
+            Every enquiry starts with<br>
+            <em>an honest conversation.</em>
+          </h2>
+          <p class="cta-band__sub">
+            Describe your child's situation — subject, year group, what you are seeing at school.
+            Grant will respond personally within 24 hours with a clear recommendation.
+            No obligation, no automated responses.
+          </p>
+          <div class="cta-band__actions">
+            <a href="contact.html" class="btn btn--gold">
+              Make an Enquiry
+              <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 10h12M10 4l6 6-6 6"/></svg>
+            </a>
+            <a href="services.html" class="btn btn--ghost">View Services &amp; Pricing</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__brand-name">Open Horizons</div>
+          <div class="footer__brand-tagline">UAE-Based. Globally Aligned. Personally Delivered.</div>
+          <p class="footer__brand-desc">Evidence-informed online tutoring for international school students across Dubai and Abu Dhabi. Maths, Science, and English — KS1 to KS3.</p>
+          <a href="contact.html?enquiry=inperson" class="footer__inperson">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="6" r="2.5"/><path d="M3 14c0-3 2.2-5 5-5s5 2 5 5"/></svg>
+            Interested in in-person sessions? Ask us
+          </a>
+        </div>
+        <div>
+          <div class="footer__col-title">Navigation</div>
+          <ul class="footer__list" role="list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Grant</a></li>
+            <li><a href="approach.html">Our Approach</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="success-stories.html">Results</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__col-title">Services</div>
+          <ul class="footer__list" role="list">
+            <li><a href="services.html#individual">One-to-One Tutoring</a></li>
+            <li><a href="services.html#study-skills">Study Skills Coaching</a></li>
+            <li><a href="services.html#homeschool">Homeschool Support</a></li>
+            <li><a href="services.html#workshops">Parent Workshops</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer__col-title">Contact</div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 4l6 5 6-5M2 4h12v9H2z"/></svg>
+            <a href="mailto:hello@openhorizonslearning.ae">hello@openhorizonslearning.ae</a>
+          </div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="6" r="2.5"/><path d="M3 14c0-3 2.2-5 5-5s5 2 5 5"/></svg>
+            <span>Serving Dubai &amp; Abu Dhabi</span>
+          </div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="2"/><path d="M5 8h6M8 5v6"/></svg>
+            <a href="contact.html">Make an Enquiry</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__legal">
+          &copy; <span id="footerYear"></span> Open Horizons Learning Support FZ-LLC. All rights reserved.<br>
+          <span style="font-size:11px;">openhorizonslearning.ae</span>
+        </div>
+        <div class="footer__licence">
+          <span class="footer__licence-dot"></span>
+          RAKEZ Licensed · Ras Al Khaimah Economic Zone
+          <span class="footer__licence-dot"></span>
+          Federal Private Tutoring Permit Holder
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+    const toggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('navMobile');
+    toggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+      const spans = toggle.querySelectorAll('span');
+      if (isOpen) {
+        spans[0].style.transform = 'translateY(6.5px) rotate(45deg)';
+        spans[1].style.opacity  = '0';
+        spans[2].style.transform = 'translateY(-6.5px) rotate(-45deg)';
+      } else {
+        spans.forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+      }
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', false);
+        toggle.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+      });
+    });
+    document.addEventListener('click', e => {
+      if (!toggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+        mobileMenu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', false);
+        toggle.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+      }
+    });
+
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+      }),
+      { threshold: 0.08 }
+    );
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    const nav = document.querySelector('.nav');
+    window.addEventListener('scroll', () => {
+      nav.style.boxShadow = window.scrollY > 8 ? '0 2px 24px rgba(15,31,56,0.35)' : 'none';
+    }, { passive: true });
+  </script>
+
+</body>
+</html>

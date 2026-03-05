@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Approach — Open Horizons Learning Support</title>
+  <meta name="description" content="How Open Horizons works: diagnostic assessment, evidence-based instruction, metacognitive development, and structured parent communication — for primary and lower secondary students across Dubai and Abu Dhabi." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       DESIGN SYSTEM — OHLS
+    ============================================================ */
+    :root {
+      --navy:        #0f1f38;
+      --navy-mid:    #1a3255;
+      --navy-light:  #223d66;
+      --gold:        #c9a84c;
+      --gold-light:  #e8c97a;
+      --cream:       #f9f6f0;
+      --warm-white:  #fdfbf7;
+      --text:        #2a2a2a;
+      --text-light:  #6b6b6b;
+      --border:      rgba(201, 168, 76, 0.25);
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'DM Sans', sans-serif;
+      --nav-height:  72px;
+      --section-pad: clamp(64px, 8vw, 112px);
+      --container:   1160px;
+      --radius:      4px;
+      --transition:  0.25s ease;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font-body); font-weight: 400; font-size: 16px; line-height: 1.7; color: var(--text); background: var(--warm-white); }
+
+    .container  { max-width: var(--container); margin: 0 auto; padding: 0 clamp(20px, 5vw, 48px); }
+    .section    { padding: var(--section-pad) 0; }
+    .section--cream { background: var(--cream); }
+    .section--navy  { background: var(--navy); color: var(--warm-white); }
+    .page-body  { padding-top: var(--nav-height); }
+
+    .eyebrow {
+      display: flex; align-items: center; gap: 12px;
+      font-family: var(--font-body); font-weight: 500; font-size: 11px;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px;
+    }
+    .eyebrow::before { content: ''; display: block; width: 32px; height: 1.5px; background: var(--gold); flex-shrink: 0; }
+
+    .section-title { font-family: var(--font-display); font-weight: 600; font-size: clamp(32px, 4vw, 48px); line-height: 1.15; color: var(--navy); margin-bottom: 20px; }
+    .section-title em { font-style: italic; font-weight: 300; color: var(--gold-light); }
+    .section--navy .section-title { color: var(--warm-white); }
+
+    .section-lead { font-size: 17px; font-weight: 300; color: var(--text-light); max-width: 600px; line-height: 1.8; }
+    .section--navy .section-lead { color: rgba(253,251,247,0.72); }
+
+    .btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-body); font-weight: 500; font-size: 13px; letter-spacing: 0.06em; text-decoration: none; border: none; cursor: pointer; transition: background var(--transition), color var(--transition), transform var(--transition); border-radius: var(--radius); padding: 12px 24px; }
+    .btn--gold    { background: var(--gold); color: var(--navy); }
+    .btn--gold:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn--outline { background: transparent; color: var(--gold); border: 1.5px solid var(--gold); }
+    .btn--outline:hover { background: var(--gold); color: var(--navy); }
+    .btn--ghost   { background: transparent; color: var(--warm-white); border: 1.5px solid rgba(255,255,255,0.3); }
+    .btn--ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .fade-up:nth-child(2) { transition-delay: 0.08s; }
+    .fade-up:nth-child(3) { transition-delay: 0.16s; }
+    .fade-up:nth-child(4) { transition-delay: 0.24s; }
+    .fade-up:nth-child(5) { transition-delay: 0.32s; }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-height); background: var(--navy); border-bottom: 1px solid rgba(201,168,76,0.15); display: flex; align-items: center; }
+    .nav__inner { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 clamp(20px, 5vw, 48px); }
+    .nav__logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1.15; }
+    .nav__logo-primary { font-family: var(--font-display); font-weight: 600; font-size: 18px; letter-spacing: 0.02em; color: var(--warm-white); }
+    .nav__logo-sub { font-family: var(--font-body); font-weight: 300; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); }
+    .nav__links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav__links a { font-family: var(--font-body); font-weight: 400; font-size: 13px; letter-spacing: 0.03em; color: rgba(253,251,247,0.78); text-decoration: none; padding: 6px 14px; border-radius: var(--radius); transition: color var(--transition), background var(--transition); position: relative; }
+    .nav__links a:hover { color: var(--warm-white); background: rgba(255,255,255,0.06); }
+    .nav__links a.active { color: var(--gold); }
+    .nav__links a.active::after { content: ''; position: absolute; bottom: -2px; left: 14px; right: 14px; height: 1.5px; background: var(--gold); opacity: 0.6; }
+    .nav__cta { margin-left: 16px; }
+    .nav__toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav__toggle span { display: block; width: 24px; height: 1.5px; background: var(--warm-white); transition: transform 0.25s, opacity 0.25s; }
+    .nav__mobile { display: none; position: fixed; top: var(--nav-height); left: 0; right: 0; background: var(--navy); border-top: 1px solid rgba(201,168,76,0.15); padding: 16px 0 24px; z-index: 99; }
+    .nav__mobile.open { display: block; }
+    .nav__mobile a { display: block; font-family: var(--font-body); font-weight: 400; font-size: 15px; color: rgba(253,251,247,0.85); text-decoration: none; padding: 12px clamp(20px,5vw,48px); border-bottom: 1px solid rgba(201,168,76,0.08); transition: color var(--transition); }
+    .nav__mobile a:hover, .nav__mobile a.active { color: var(--gold); }
+    .nav__mobile .nav__mobile-cta { margin: 16px clamp(20px,5vw,48px) 0; display: block; text-align: center; }
+
+    /* ============================================================
+       PAGE HERO — APPROACH
+    ============================================================ */
+    .approach-hero {
+      background: var(--navy);
+      padding: clamp(72px, 10vw, 120px) 0 clamp(64px, 8vw, 96px);
+      position: relative;
+      overflow: hidden;
+    }
+    .approach-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 55% 70% at 95% 30%, rgba(201,168,76,0.07) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 60% at 5% 90%,  rgba(26,50,85,0.5) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .approach-hero__inner {
+      position: relative; z-index: 1;
+      max-width: 760px;
+    }
+    .approach-hero__title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(38px, 5.5vw, 66px);
+      line-height: 1.08;
+      color: var(--warm-white);
+      margin-bottom: 24px;
+    }
+    .approach-hero__title em { font-style: italic; font-weight: 300; color: var(--gold-light); }
+    .approach-hero__lead {
+      font-size: clamp(15px, 1.8vw, 17px);
+      font-weight: 300;
+      color: rgba(253,251,247,0.72);
+      line-height: 1.85;
+      margin-bottom: 40px;
+      max-width: 600px;
+    }
+
+    /* Phase indicator strip */
+    .approach-phases {
+      display: flex;
+      gap: 0;
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 4px;
+      overflow: hidden;
+      max-width: 560px;
+    }
+    .approach-phase {
+      flex: 1;
+      padding: 14px 20px;
+      background: rgba(255,255,255,0.03);
+      border-right: 1px solid rgba(201,168,76,0.15);
+      text-align: center;
+    }
+    .approach-phase:last-child { border-right: none; }
+    .approach-phase__num {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 20px;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+    .approach-phase__label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(253,251,247,0.5);
+    }
+
+    /* ============================================================
+       WHAT SETS THIS APART — contrast block
+    ============================================================ */
+    .contrast__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5px;
+      background: var(--border);
+      border: 1.5px solid var(--border);
+      margin-top: 48px;
+    }
+    .contrast-col {
+      padding: 40px 36px;
+      background: var(--warm-white);
+    }
+    .contrast-col--them { background: var(--cream); }
+    .contrast-col__label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .contrast-col--them  .contrast-col__label { color: var(--text-light); }
+    .contrast-col--us    .contrast-col__label { color: var(--gold); }
+    .contrast-col__label::before {
+      content: '';
+      width: 20px;
+      height: 1.5px;
+      flex-shrink: 0;
+    }
+    .contrast-col--them .contrast-col__label::before { background: var(--text-light); }
+    .contrast-col--us   .contrast-col__label::before { background: var(--gold); }
+
+    .contrast-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .contrast-list li {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.6;
+      padding-left: 20px;
+      position: relative;
+    }
+    .contrast-list li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 9px;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .contrast-col--them .contrast-list li::before { background: rgba(107,107,107,0.35); }
+    .contrast-col--us   .contrast-list li::before { background: var(--gold); }
+    .contrast-col--us   .contrast-list li { color: var(--text); }
+
+    /* ============================================================
+       DIAGNOSTIC SECTION
+    ============================================================ */
+    .diagnostic__grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 72px;
+      align-items: start;
+    }
+    .diagnostic__body p {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+    .diagnostic__body p:last-child { margin-bottom: 0; }
+    .diagnostic__body strong { font-weight: 500; color: var(--navy); }
+
+    /* Assessment process steps */
+    .diagnostic__steps {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5px;
+      background: var(--border);
+      border: 1.5px solid var(--border);
+    }
+    .diag-step {
+      background: var(--cream);
+      padding: 24px 28px;
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+    .diag-step__icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(201,168,76,0.15);
+      border: 1px solid rgba(201,168,76,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .diag-step__icon svg { width: 16px; height: 16px; color: var(--gold); }
+    .diag-step__title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 17px;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .diag-step__desc {
+      font-size: 13.5px;
+      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1.65;
+    }
+
+    /* ============================================================
+       SESSION STRUCTURE — what a session looks like
+    ============================================================ */
+    .session__intro { max-width: 680px; margin-bottom: 52px; }
+
+    .session-timeline {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5px;
+      background: var(--border);
+      border: 1.5px solid var(--border);
+    }
+    /* connecting line above cards */
+    .session-card {
+      background: var(--warm-white);
+      padding: 32px 28px 36px;
+      position: relative;
+    }
+    .session-card__phase {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .session-card__title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 20px;
+      color: var(--navy);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    .session-card__desc {
+      font-size: 13.5px;
+      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+    /* gold top accent on each card */
+    .session-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gold);
+      opacity: 0.35;
+    }
+    .session-card:first-child::before { opacity: 1; }
+
+    /* ============================================================
+       SUBJECTS — per-subject approach
+    ============================================================ */
+    .subjects__intro { max-width: 640px; margin-bottom: 52px; }
+
+    .subjects__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: var(--border);
+      border: 1.5px solid var(--border);
+    }
+    .subject-card {
+      background: var(--navy);
+      padding: 36px 32px 40px;
+    }
+    .subject-card__icon {
+      width: 44px;
+      height: 44px;
+      border: 1.5px solid rgba(201,168,76,0.35);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .subject-card__icon svg { width: 20px; height: 20px; color: var(--gold); }
+    .subject-card__name {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 26px;
+      color: var(--warm-white);
+      margin-bottom: 4px;
+    }
+    .subject-card__range {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .subject-card__desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(253,251,247,0.7);
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+    .subject-card__methods {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      border-top: 1px solid rgba(201,168,76,0.15);
+      padding-top: 20px;
+    }
+    .subject-method {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(253,251,247,0.62);
+    }
+    .subject-method::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: 0.6;
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+       METACOGNITION SECTION
+    ============================================================ */
+    .meta__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .meta__body p {
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(253,251,247,0.78);
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+    .meta__body p:last-child { margin-bottom: 0; }
+    .meta__body strong { font-weight: 500; color: var(--warm-white); }
+
+    .meta__techniques {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5px;
+      background: rgba(201,168,76,0.15);
+      border: 1px solid rgba(201,168,76,0.2);
+    }
+    .meta-technique {
+      background: rgba(15,31,56,0.7);
+      padding: 24px 22px;
+    }
+    .meta-technique__name {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 17px;
+      color: var(--warm-white);
+      margin-bottom: 6px;
+    }
+    .meta-technique__desc {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(253,251,247,0.55);
+      line-height: 1.65;
+    }
+    .meta__exams {
+      margin-top: 20px;
+      padding: 20px 24px;
+      border-left: 3px solid var(--gold);
+      background: rgba(201,168,76,0.07);
+    }
+    .meta__exams-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .meta__exams-list {
+      font-size: 13.5px;
+      font-weight: 300;
+      color: rgba(253,251,247,0.65);
+      line-height: 1.65;
+    }
+
+    /* ============================================================
+       PARENT COMMUNICATION
+    ============================================================ */
+    .parent__grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 72px;
+      align-items: start;
+    }
+    .parent__cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5px;
+      background: var(--border);
+      border: 1.5px solid var(--border);
+    }
+    .parent-card {
+      background: var(--warm-white);
+      padding: 24px 28px;
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .parent-card__num {
+      width: 44px;
+      height: 44px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .parent-card__title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .parent-card__desc {
+      font-size: 13.5px;
+      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1.65;
+    }
+
+    .parent__body p {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+    .parent__body p:last-child { margin-bottom: 0; }
+    .parent__body strong { font-weight: 500; color: var(--navy); }
+
+    /* Pull quote */
+    .pull-quote {
+      border-left: 3px solid var(--gold);
+      padding: 20px 24px;
+      background: var(--cream);
+      margin-top: 28px;
+    }
+    .pull-quote__text {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: 19px;
+      font-style: italic;
+      color: var(--navy);
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+    .pull-quote__text em { color: var(--gold-light); font-style: italic; }
+    .pull-quote__source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ============================================================
+       DIFFERENTIATION SECTION
+    ============================================================ */
+    .diff__intro { max-width: 640px; margin-bottom: 52px; }
+
+    .diff__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: var(--border);
+      border: 1.5px solid var(--border);
+    }
+    .diff-card {
+      background: var(--cream);
+      padding: 32px 28px 36px;
+    }
+    .diff-card__tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--navy);
+      background: rgba(201,168,76,0.15);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 4px 12px;
+      margin-bottom: 16px;
+    }
+    .diff-card__title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 21px;
+      color: var(--navy);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    .diff-card__desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1.75;
+    }
+
+    /* ============================================================
+       CTA BAND
+    ============================================================ */
+    .cta-band {
+      background: var(--navy);
+      padding: 72px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-band::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 100% at 50% 50%, rgba(201,168,76,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-band__inner { position: relative; z-index: 1; }
+    .cta-band__title { font-family: var(--font-display); font-weight: 600; font-size: clamp(28px, 4vw, 44px); color: var(--warm-white); margin-bottom: 12px; line-height: 1.2; }
+    .cta-band__title em { font-style: italic; font-weight: 300; color: var(--gold-light); }
+    .cta-band__sub { font-size: 15px; font-weight: 300; color: rgba(253,251,247,0.62); margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .cta-band__actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .footer { background: var(--navy); border-top: 1px solid rgba(201,168,76,0.2); padding: 64px 0 0; color: rgba(253,251,247,0.72); }
+    .footer__grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(201,168,76,0.15); }
+    .footer__brand-name    { font-family: var(--font-display); font-weight: 600; font-size: 20px; color: var(--warm-white); margin-bottom: 4px; }
+    .footer__brand-tagline { font-family: var(--font-body); font-weight: 300; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .footer__brand-desc    { font-size: 13.5px; font-weight: 300; line-height: 1.75; margin-bottom: 24px; max-width: 280px; }
+    .footer__inperson { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 500; color: var(--gold); text-decoration: none; letter-spacing: 0.04em; border-bottom: 1px solid rgba(201,168,76,0.3); padding-bottom: 2px; transition: color var(--transition), border-color var(--transition); }
+    .footer__inperson:hover { color: var(--gold-light); border-color: var(--gold-light); }
+    .footer__inperson svg { width: 13px; height: 13px; flex-shrink: 0; }
+    .footer__col-title { font-family: var(--font-body); font-weight: 500; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .footer__list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer__list a { font-size: 14px; font-weight: 300; color: rgba(253,251,247,0.68); text-decoration: none; transition: color var(--transition); }
+    .footer__list a:hover { color: var(--gold-light); }
+    .footer__contact-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13.5px; font-weight: 300; margin-bottom: 10px; line-height: 1.55; }
+    .footer__contact-item svg { width: 14px; height: 14px; flex-shrink: 0; margin-top: 3px; color: var(--gold); }
+    .footer__contact-item a { color: rgba(253,251,247,0.68); text-decoration: none; transition: color var(--transition); }
+    .footer__contact-item a:hover { color: var(--gold-light); }
+    .footer__bottom { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; flex-wrap: wrap; gap: 12px; }
+    .footer__legal { font-size: 12px; font-weight: 300; color: rgba(253,251,247,0.38); line-height: 1.6; }
+    .footer__licence { display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 400; color: rgba(253,251,247,0.38); letter-spacing: 0.03em; }
+    .footer__licence-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); opacity: 0.5; flex-shrink: 0; }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 960px) {
+      .nav__links, .nav__cta { display: none; }
+      .nav__toggle { display: flex; }
+      .contrast__grid      { grid-template-columns: 1fr; }
+      .diagnostic__grid    { grid-template-columns: 1fr; gap: 40px; }
+      .session-timeline    { grid-template-columns: 1fr 1fr; }
+      .subjects__grid      { grid-template-columns: 1fr; }
+      .meta__grid          { grid-template-columns: 1fr; gap: 40px; }
+      .parent__grid        { grid-template-columns: 1fr; gap: 40px; }
+      .diff__grid          { grid-template-columns: 1fr; }
+      .footer__grid        { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+    @media (max-width: 640px) {
+      .session-timeline    { grid-template-columns: 1fr; }
+      .meta__techniques    { grid-template-columns: 1fr; }
+      .approach-phases     { flex-wrap: wrap; }
+      .footer__grid        { grid-template-columns: 1fr; gap: 32px; }
+      .footer__bottom      { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .cta-band__actions   { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Open Horizons Learning Support — Home">
+        <span class="nav__logo-primary">Open Horizons</span>
+        <span class="nav__logo-sub">Learning Support</span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="approach.html" class="active" aria-current="page">Approach</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="success-stories.html">Results</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="btn btn--gold nav__cta">Enquire Now</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav__mobile" id="navMobile" role="menu">
+    <a href="index.html" role="menuitem">Home</a>
+    <a href="about.html" role="menuitem">About</a>
+    <a href="approach.html" class="active" role="menuitem">Approach</a>
+    <a href="services.html" role="menuitem">Services</a>
+    <a href="success-stories.html" role="menuitem">Results</a>
+    <a href="contact.html" role="menuitem">Contact</a>
+    <a href="contact.html" class="btn btn--gold nav__mobile-cta" role="menuitem">Enquire Now</a>
+  </div>
+
+
+  <main class="page-body">
+
+    <!-- ============================================================
+         HERO
+    ============================================================ -->
+    <section class="approach-hero" aria-label="Our approach overview">
+      <div class="container">
+        <div class="approach-hero__inner">
+          <div class="eyebrow">Our Approach</div>
+          <h1 class="approach-hero__title">
+            How learning<br>
+            actually <em>sticks.</em>
+          </h1>
+          <p class="approach-hero__lead">
+            Open Horizons teaching is built on a clear process — not assumptions about
+            what a student needs, but structured diagnosis followed by precise, evidence-led
+            instruction. Every stage of a student's programme is deliberate.
+          </p>
+          <div class="approach-phases" role="list" aria-label="Approach phases">
+            <div class="approach-phase" role="listitem">
+              <div class="approach-phase__num">01</div>
+              <div class="approach-phase__label">Diagnose</div>
+            </div>
+            <div class="approach-phase" role="listitem">
+              <div class="approach-phase__num">02</div>
+              <div class="approach-phase__label">Instruct</div>
+            </div>
+            <div class="approach-phase" role="listitem">
+              <div class="approach-phase__num">03</div>
+              <div class="approach-phase__label">Practise</div>
+            </div>
+            <div class="approach-phase" role="listitem">
+              <div class="approach-phase__num">04</div>
+              <div class="approach-phase__label">Progress</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         WHAT SETS THIS APART
+    ============================================================ -->
+    <section class="section" aria-labelledby="contrast-heading">
+      <div class="container">
+        <div class="fade-up">
+          <div class="eyebrow">Beyond Homework Help</div>
+          <h2 class="section-title" id="contrast-heading">
+            Not a repeat of school.<br>
+            <em>A structured alternative to it.</em>
+          </h2>
+          <p class="section-lead">
+            Most private tutoring operates on a simple loop: review tonight's homework,
+            explain what the school explained, repeat. Open Horizons is built differently —
+            from the first session forward.
+          </p>
+        </div>
+        <div class="contrast__grid fade-up" role="region" aria-label="Comparison: typical tutoring vs Open Horizons">
+          <div class="contrast-col contrast-col--them">
+            <div class="contrast-col__label">Typical Tutoring</div>
+            <ul class="contrast-list" role="list">
+              <li>Starts with tonight's homework, not the underlying gap</li>
+              <li>Repeats what the teacher said in a different voice</li>
+              <li>Assumes the student's problem is effort or attention</li>
+              <li>Progress is informal and rarely communicated to parents</li>
+              <li>Sessions end when the homework is done</li>
+              <li>Student remains dependent on the tutor</li>
+            </ul>
+          </div>
+          <div class="contrast-col contrast-col--us">
+            <div class="contrast-col__label">Open Horizons</div>
+            <ul class="contrast-list" role="list">
+              <li>Begins with structured diagnosis to find the root cause</li>
+              <li>Rebuilds conceptual foundations before revisiting procedure</li>
+              <li>Identifies specific misconceptions through formative assessment</li>
+              <li>Structured progress updates shared regularly with parents</li>
+              <li>Sessions build toward independent, self-directed learning</li>
+              <li>Student develops strategies that work beyond the sessions</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         DIAGNOSTIC PROCESS
+    ============================================================ -->
+    <section class="section section--cream" aria-labelledby="diagnostic-heading">
+      <div class="container">
+        <div class="diagnostic__grid">
+
+          <div class="diagnostic__body fade-up">
+            <div class="eyebrow">Phase One</div>
+            <h2 class="section-title" id="diagnostic-heading">
+              Start with <em>diagnosis,</em><br>not assumption.
+            </h2>
+            <p>
+              Before a single session of instruction begins, Open Horizons conducts a
+              structured diagnostic assessment. This is not a test — it is a diagnostic
+              conversation, a series of carefully selected tasks designed to reveal
+              <strong>where a student's understanding actually breaks down.</strong>
+            </p>
+            <p>
+              Students who struggle in school are rarely struggling because they lack
+              effort or intelligence. More often, a specific conceptual misunderstanding
+              has gone unidentified — and subsequent learning has been built on top of
+              that unstable foundation. The diagnostic process locates that break point
+              precisely, so instruction can begin in the right place.
+            </p>
+            <p>
+              Findings from the diagnostic assessment are shared with parents as part of
+              the initial programme design. There are no surprises — the approach is
+              transparent from the outset.
+            </p>
+          </div>
+
+          <div class="diagnostic__steps fade-up" role="list" aria-label="Diagnostic assessment steps">
+
+            <div class="diag-step" role="listitem">
+              <div class="diag-step__icon" aria-hidden="true">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <circle cx="10" cy="10" r="7.5"/>
+                  <path d="M7 10l2 2 4-4"/>
+                </svg>
+              </div>
+              <div>
+                <div class="diag-step__title">Structured Questioning</div>
+                <div class="diag-step__desc">Targeted questions reveal not just whether a student can answer, but how they are thinking — identifying misconceptions that correct answers can conceal.</div>
+              </div>
+            </div>
+
+            <div class="diag-step" role="listitem">
+              <div class="diag-step__icon" aria-hidden="true">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="3" y="3" width="14" height="14" rx="2"/>
+                  <path d="M7 10h6M10 7v6"/>
+                </svg>
+              </div>
+              <div>
+                <div class="diag-step__title">Formative Checks</div>
+                <div class="diag-step__desc">Low-stakes tasks across key curriculum areas gauge fluency, procedural confidence, and the student's relationship with the subject.</div>
+              </div>
+            </div>
+
+            <div class="diag-step" role="listitem">
+              <div class="diag-step__icon" aria-hidden="true">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M4 6h12M4 10h8M4 14h10"/>
+                </svg>
+              </div>
+              <div>
+                <div class="diag-step__title">Curriculum Alignment Review</div>
+                <div class="diag-step__desc">Cross-referenced against the student's specific school curriculum — British, IB PYP, Cambridge International, or American — to identify gaps relative to expected year-group attainment.</div>
+              </div>
+            </div>
+
+            <div class="diag-step" role="listitem">
+              <div class="diag-step__icon" aria-hidden="true">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M10 3v14M3 10h14" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div>
+                <div class="diag-step__title">Programme Design</div>
+                <div class="diag-step__desc">Findings are used to design a personalised learning plan — with specific goals, sequenced instruction, and measurable progress markers shared with the family.</div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         SESSION STRUCTURE
+    ============================================================ -->
+    <section class="section" aria-labelledby="session-heading">
+      <div class="container">
+        <div class="session__intro fade-up">
+          <div class="eyebrow">Phase Two &amp; Three</div>
+          <h2 class="section-title" id="session-heading">
+            What a session <em>actually looks like.</em>
+          </h2>
+          <p class="section-lead">
+            Every session follows the same four-part structure — designed around
+            Rosenshine's Principles and Cognitive Load Theory to maximise what students
+            retain and minimise what overwhelms them.
+          </p>
+        </div>
+
+        <div class="session-timeline" role="list">
+
+          <div class="session-card fade-up" role="listitem">
+            <div class="session-card__phase">Part 01 · Review</div>
+            <h3 class="session-card__title">Retrieval &amp; Review</h3>
+            <p class="session-card__desc">
+              Each session opens with a brief review of prior content — not as a test,
+              but as structured retrieval practice. Low-stakes, targeted, and deliberately
+              spaced to reinforce what was covered previously before introducing anything new.
+            </p>
+          </div>
+
+          <div class="session-card fade-up" role="listitem">
+            <div class="session-card__phase">Part 02 · Instruction</div>
+            <h3 class="session-card__title">New Content &amp; Modelling</h3>
+            <p class="session-card__desc">
+              New material is introduced in small, manageable steps — consistent with
+              Cognitive Load Theory. Worked examples and conceptual modelling come first.
+              Procedures are never introduced without the underlying reasoning being clear.
+            </p>
+          </div>
+
+          <div class="session-card fade-up" role="listitem">
+            <div class="session-card__phase">Part 03 · Practice</div>
+            <h3 class="session-card__title">Guided &amp; Independent Practice</h3>
+            <p class="session-card__desc">
+              Students practise with support first, then independently. The scaffolding
+              is gradually reduced as confidence and accuracy build. This mirrors the
+              Rosenshine model of high-success-rate task design — students should
+              succeed more than they fail during practice.
+            </p>
+          </div>
+
+          <div class="session-card fade-up" role="listitem">
+            <div class="session-card__phase">Part 04 · Consolidate</div>
+            <h3 class="session-card__title">Feedback &amp; Next Steps</h3>
+            <p class="session-card__desc">
+              Sessions close with clear, specific feedback and a brief framing of what
+              comes next. Students leave knowing what they have achieved and what they
+              are working toward. Any between-session tasks are purposeful — never
+              arbitrary homework.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         SUBJECTS
+    ============================================================ -->
+    <section class="section section--navy" aria-labelledby="subjects-heading">
+      <div class="container">
+        <div class="subjects__intro fade-up">
+          <div class="eyebrow">Subject Approach</div>
+          <h2 class="section-title" id="subjects-heading">
+            Three subjects.<br>
+            <em>Three distinct methodologies.</em>
+          </h2>
+          <p class="section-lead">
+            The same diagnostic rigour and evidence-based structure applies across all
+            three subjects — but how instruction is delivered is tailored to what each
+            discipline actually demands.
+          </p>
+        </div>
+
+        <div class="subjects__grid" role="list">
+
+          <!-- Mathematics -->
+          <article class="subject-card fade-up" role="listitem">
+            <div class="subject-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M6 12h12M12 6v12"/>
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+              </svg>
+            </div>
+            <div class="subject-card__name">Mathematics</div>
+            <div class="subject-card__range">KS1 – KS3 · IGCSE &amp; GCSE Prep</div>
+            <p class="subject-card__desc">
+              Maths difficulties almost always stem from a specific conceptual break — a
+              moment where procedure was taught without understanding. Sessions identify
+              that break point and rebuild from it: number sense, proportional reasoning,
+              algebra, geometry, and data handling — in sequence, with understanding
+              preceding procedure at every stage.
+            </p>
+            <div class="subject-card__methods" role="list" aria-label="Mathematics methods">
+              <div class="subject-method" role="listitem">Conceptual modelling before procedure</div>
+              <div class="subject-method" role="listitem">Stepwise reasoning with worked examples</div>
+              <div class="subject-method" role="listitem">Visual and diagrammatic strategies</div>
+              <div class="subject-method" role="listitem">MAP testing and CAT4 preparation</div>
+              <div class="subject-method" role="listitem">IGCSE / GCSE exam technique</div>
+            </div>
+          </article>
+
+          <!-- Science -->
+          <article class="subject-card fade-up" role="listitem">
+            <div class="subject-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M9 3v8L5 19h14L15 11V3"/>
+                <path d="M9 3h6"/>
+              </svg>
+            </div>
+            <div class="subject-card__name">Science</div>
+            <div class="subject-card__range">KS1 – KS3 · Biology · Chemistry · Physics</div>
+            <p class="subject-card__desc">
+              Science at international school level requires both factual knowledge and the
+              ability to reason through unfamiliar problems. Sessions target the conceptual
+              understanding behind the content — not just definitions and facts — so that
+              students can apply their knowledge flexibly under exam conditions and beyond.
+            </p>
+            <div class="subject-card__methods" role="list" aria-label="Science methods">
+              <div class="subject-method" role="listitem">Conceptual understanding before recall</div>
+              <div class="subject-method" role="listitem">Reasoning through unfamiliar problems</div>
+              <div class="subject-method" role="listitem">Linking knowledge across topic areas</div>
+              <div class="subject-method" role="listitem">Structured revision for assessments</div>
+              <div class="subject-method" role="listitem">Scientific method and enquiry skills</div>
+            </div>
+          </article>
+
+          <!-- English -->
+          <article class="subject-card fade-up" role="listitem">
+            <div class="subject-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M4 6h16M4 12h10M4 18h13"/>
+              </svg>
+            </div>
+            <div class="subject-card__name">English</div>
+            <div class="subject-card__range">KS1 – KS3 · Literacy · Writing · Analysis</div>
+            <p class="subject-card__desc">
+              English support at Open Horizons goes beyond grammar corrections and
+              comprehension practice. Sessions address writing structure, analytical
+              reading, and the clarity of expression that marks a genuinely confident
+              writer. From early phonics and reading development through to essay
+              construction and textual analysis — built on what the student actually needs.
+            </p>
+            <div class="subject-card__methods" role="list" aria-label="English methods">
+              <div class="subject-method" role="listitem">Phonics and early reading foundations</div>
+              <div class="subject-method" role="listitem">Writing structure and paragraph craft</div>
+              <div class="subject-method" role="listitem">Analytical reading and inference</div>
+              <div class="subject-method" role="listitem">Clarity and precision of expression</div>
+              <div class="subject-method" role="listitem">Essay construction and exam response</div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         METACOGNITION
+    ============================================================ -->
+    <section class="section section--navy" aria-labelledby="meta-heading">
+      <div class="container">
+        <div class="meta__grid">
+
+          <div class="meta__body fade-up">
+            <div class="eyebrow">Beyond the Sessions</div>
+            <h2 class="section-title" id="meta-heading">
+              Teaching students<br>
+              <em>how to learn.</em>
+            </h2>
+            <p>
+              The goal of every Open Horizons programme is not to create a student who
+              performs well during tutoring sessions. It is to create a student who
+              <strong>learns independently</strong> — who knows how to study, how to revise,
+              and how to manage their own academic progress.
+            </p>
+            <p>
+              This means explicitly teaching the metacognitive strategies that research
+              shows have the highest impact on long-term academic performance. These are
+              introduced gradually and practised within sessions, so students understand
+              not just what to do — but why it works.
+            </p>
+            <div class="meta__exams">
+              <div class="meta__exams-label">Particularly Relevant For</div>
+              <div class="meta__exams-list">
+                IGCSE &amp; GCSE examination preparation &nbsp;·&nbsp;
+                MAP testing &nbsp;·&nbsp;
+                CAT4 assessments &nbsp;·&nbsp;
+                International school end-of-year exams
+              </div>
+            </div>
+          </div>
+
+          <div class="fade-up">
+            <div class="meta__techniques" role="list">
+              <div class="meta-technique" role="listitem">
+                <div class="meta-technique__name">Retrieval Practice</div>
+                <div class="meta-technique__desc">Actively recalling information from memory — not re-reading notes — is one of the most effective ways to consolidate long-term retention. Built into every session.</div>
+              </div>
+              <div class="meta-technique" role="listitem">
+                <div class="meta-technique__name">Spaced Repetition</div>
+                <div class="meta-technique__desc">Content is revisited at increasing intervals rather than crammed. Students learn to plan their revision around spacing rather than proximity to the exam.</div>
+              </div>
+              <div class="meta-technique" role="listitem">
+                <div class="meta-technique__name">Task Planning</div>
+                <div class="meta-technique__desc">Breaking larger tasks into sequenced steps — identifying what to do, in what order, with what resources. Reduces avoidance and increases time-on-task.</div>
+              </div>
+              <div class="meta-technique" role="listitem">
+                <div class="meta-technique__name">Exam Strategy</div>
+                <div class="meta-technique__desc">Understanding how marks are allocated, how to manage time under exam conditions, and how to approach unfamiliar questions with structured reasoning.</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         PARENT COMMUNICATION
+    ============================================================ -->
+    <section class="section" aria-labelledby="parent-heading">
+      <div class="container">
+        <div class="parent__grid">
+
+          <div class="fade-up">
+            <div class="eyebrow">Phase Four</div>
+            <h2 class="section-title" id="parent-heading">
+              Parents as <em>partners,</em><br>not bystanders.
+            </h2>
+            <div class="parent__body">
+              <p>
+                Academic progress in a tutoring context is most effective when parents
+                understand what is being worked on and why. Open Horizons operates a
+                structured communication model — not sporadic updates, but a consistent
+                rhythm of information that keeps families genuinely informed.
+              </p>
+              <p>
+                This is not just courtesy. Research consistently shows that parental
+                involvement — when it is <strong>well-informed and appropriately calibrated</strong>
+                — has a meaningful positive effect on student outcomes. The communication
+                model is designed to make that involvement possible.
+              </p>
+            </div>
+            <div class="pull-quote">
+              <div class="pull-quote__text">
+                "Parents receive not just progress updates — but the <em>context</em>
+                to understand what progress actually means."
+              </div>
+              <div class="pull-quote__source">Open Horizons Learning Support</div>
+            </div>
+          </div>
+
+          <div class="parent__cards fade-up" role="list">
+
+            <div class="parent-card" role="listitem">
+              <div class="parent-card__num" aria-hidden="true">1</div>
+              <div>
+                <div class="parent-card__title">Initial Diagnostic Report</div>
+                <div class="parent-card__desc">Following the diagnostic assessment, parents receive a clear summary of findings — what gaps were identified, where they originate, and how the programme will address them.</div>
+              </div>
+            </div>
+
+            <div class="parent-card" role="listitem">
+              <div class="parent-card__num" aria-hidden="true">2</div>
+              <div>
+                <div class="parent-card__title">Personalised Learning Goals</div>
+                <div class="parent-card__desc">Each student's programme is built around specific, measurable goals — so progress has a clear reference point, and families can see what success looks like before it arrives.</div>
+              </div>
+            </div>
+
+            <div class="parent-card" role="listitem">
+              <div class="parent-card__num" aria-hidden="true">3</div>
+              <div>
+                <div class="parent-card__title">Regular Progress Updates</div>
+                <div class="parent-card__desc">Structured updates at regular intervals — covering what has been covered, what has been mastered, and what is coming next. Not just "going well" — but specific, honest feedback.</div>
+              </div>
+            </div>
+
+            <div class="parent-card" role="listitem">
+              <div class="parent-card__num" aria-hidden="true">4</div>
+              <div>
+                <div class="parent-card__title">Confidence &amp; Independence Tracking</div>
+                <div class="parent-card__desc">Academic progress is tracked alongside confidence and self-directed learning habits — because long-term outcomes depend on more than correct answers on the day.</div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         DIFFERENTIATION
+    ============================================================ -->
+    <section class="section section--cream" aria-labelledby="diff-heading">
+      <div class="container">
+        <div class="diff__intro fade-up">
+          <div class="eyebrow">Every Learner</div>
+          <h2 class="section-title" id="diff-heading">
+            Adapted for the <em>individual,</em><br>always.
+          </h2>
+          <p class="section-lead">
+            The Open Horizons approach is not a fixed programme delivered identically to every
+            student. It is a framework applied with genuine flexibility — adjusted for the
+            specific needs, learning profile, and context of each child.
+          </p>
+        </div>
+
+        <div class="diff__grid" role="list">
+
+          <div class="diff-card fade-up" role="listitem">
+            <span class="diff-card__tag">Standard Support</span>
+            <h3 class="diff-card__title">Curriculum-Aligned Tutoring</h3>
+            <p class="diff-card__desc">
+              For students working within mainstream international school settings — whether
+              they need to close a gap, accelerate ahead of their year group, or build
+              confidence in a specific area. Aligned to British, IB PYP, Cambridge
+              International, and American curricula.
+            </p>
+          </div>
+
+          <div class="diff-card fade-up" role="listitem">
+            <span class="diff-card__tag">ELL Learners</span>
+            <h3 class="diff-card__title">English Language Learners</h3>
+            <p class="diff-card__desc">
+              For students for whom English is not a first language — where academic
+              difficulty in Maths or Science may be partly a language barrier rather than
+              a content gap. Sessions are adapted to separate linguistic demand from
+              subject-specific challenge, supporting both simultaneously.
+            </p>
+          </div>
+
+          <div class="diff-card fade-up" role="listitem">
+            <span class="diff-card__tag">Confidence &amp; Gaps</span>
+            <h3 class="diff-card__title">Students Who've Fallen Behind</h3>
+            <p class="diff-card__desc">
+              For students who have accumulated gaps over time — through school transitions,
+              curriculum changes, extended absence, or simply a concept that was never
+              properly resolved. The diagnostic process finds the root of the difficulty
+              so that sessions address the actual problem, not just the most recent symptom.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         CTA BAND
+    ============================================================ -->
+    <section class="cta-band" aria-labelledby="cta-heading">
+      <div class="container">
+        <div class="cta-band__inner fade-up">
+          <h2 class="cta-band__title" id="cta-heading">
+            See the approach <em>in action.</em>
+          </h2>
+          <p class="cta-band__sub">
+            Every programme starts with a conversation and a diagnostic assessment.
+            There is no obligation — just an honest look at where your child is and
+            a clear plan for where they can go.
+          </p>
+          <div class="cta-band__actions">
+            <a href="contact.html" class="btn btn--gold">Make an Enquiry</a>
+            <a href="services.html" class="btn btn--ghost">View Services &amp; Pricing</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+
+        <div class="footer__brand">
+          <div class="footer__brand-name">Open Horizons</div>
+          <div class="footer__brand-tagline">UAE-Based. Globally Aligned. Personally Delivered.</div>
+          <p class="footer__brand-desc">
+            Evidence-informed online tutoring for international school students
+            across Dubai and Abu Dhabi. Maths, Science, and English — KS1 to KS3.
+          </p>
+          <a href="contact.html?enquiry=inperson" class="footer__inperson">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <circle cx="8" cy="6" r="2.5"/>
+              <path d="M3 14c0-3 2.2-5 5-5s5 2 5 5"/>
+            </svg>
+            Interested in in-person sessions? Ask us
+          </a>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Navigation</div>
+          <ul class="footer__list" role="list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Grant</a></li>
+            <li><a href="approach.html">Our Approach</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="success-stories.html">Results</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Services</div>
+          <ul class="footer__list" role="list">
+            <li><a href="services.html#individual">One-to-One Tutoring</a></li>
+            <li><a href="services.html#study-skills">Study Skills Coaching</a></li>
+            <li><a href="services.html#homeschool">Homeschool Support</a></li>
+            <li><a href="services.html#workshops">Parent Workshops</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Contact</div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M2 4l6 5 6-5M2 4h12v9H2z"/>
+            </svg>
+            <a href="mailto:hello@openhorizonslearning.ae">hello@openhorizonslearning.ae</a>
+          </div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <circle cx="8" cy="6" r="2.5"/>
+              <path d="M3 14c0-3 2.2-5 5-5s5 2 5 5"/>
+            </svg>
+            <span>Serving Dubai &amp; Abu Dhabi</span>
+          </div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <rect x="2" y="2" width="12" height="12" rx="2"/>
+              <path d="M5 8h6M8 5v6"/>
+            </svg>
+            <a href="contact.html">Make an Enquiry</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <div class="footer__legal">
+          &copy; <span id="footerYear"></span> Open Horizons Learning Support FZ-LLC. All rights reserved.<br>
+          <span style="font-size:11px;">openhorizonslearning.ae</span>
+        </div>
+        <div class="footer__licence">
+          <span class="footer__licence-dot"></span>
+          RAKEZ Licensed · Ras Al Khaimah Economic Zone
+          <span class="footer__licence-dot"></span>
+          Federal Private Tutoring Permit Holder
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+    const toggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('navMobile');
+
+    toggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+      const spans = toggle.querySelectorAll('span');
+      if (isOpen) {
+        spans[0].style.transform = 'translateY(6.5px) rotate(45deg)';
+        spans[1].style.opacity  = '0';
+        spans[2].style.transform = 'translateY(-6.5px) rotate(-45deg)';
+      } else {
+        spans[0].style.transform = '';
+        spans[1].style.opacity  = '';
+        spans[2].style.transform = '';
+      }
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', false);
+        toggle.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+      });
+    });
+
+    document.addEventListener('click', e => {
+      if (!toggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+        mobileMenu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', false);
+        toggle.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+      }
+    });
+
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+      }),
+      { threshold: 0.1 }
+    );
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    const nav = document.querySelector('.nav');
+    window.addEventListener('scroll', () => {
+      nav.style.boxShadow = window.scrollY > 8 ? '0 2px 24px rgba(15,31,56,0.35)' : 'none';
+    }, { passive: true });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Grant Crossman — Open Horizons Learning Support</title>
+  <meta name="description" content="Meet Grant Crossman — UAE-licensed tutor with 10+ years teaching Maths, Science, and English across British, American, and IB curricula. Currently completing an MEd at University of Birmingham Dubai." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       DESIGN SYSTEM — OHLS
+    ============================================================ */
+    :root {
+      --navy:        #0f1f38;
+      --navy-mid:    #1a3255;
+      --navy-light:  #223d66;
+      --gold:        #c9a84c;
+      --gold-light:  #e8c97a;
+      --cream:       #f9f6f0;
+      --warm-white:  #fdfbf7;
+      --text:        #2a2a2a;
+      --text-light:  #6b6b6b;
+      --border:      rgba(201, 168, 76, 0.25);
+
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'DM Sans', sans-serif;
+
+      --nav-height:  72px;
+      --section-pad: clamp(64px, 8vw, 112px);
+      --container:   1160px;
+      --radius:      4px;
+      --transition:  0.25s ease;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--warm-white);
+    }
+
+    /* ============================================================
+       LAYOUT
+    ============================================================ */
+    .container {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 clamp(20px, 5vw, 48px);
+    }
+
+    .section           { padding: var(--section-pad) 0; }
+    .section--cream    { background: var(--cream); }
+    .section--navy     { background: var(--navy); color: var(--warm-white); }
+    .page-body         { padding-top: var(--nav-height); }
+
+    /* ============================================================
+       TYPOGRAPHY
+    ============================================================ */
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1.5px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(32px, 4vw, 48px);
+      line-height: 1.15;
+      color: var(--navy);
+      margin-bottom: 20px;
+    }
+    .section-title em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--gold-light);
+    }
+    .section--navy .section-title { color: var(--warm-white); }
+
+    .section-lead {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--text-light);
+      max-width: 600px;
+      line-height: 1.8;
+    }
+    .section--navy .section-lead { color: rgba(253,251,247,0.72); }
+
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background var(--transition), color var(--transition), transform var(--transition);
+      border-radius: var(--radius);
+      padding: 12px 24px;
+    }
+    .btn--gold    { background: var(--gold); color: var(--navy); }
+    .btn--gold:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn--outline { background: transparent; color: var(--gold); border: 1.5px solid var(--gold); }
+    .btn--outline:hover { background: var(--gold); color: var(--navy); }
+    .btn--ghost   { background: transparent; color: var(--warm-white); border: 1.5px solid rgba(255,255,255,0.3); }
+    .btn--ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* ============================================================
+       ANIMATIONS
+    ============================================================ */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .fade-up:nth-child(2) { transition-delay: 0.08s; }
+    .fade-up:nth-child(3) { transition-delay: 0.16s; }
+    .fade-up:nth-child(4) { transition-delay: 0.24s; }
+    .fade-up:nth-child(5) { transition-delay: 0.32s; }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: var(--nav-height);
+      background: var(--navy);
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      display: flex;
+      align-items: center;
+    }
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 clamp(20px, 5vw, 48px);
+    }
+    .nav__logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1.15; }
+    .nav__logo-primary { font-family: var(--font-display); font-weight: 600; font-size: 18px; letter-spacing: 0.02em; color: var(--warm-white); }
+    .nav__logo-sub     { font-family: var(--font-body); font-weight: 300; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); }
+    .nav__links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav__links a {
+      font-family: var(--font-body); font-weight: 400; font-size: 13px; letter-spacing: 0.03em;
+      color: rgba(253,251,247,0.78); text-decoration: none;
+      padding: 6px 14px; border-radius: var(--radius);
+      transition: color var(--transition), background var(--transition);
+      position: relative;
+    }
+    .nav__links a:hover { color: var(--warm-white); background: rgba(255,255,255,0.06); }
+    .nav__links a.active { color: var(--gold); }
+    .nav__links a.active::after {
+      content: ''; position: absolute; bottom: -2px; left: 14px; right: 14px;
+      height: 1.5px; background: var(--gold); opacity: 0.6;
+    }
+    .nav__cta { margin-left: 16px; }
+    .nav__toggle {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 4px;
+    }
+    .nav__toggle span { display: block; width: 24px; height: 1.5px; background: var(--warm-white); transition: transform 0.25s, opacity 0.25s; }
+    .nav__mobile {
+      display: none; position: fixed; top: var(--nav-height); left: 0; right: 0;
+      background: var(--navy); border-top: 1px solid rgba(201,168,76,0.15);
+      padding: 16px 0 24px; z-index: 99;
+    }
+    .nav__mobile.open { display: block; }
+    .nav__mobile a {
+      display: block; font-family: var(--font-body); font-weight: 400; font-size: 15px;
+      color: rgba(253,251,247,0.85); text-decoration: none;
+      padding: 12px clamp(20px,5vw,48px); border-bottom: 1px solid rgba(201,168,76,0.08);
+      transition: color var(--transition);
+    }
+    .nav__mobile a:hover, .nav__mobile a.active { color: var(--gold); }
+    .nav__mobile .nav__mobile-cta { margin: 16px clamp(20px,5vw,48px) 0; display: block; text-align: center; }
+
+    /* ============================================================
+       PAGE HERO — ABOUT
+    ============================================================ */
+    .about-hero {
+      background: var(--navy);
+      padding: clamp(72px, 10vw, 120px) 0 clamp(64px, 8vw, 96px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle background texture */
+    .about-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 80% 50%, rgba(201,168,76,0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 80% at 10% 80%, rgba(26,50,85,0.6) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .about-hero__inner {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-hero__title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(38px, 5vw, 62px);
+      line-height: 1.1;
+      color: var(--warm-white);
+      margin-bottom: 24px;
+    }
+    .about-hero__title em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--gold-light);
+    }
+
+    .about-hero__lead {
+      font-size: clamp(15px, 1.8vw, 17px);
+      font-weight: 300;
+      color: rgba(253,251,247,0.75);
+      line-height: 1.85;
+      max-width: 540px;
+      margin-bottom: 36px;
+    }
+
+    /* Credential pills */
+    .about-hero__credentials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .credential-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(201,168,76,0.12);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--gold-light);
+      letter-spacing: 0.03em;
+    }
+
+    .credential-pill::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* Avatar / profile card */
+    .about-hero__card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 6px;
+      padding: 36px 32px;
+      text-align: center;
+    }
+
+    .about-hero__avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: var(--navy-mid);
+      border: 2px solid var(--gold);
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 32px;
+      color: var(--gold);
+      letter-spacing: 0.02em;
+    }
+
+    .about-hero__name {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 22px;
+      color: var(--warm-white);
+      margin-bottom: 4px;
+    }
+
+    .about-hero__role {
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+
+    .about-hero__stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5px;
+      background: rgba(201,168,76,0.15);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+
+    .about-hero__stat {
+      background: rgba(15,31,56,0.8);
+      padding: 16px 12px;
+      text-align: center;
+    }
+
+    .about-hero__stat-num {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 26px;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .about-hero__stat-label {
+      font-size: 10.5px;
+      font-weight: 400;
+      color: rgba(253,251,247,0.55);
+      letter-spacing: 0.05em;
+      line-height: 1.35;
+    }
+
+    .about-hero__licence {
+      font-size: 11px;
+      font-weight: 300;
+      color: rgba(253,251,247,0.38);
+      letter-spacing: 0.04em;
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+       BIO SECTION
+    ============================================================ */
+    .bio__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .bio__body p {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+
+    .bio__body p:last-child { margin-bottom: 0; }
+
+    .bio__body strong {
+      font-weight: 500;
+      color: var(--navy);
+    }
+
+    /* Sidebar highlights */
+    .bio__sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .bio__highlight {
+      border-left: 3px solid var(--gold);
+      padding: 20px 24px;
+      background: var(--cream);
+    }
+
+    .bio__highlight-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    .bio__highlight-text {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--navy);
+    }
+
+    .bio__highlight-text em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    /* ============================================================
+       FRAMEWORKS SECTION
+    ============================================================ */
+    .frameworks__intro {
+      max-width: 640px;
+      margin-bottom: 56px;
+    }
+
+    .frameworks__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: var(--border);
+      border: 1.5px solid var(--border);
+    }
+
+    .framework-card {
+      background: var(--warm-white);
+      padding: 36px 32px 40px;
+      position: relative;
+    }
+
+    .framework-card__number {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: 52px;
+      line-height: 1;
+      color: rgba(201,168,76,0.2);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .framework-card__name {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 22px;
+      color: var(--navy);
+      margin-bottom: 4px;
+      line-height: 1.2;
+    }
+
+    .framework-card__author {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .framework-card__desc {
+      font-size: 14.5px;
+      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1.75;
+      margin-bottom: 20px;
+    }
+
+    .framework-card__applies {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--text-light);
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+      line-height: 1.6;
+    }
+
+    .framework-card__applies strong {
+      font-weight: 500;
+      color: var(--navy);
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+
+    /* ============================================================
+       METHODOLOGY SECTION
+    ============================================================ */
+    .method__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .method__intro p {
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(253,251,247,0.78);
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+
+    .method__intro p:last-child { margin-bottom: 0; }
+
+    .method__steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .method-step {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 20px;
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(201,168,76,0.12);
+      align-items: start;
+    }
+
+    .method-step:last-child { border-bottom: none; }
+
+    .method-step__num {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 32px;
+      color: var(--gold);
+      line-height: 1;
+      opacity: 0.7;
+    }
+
+    .method-step__title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 19px;
+      color: var(--warm-white);
+      margin-bottom: 6px;
+    }
+
+    .method-step__desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(253,251,247,0.62);
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       EXPERIENCE TIMELINE
+    ============================================================ */
+    .timeline {
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 8px;
+      width: 1.5px;
+      background: linear-gradient(to bottom, var(--gold), rgba(201,168,76,0.15));
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 0 0 32px 28px;
+    }
+
+    .timeline-item:last-child { padding-bottom: 0; }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -28px;
+      top: 7px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 2px solid var(--cream);
+    }
+
+    .timeline-item__period {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .timeline-item__title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .timeline-item__detail {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1.65;
+    }
+
+    /* ============================================================
+       CTA BAND
+    ============================================================ */
+    .cta-band {
+      background: var(--navy);
+      padding: 72px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-band::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 100% at 50% 50%, rgba(201,168,76,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-band__inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-band__title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(28px, 4vw, 44px);
+      color: var(--warm-white);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .cta-band__title em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--gold-light);
+    }
+
+    .cta-band__sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: rgba(253,251,247,0.62);
+      margin-bottom: 32px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-band__actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .footer {
+      background: var(--navy);
+      border-top: 1px solid rgba(201,168,76,0.2);
+      padding: 64px 0 0;
+      color: rgba(253,251,247,0.72);
+    }
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 1.8fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+    }
+    .footer__brand-name    { font-family: var(--font-display); font-weight: 600; font-size: 20px; color: var(--warm-white); margin-bottom: 4px; }
+    .footer__brand-tagline { font-family: var(--font-body); font-weight: 300; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .footer__brand-desc    { font-size: 13.5px; font-weight: 300; line-height: 1.75; margin-bottom: 24px; max-width: 280px; }
+    .footer__inperson {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 500; color: var(--gold); text-decoration: none;
+      letter-spacing: 0.04em; border-bottom: 1px solid rgba(201,168,76,0.3);
+      padding-bottom: 2px; transition: color var(--transition), border-color var(--transition);
+    }
+    .footer__inperson:hover { color: var(--gold-light); border-color: var(--gold-light); }
+    .footer__inperson svg { width: 13px; height: 13px; flex-shrink: 0; }
+    .footer__col-title { font-family: var(--font-body); font-weight: 500; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+    .footer__list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer__list a { font-size: 14px; font-weight: 300; color: rgba(253,251,247,0.68); text-decoration: none; transition: color var(--transition); }
+    .footer__list a:hover { color: var(--gold-light); }
+    .footer__contact-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13.5px; font-weight: 300; margin-bottom: 10px; line-height: 1.55; }
+    .footer__contact-item svg { width: 14px; height: 14px; flex-shrink: 0; margin-top: 3px; color: var(--gold); }
+    .footer__contact-item a { color: rgba(253,251,247,0.68); text-decoration: none; transition: color var(--transition); }
+    .footer__contact-item a:hover { color: var(--gold-light); }
+    .footer__bottom { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; flex-wrap: wrap; gap: 12px; }
+    .footer__legal { font-size: 12px; font-weight: 300; color: rgba(253,251,247,0.38); line-height: 1.6; }
+    .footer__licence { display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 400; color: rgba(253,251,247,0.38); letter-spacing: 0.03em; }
+    .footer__licence-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); opacity: 0.5; flex-shrink: 0; }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 960px) {
+      .about-hero__inner    { grid-template-columns: 1fr; gap: 40px; }
+      .about-hero__card     { max-width: 420px; }
+      .bio__grid            { grid-template-columns: 1fr; gap: 40px; }
+      .frameworks__grid     { grid-template-columns: 1fr; gap: 1.5px; }
+      .method__grid         { grid-template-columns: 1fr; gap: 40px; }
+      .nav__links, .nav__cta { display: none; }
+      .nav__toggle          { display: flex; }
+      .footer__grid         { grid-template-columns: 1fr 1fr; gap: 36px; }
+    }
+
+    @media (max-width: 640px) {
+      .about-hero__stats    { grid-template-columns: 1fr 1fr; }
+      .footer__grid         { grid-template-columns: 1fr; gap: 32px; }
+      .footer__bottom       { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .cta-band__actions    { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Open Horizons Learning Support — Home">
+        <span class="nav__logo-primary">Open Horizons</span>
+        <span class="nav__logo-sub">Learning Support</span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active" aria-current="page">About</a></li>
+        <li><a href="approach.html">Approach</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="success-stories.html">Results</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="btn btn--gold nav__cta">Enquire Now</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMobile">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav__mobile" id="navMobile" role="menu">
+    <a href="index.html" role="menuitem">Home</a>
+    <a href="about.html" class="active" role="menuitem">About</a>
+    <a href="approach.html" role="menuitem">Approach</a>
+    <a href="services.html" role="menuitem">Services</a>
+    <a href="success-stories.html" role="menuitem">Results</a>
+    <a href="contact.html" role="menuitem">Contact</a>
+    <a href="contact.html" class="btn btn--gold nav__mobile-cta" role="menuitem">Enquire Now</a>
+  </div>
+
+
+  <main class="page-body">
+
+    <!-- ============================================================
+         HERO
+    ============================================================ -->
+    <section class="about-hero" aria-label="About Grant Crossman">
+      <div class="container">
+        <div class="about-hero__inner">
+
+          <!-- Left: text -->
+          <div>
+            <div class="eyebrow" style="--gold: #c9a84c;">About the Tutor</div>
+            <h1 class="about-hero__title">
+              A decade of teaching.<br>
+              A career built on <em>evidence.</em>
+            </h1>
+            <p class="about-hero__lead">
+              Open Horizons Learning Support was founded by Grant Crossman — a UAE-licensed tutor
+              whose approach to learning is shaped by real classroom experience, postgraduate
+              academic research, and a deep commitment to every student's long-term progress.
+            </p>
+            <div class="about-hero__credentials">
+              <span class="credential-pill">10+ Years Teaching Experience</span>
+              <span class="credential-pill">Maths · Science · English</span>
+              <span class="credential-pill">British, American &amp; IB Curricula</span>
+              <span class="credential-pill">MEd — University of Birmingham Dubai</span>
+              <span class="credential-pill">RAKEZ Licensed · UAE</span>
+            </div>
+          </div>
+
+          <!-- Right: profile card -->
+          <div class="about-hero__card" aria-label="Grant Crossman profile summary">
+            <div class="about-hero__avatar" aria-hidden="true">GC</div>
+            <div class="about-hero__name">Grant Crossman</div>
+            <div class="about-hero__role">Founder &amp; Lead Tutor</div>
+            <div class="about-hero__stats" role="list">
+              <div class="about-hero__stat" role="listitem">
+                <div class="about-hero__stat-num">10+</div>
+                <div class="about-hero__stat-label">Years in Education</div>
+              </div>
+              <div class="about-hero__stat" role="listitem">
+                <div class="about-hero__stat-num">3</div>
+                <div class="about-hero__stat-label">Core Subjects</div>
+              </div>
+              <div class="about-hero__stat" role="listitem">
+                <div class="about-hero__stat-num" style="font-size:18px;">KS1–KS3</div>
+                <div class="about-hero__stat-label">Primary &amp; Lower Secondary</div>
+              </div>
+              <div class="about-hero__stat" role="listitem">
+                <div class="about-hero__stat-num" style="font-size:18px;">Online</div>
+                <div class="about-hero__stat-label">Delivery Format</div>
+              </div>
+            </div>
+            <div class="about-hero__licence">
+              RAKEZ Licensed FZ-LLC<br>
+              Federal Private Tutoring Permit Holder
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         BIO
+    ============================================================ -->
+    <section class="section" aria-labelledby="bio-heading">
+      <div class="container">
+        <div class="bio__grid">
+
+          <div class="bio__body fade-up">
+            <div class="eyebrow">Background</div>
+            <h2 class="section-title" id="bio-heading">
+              Built in classrooms.<br><em>Refined by research.</em>
+            </h2>
+            <p>
+              Grant Crossman brings over a decade of classroom teaching experience across
+              British, American, and IB environments in the UAE — a professional background that
+              shapes every aspect of how Open Horizons operates. Unlike tutors who move
+              directly from school to private practice, Grant's teaching career spans the full
+              range of international curricula, giving him an unusually clear picture of how
+              different schools approach learning and where students commonly fall behind.
+            </p>
+            <p>
+              His core subjects — <strong>Mathematics, Science, and English</strong> — reflect both
+              depth of expertise and the reality of where students most often need structured
+              support. Sessions are not a repeat of what happens in school. They are diagnostic,
+              targeted, and designed to address the root cause of a difficulty rather than its
+              surface symptoms.
+            </p>
+            <p>
+              Grant is currently completing a <strong>Master of Education in Leadership</strong> at
+              the University of Birmingham Dubai campus — postgraduate research that directly
+              informs how he designs learning programmes, interprets student progress, and
+              communicates with families. Continued academic development is not incidental to
+              Open Horizons; it is central to it.
+            </p>
+          </div>
+
+          <div class="bio__sidebar fade-up">
+            <div class="bio__highlight">
+              <div class="bio__highlight-label">Philosophy</div>
+              <div class="bio__highlight-text">
+                "Typical tutors repeat school material. Open Horizons
+                <em>diagnoses root learning gaps</em> and rebuilds
+                from the foundations up."
+              </div>
+            </div>
+
+            <div class="bio__highlight">
+              <div class="bio__highlight-label">Postgraduate Research</div>
+              <div class="bio__highlight-text">
+                MEd in Leadership — <em>University of Birmingham Dubai.</em>
+                Currently enrolled.
+              </div>
+            </div>
+
+            <div class="bio__highlight">
+              <div class="bio__highlight-label">Curricula Covered</div>
+              <div class="bio__highlight-text">
+                British National Curriculum · IB PYP ·
+                Cambridge International · <em>American Curriculum</em>
+              </div>
+            </div>
+
+            <div class="bio__highlight">
+              <div class="bio__highlight-label">Schools Served</div>
+              <div class="bio__highlight-text" style="font-size:15px; line-height:1.65;">
+                NLCS Dubai · Brighton College Dubai · RGS Dubai ·
+                GEMS Cambridge Abu Dhabi · Repton Dubai ·
+                <em>Nord Anglia Dubai</em>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         RESEARCH FRAMEWORKS
+    ============================================================ -->
+    <section class="section section--cream" aria-labelledby="frameworks-heading">
+      <div class="container">
+
+        <div class="frameworks__intro fade-up">
+          <div class="eyebrow">Evidence-Based Practice</div>
+          <h2 class="section-title" id="frameworks-heading">
+            The research that shapes <em>every session</em>
+          </h2>
+          <p class="section-lead">
+            Open Horizons teaching is grounded in three well-established bodies of educational
+            research. These are not marketing terms — they are the frameworks that directly
+            inform how Grant plans, delivers, and adjusts instruction for each student.
+          </p>
+        </div>
+
+        <div class="frameworks__grid" role="list">
+
+          <!-- Framework 1 -->
+          <article class="framework-card fade-up" role="listitem">
+            <div class="framework-card__number">01</div>
+            <h3 class="framework-card__name">Rosenshine's Principles of Instruction</h3>
+            <div class="framework-card__author">Barak Rosenshine</div>
+            <p class="framework-card__desc">
+              A set of ten evidence-backed principles distilled from decades of classroom
+              research, describing how expert teachers introduce content, check for
+              understanding, and build student fluency. These principles guide the pace and
+              structure of every tutoring session — from the amount of new material introduced
+              at once to the use of frequent low-stakes checks throughout.
+            </p>
+            <div class="framework-card__applies">
+              <strong>Applied in sessions as</strong>
+              Structured review, guided practice, high success-rate tasks, and scaffolded
+              independent work — adjusted to each student's current level of mastery.
+            </div>
+          </article>
+
+          <!-- Framework 2 -->
+          <article class="framework-card fade-up" role="listitem">
+            <div class="framework-card__number">02</div>
+            <h3 class="framework-card__name">Cognitive Load Theory</h3>
+            <div class="framework-card__author">John Sweller</div>
+            <p class="framework-card__desc">
+              A theory of how the working memory processes and retains new information.
+              When instruction is poorly designed — too much presented at once, unclear
+              sequencing, no prior knowledge activated — students struggle not because they
+              lack ability, but because the lesson itself is placing too much demand on their
+              cognitive resources. Awareness of cognitive load shapes how content is broken
+              down, sequenced, and explained.
+            </p>
+            <div class="framework-card__applies">
+              <strong>Applied in sessions as</strong>
+              Worked examples, stepwise reasoning, visual strategies, and careful management
+              of the volume of new material introduced in any single session.
+            </div>
+          </article>
+
+          <!-- Framework 3 -->
+          <article class="framework-card fade-up" role="listitem">
+            <div class="framework-card__number">03</div>
+            <h3 class="framework-card__name">Hattie's Visible Learning</h3>
+            <div class="framework-card__author">John Hattie</div>
+            <p class="framework-card__desc">
+              A synthesis of over 800 meta-analyses covering what factors most reliably
+              improve student outcomes. Hattie's research identifies the highest-impact
+              teaching strategies — including formative feedback, teacher-student
+              relationships, and metacognitive skill development — and separates them from
+              popular practices that show little measurable effect.
+            </p>
+            <div class="framework-card__applies">
+              <strong>Applied in sessions as</strong>
+              Deliberate feedback loops, transparent learning goals, confidence tracking,
+              and regular progress reviews communicated clearly to students and parents.
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         METHODOLOGY — 3-STEP PROCESS
+    ============================================================ -->
+    <section class="section section--navy" aria-labelledby="method-heading">
+      <div class="container">
+        <div class="method__grid">
+
+          <div class="method__intro fade-up">
+            <div class="eyebrow" style="color: var(--gold);">How It Works</div>
+            <h2 class="section-title" id="method-heading">
+              Three principles.<br>
+              <em>One consistent approach.</em>
+            </h2>
+            <p>
+              Every student engagement follows the same structured methodology — regardless
+              of subject, year group, or curriculum. The sequence is not arbitrary. It reflects
+              what the research consistently shows about how learning actually sticks.
+            </p>
+            <p>
+              The result is a programme that is genuinely personalised — not just in
+              tone, but in content, pacing, and the specific gaps being addressed.
+            </p>
+            <div style="margin-top: 32px;">
+              <a href="approach.html" class="btn btn--outline">See the Full Approach</a>
+            </div>
+          </div>
+
+          <div class="method__steps" role="list">
+
+            <div class="method-step fade-up" role="listitem">
+              <div class="method-step__num">01</div>
+              <div>
+                <div class="method-step__title">Diagnostic Precision</div>
+                <div class="method-step__desc">
+                  Before any instruction begins, structured diagnostic assessment identifies
+                  conceptual gaps, procedural misunderstandings, and curriculum misalignments
+                  specific to each student. Teaching starts from the right place — not an assumed one.
+                </div>
+              </div>
+            </div>
+
+            <div class="method-step fade-up" role="listitem">
+              <div class="method-step__num">02</div>
+              <div>
+                <div class="method-step__title">Conceptual Clarity</div>
+                <div class="method-step__desc">
+                  Instruction prioritises understanding before procedure, reasoning before
+                  memorisation. In Mathematics and Science this means conceptual modelling
+                  and stepwise reasoning. In English it means writing structure, clarity,
+                  and analytical reading — not just surface corrections.
+                </div>
+              </div>
+            </div>
+
+            <div class="method-step fade-up" role="listitem">
+              <div class="method-step__num">03</div>
+              <div>
+                <div class="method-step__title">Personalised Growth</div>
+                <div class="method-step__desc">
+                  Progress is tracked against individual goals. Parents receive structured
+                  updates. Students are taught metacognitive strategies — retrieval practice,
+                  spaced repetition, exam planning — so that progress extends beyond the
+                  sessions themselves.
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         EXPERIENCE TIMELINE
+    ============================================================ -->
+    <section class="section" aria-labelledby="timeline-heading">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;">
+
+          <div class="fade-up">
+            <div class="eyebrow">Professional Journey</div>
+            <h2 class="section-title" id="timeline-heading">
+              Experience built <em>across curricula</em>
+            </h2>
+            <p class="section-lead" style="margin-bottom: 0;">
+              A teaching career shaped across multiple school systems, year groups,
+              and learning contexts — giving Grant a perspective on student progress
+              that extends well beyond a single curriculum or classroom.
+            </p>
+          </div>
+
+          <div class="fade-up">
+            <div class="timeline" role="list">
+
+              <div class="timeline-item" role="listitem">
+                <div class="timeline-item__period">Present</div>
+                <div class="timeline-item__title">MEd in Leadership</div>
+                <div class="timeline-item__detail">University of Birmingham Dubai — postgraduate research informing evidence-based tutoring practice and programme design.</div>
+              </div>
+
+              <div class="timeline-item" role="listitem">
+                <div class="timeline-item__period">Current</div>
+                <div class="timeline-item__title">Founder, Open Horizons Learning Support</div>
+                <div class="timeline-item__detail">RAKEZ-licensed FZ-LLC providing online tutoring in Maths, Science, and English to students across Dubai and Abu Dhabi international schools.</div>
+              </div>
+
+              <div class="timeline-item" role="listitem">
+                <div class="timeline-item__period">10+ Years</div>
+                <div class="timeline-item__title">Classroom Teaching — UAE</div>
+                <div class="timeline-item__detail">Mathematics, Science, and English across British National Curriculum, IB PYP, Cambridge International, and American Curriculum schools.</div>
+              </div>
+
+              <div class="timeline-item" role="listitem">
+                <div class="timeline-item__period">Ongoing</div>
+                <div class="timeline-item__title">Federal Private Tutoring Permit</div>
+                <div class="timeline-item__detail">UAE federally mandated tutoring permit — held alongside RAKEZ commercial licence. <a href="contact.html?enquiry=inperson" style="color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.4);">Ask about in-person availability →</a></div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         CTA BAND
+    ============================================================ -->
+    <section class="cta-band" aria-labelledby="cta-heading">
+      <div class="container">
+        <div class="cta-band__inner fade-up">
+          <h2 class="cta-band__title" id="cta-heading">
+            Ready to talk about <em>your child's learning?</em>
+          </h2>
+          <p class="cta-band__sub">
+            Every enquiry starts with a conversation. No obligation — just a clear-eyed
+            look at where your child is and how we can help.
+          </p>
+          <div class="cta-band__actions">
+            <a href="contact.html" class="btn btn--gold">Make an Enquiry</a>
+            <a href="services.html" class="btn btn--ghost">View Services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+
+        <div class="footer__brand">
+          <div class="footer__brand-name">Open Horizons</div>
+          <div class="footer__brand-tagline">UAE-Based. Globally Aligned. Personally Delivered.</div>
+          <p class="footer__brand-desc">
+            Evidence-informed online tutoring for international school students
+            across Dubai and Abu Dhabi. Maths, Science, and English — KS1 to KS3.
+          </p>
+          <a href="contact.html?enquiry=inperson" class="footer__inperson">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <circle cx="8" cy="6" r="2.5"/>
+              <path d="M3 14c0-3 2.2-5 5-5s5 2 5 5"/>
+            </svg>
+            Interested in in-person sessions? Ask us
+          </a>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Navigation</div>
+          <ul class="footer__list" role="list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Grant</a></li>
+            <li><a href="approach.html">Our Approach</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="success-stories.html">Results</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Services</div>
+          <ul class="footer__list" role="list">
+            <li><a href="services.html#individual">One-to-One Tutoring</a></li>
+            <li><a href="services.html#study-skills">Study Skills Coaching</a></li>
+            <li><a href="services.html#homeschool">Homeschool Support</a></li>
+            <li><a href="services.html#workshops">Parent Workshops</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Contact</div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M2 4l6 5 6-5M2 4h12v9H2z"/>
+            </svg>
+            <a href="mailto:hello@openhorizonslearning.ae">hello@openhorizonslearning.ae</a>
+          </div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <circle cx="8" cy="6" r="2.5"/>
+              <path d="M3 14c0-3 2.2-5 5-5s5 2 5 5"/>
+            </svg>
+            <span>Serving Dubai &amp; Abu Dhabi</span>
+          </div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <rect x="2" y="2" width="12" height="12" rx="2"/>
+              <path d="M5 8h6M8 5v6"/>
+            </svg>
+            <a href="contact.html">Make an Enquiry</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <div class="footer__legal">
+          &copy; <span id="footerYear"></span> Open Horizons Learning Support FZ-LLC. All rights reserved.<br>
+          <span style="font-size:11px;">openhorizonslearning.ae</span>
+        </div>
+        <div class="footer__licence">
+          <span class="footer__licence-dot"></span>
+          RAKEZ Licensed · Ras Al Khaimah Economic Zone
+          <span class="footer__licence-dot"></span>
+          Federal Private Tutoring Permit Holder
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+    // Mobile nav
+    const toggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('navMobile');
+    toggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+      const spans = toggle.querySelectorAll('span');
+      if (isOpen) {
+        spans[0].style.transform = 'translateY(6.5px) rotate(45deg)';
+        spans[1].style.opacity  = '0';
+        spans[2].style.transform = 'translateY(-6.5px) rotate(-45deg)';
+      } else {
+        spans[0].style.transform = '';
+        spans[1].style.opacity  = '';
+        spans[2].style.transform = '';
+      }
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', false);
+        toggle.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+      });
+    });
+    document.addEventListener('click', e => {
+      if (!toggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+        mobileMenu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', false);
+        toggle.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+      }
+    });
+
+    // Scroll animations
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+      }),
+      { threshold: 0.1 }
+    );
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Nav scroll shadow
+    const nav = document.querySelector('.nav');
+    window.addEventListener('scroll', () => {
+      nav.style.boxShadow = window.scrollY > 8 ? '0 2px 24px rgba(15,31,56,0.35)' : 'none';
+    }, { passive: true });
+  </script>
+
+</body>
+</html>

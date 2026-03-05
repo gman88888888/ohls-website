@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Open Horizons Learning Support</title>
+  <meta name="description" content="UAE-Based. Globally Aligned. Personally Delivered. Evidence-informed online tutoring for international school students across Dubai and Abu Dhabi." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       DESIGN SYSTEM — OHLS
+       Palette, typography, and shared utilities
+    ============================================================ */
+
+    :root {
+      --navy:        #0f1f38;
+      --navy-mid:    #1a3255;
+      --navy-light:  #223d66;
+      --gold:        #c9a84c;
+      --gold-light:  #e8c97a;
+      --cream:       #f9f6f0;
+      --warm-white:  #fdfbf7;
+      --text:        #2a2a2a;
+      --text-light:  #6b6b6b;
+      --border:      rgba(201, 168, 76, 0.25);
+
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'DM Sans', sans-serif;
+
+      --nav-height:  72px;
+      --section-pad: clamp(64px, 8vw, 112px);
+      --container:   1160px;
+      --radius:      4px;
+
+      --transition: 0.25s ease;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--warm-white);
+    }
+
+    /* ============================================================
+       LAYOUT UTILITIES
+    ============================================================ */
+
+    .container {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 clamp(20px, 5vw, 48px);
+    }
+
+    .section {
+      padding: var(--section-pad) 0;
+    }
+
+    .section--cream {
+      background: var(--cream);
+    }
+
+    .section--navy {
+      background: var(--navy);
+      color: var(--warm-white);
+    }
+
+    /* ============================================================
+       TYPOGRAPHY UTILITIES
+    ============================================================ */
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1.5px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(32px, 4vw, 48px);
+      line-height: 1.15;
+      color: var(--navy);
+      margin-bottom: 20px;
+    }
+
+    .section-title em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--gold-light);
+    }
+
+    .section--navy .section-title {
+      color: var(--warm-white);
+    }
+
+    .section-lead {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--text-light);
+      max-width: 600px;
+      line-height: 1.8;
+    }
+
+    .section--navy .section-lead {
+      color: rgba(253, 251, 247, 0.72);
+    }
+
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background var(--transition), color var(--transition), transform var(--transition);
+      border-radius: var(--radius);
+      padding: 12px 24px;
+    }
+
+    .btn--gold {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    .btn--gold:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+    }
+
+    .btn--outline {
+      background: transparent;
+      color: var(--gold);
+      border: 1.5px solid var(--gold);
+    }
+
+    .btn--outline:hover {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    .btn--ghost {
+      background: transparent;
+      color: var(--warm-white);
+      border: 1.5px solid rgba(255,255,255,0.3);
+    }
+
+    .btn--ghost:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* ============================================================
+       CARD UTILITIES
+    ============================================================ */
+
+    .card {
+      background: var(--warm-white);
+      border-left: 3px solid var(--gold);
+      padding: 28px 28px 28px 32px;
+    }
+
+    .card--navy {
+      background: var(--navy);
+      border-left: 3px solid var(--gold);
+      color: var(--warm-white);
+    }
+
+    .card--cream {
+      background: var(--cream);
+      border-left: 3px solid var(--gold);
+    }
+
+    /* ============================================================
+       DIVIDERS / GRID-GAP LINES
+    ============================================================ */
+
+    .rule {
+      border: none;
+      border-top: 1.5px solid var(--border);
+      margin: 48px 0;
+    }
+
+    /* ============================================================
+       SCROLL-TRIGGERED ANIMATIONS
+    ============================================================ */
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stagger delays for grid children */
+    .fade-up:nth-child(2) { transition-delay: 0.08s; }
+    .fade-up:nth-child(3) { transition-delay: 0.16s; }
+    .fade-up:nth-child(4) { transition-delay: 0.24s; }
+    .fade-up:nth-child(5) { transition-delay: 0.32s; }
+    .fade-up:nth-child(6) { transition-delay: 0.40s; }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      height: var(--nav-height);
+      background: var(--navy);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+      display: flex;
+      align-items: center;
+    }
+
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 clamp(20px, 5vw, 48px);
+    }
+
+    /* Logo */
+    .nav__logo {
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+
+    .nav__logo-primary {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 18px;
+      letter-spacing: 0.02em;
+      color: var(--warm-white);
+    }
+
+    .nav__logo-sub {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* Links */
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none;
+    }
+
+    .nav__links a {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 13px;
+      letter-spacing: 0.03em;
+      color: rgba(253, 251, 247, 0.78);
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: var(--radius);
+      transition: color var(--transition), background var(--transition);
+      position: relative;
+    }
+
+    .nav__links a:hover {
+      color: var(--warm-white);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .nav__links a.active {
+      color: var(--gold);
+    }
+
+    .nav__links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 14px;
+      right: 14px;
+      height: 1.5px;
+      background: var(--gold);
+      opacity: 0.6;
+    }
+
+    /* CTA button in nav */
+    .nav__cta {
+      margin-left: 16px;
+    }
+
+    /* Mobile hamburger */
+    .nav__toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .nav__toggle span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--warm-white);
+      transition: transform 0.25s, opacity 0.25s;
+    }
+
+    /* Mobile menu */
+    .nav__mobile {
+      display: none;
+      position: fixed;
+      top: var(--nav-height);
+      left: 0;
+      right: 0;
+      background: var(--navy);
+      border-top: 1px solid rgba(201, 168, 76, 0.15);
+      padding: 16px 0 24px;
+      z-index: 99;
+    }
+
+    .nav__mobile.open {
+      display: block;
+    }
+
+    .nav__mobile a {
+      display: block;
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 15px;
+      color: rgba(253, 251, 247, 0.85);
+      text-decoration: none;
+      padding: 12px clamp(20px, 5vw, 48px);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.08);
+      transition: color var(--transition);
+    }
+
+    .nav__mobile a:hover,
+    .nav__mobile a.active {
+      color: var(--gold);
+    }
+
+    .nav__mobile .nav__mobile-cta {
+      margin: 16px clamp(20px, 5vw, 48px) 0;
+      display: block;
+      text-align: center;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+
+    .footer {
+      background: var(--navy);
+      border-top: 1px solid rgba(201, 168, 76, 0.2);
+      padding: 64px 0 0;
+      color: rgba(253, 251, 247, 0.72);
+    }
+
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 1.8fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+    }
+
+    /* Brand column */
+    .footer__brand-name {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 20px;
+      color: var(--warm-white);
+      margin-bottom: 4px;
+    }
+
+    .footer__brand-tagline {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+
+    .footer__brand-desc {
+      font-size: 13.5px;
+      font-weight: 300;
+      line-height: 1.75;
+      margin-bottom: 24px;
+      max-width: 280px;
+    }
+
+    /* In-person enquiry CTA */
+    .footer__inperson {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid rgba(201,168,76,0.3);
+      padding-bottom: 2px;
+      transition: color var(--transition), border-color var(--transition);
+    }
+
+    .footer__inperson:hover {
+      color: var(--gold-light);
+      border-color: var(--gold-light);
+    }
+
+    .footer__inperson svg {
+      width: 13px;
+      height: 13px;
+      flex-shrink: 0;
+    }
+
+    /* Footer column headings */
+    .footer__col-title {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    /* Footer nav lists */
+    .footer__list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer__list a {
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(253, 251, 247, 0.68);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    .footer__list a:hover {
+      color: var(--gold-light);
+    }
+
+    /* Footer contact / info */
+    .footer__contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13.5px;
+      font-weight: 300;
+      margin-bottom: 10px;
+      line-height: 1.55;
+    }
+
+    .footer__contact-item svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+      margin-top: 3px;
+      color: var(--gold);
+    }
+
+    .footer__contact-item a {
+      color: rgba(253, 251, 247, 0.68);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    .footer__contact-item a:hover {
+      color: var(--gold-light);
+    }
+
+    /* Bottom bar */
+    .footer__bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer__legal {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(253, 251, 247, 0.38);
+      line-height: 1.6;
+    }
+
+    .footer__licence {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 400;
+      color: rgba(253, 251, 247, 0.38);
+      letter-spacing: 0.03em;
+    }
+
+    .footer__licence-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: 0.5;
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+       PAGE OFFSET (below fixed nav)
+    ============================================================ */
+
+    .page-body {
+      padding-top: var(--nav-height);
+    }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+
+    @media (max-width: 900px) {
+      .nav__links,
+      .nav__cta {
+        display: none;
+      }
+
+      .nav__toggle {
+        display: flex;
+      }
+
+      .footer__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 36px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .footer__grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .footer__bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+    }
+
+    /* ============================================================
+       DEMO / PLACEHOLDER STYLES (remove in production pages)
+    ============================================================ */
+
+    .shell-demo {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+      padding: 80px 24px;
+    }
+
+    .shell-demo__label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .shell-demo__title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .shell-demo__title em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--gold-light);
+    }
+
+    .shell-demo__note {
+      font-size: 14px;
+      color: var(--text-light);
+      max-width: 480px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+
+      <!-- Logo -->
+      <a href="index.html" class="nav__logo" aria-label="Open Horizons Learning Support — Home">
+        <span class="nav__logo-primary">Open Horizons</span>
+        <span class="nav__logo-sub">Learning Support</span>
+      </a>
+
+      <!-- Desktop links -->
+      <ul class="nav__links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="approach.html">Approach</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="success-stories.html">Results</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <!-- Desktop CTA -->
+      <a href="contact.html" class="btn btn--gold nav__cta">Enquire Now</a>
+
+      <!-- Mobile hamburger -->
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMobile">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- Mobile menu (outside nav for stacking context) -->
+  <div class="nav__mobile" id="navMobile" role="menu">
+    <a href="index.html" role="menuitem">Home</a>
+    <a href="about.html" role="menuitem">About</a>
+    <a href="approach.html" role="menuitem">Approach</a>
+    <a href="services.html" role="menuitem">Services</a>
+    <a href="success-stories.html" role="menuitem">Results</a>
+    <a href="contact.html" role="menuitem">Contact</a>
+    <a href="contact.html" class="btn btn--gold nav__mobile-cta" role="menuitem">Enquire Now</a>
+  </div>
+
+
+  <!-- ============================================================
+       PAGE BODY — replace this block with page-specific content
+  ============================================================ -->
+
+  <main class="page-body">
+
+    <!-- DEMO PLACEHOLDER — DELETE WHEN BUILDING A REAL PAGE -->
+    <div class="shell-demo section">
+      <span class="shell-demo__label">OHLS Shell Template</span>
+      <h1 class="shell-demo__title">Page content goes <em>here</em></h1>
+      <p class="shell-demo__note">
+        Replace this block with the page-specific sections. The nav, footer,
+        design system, and shared styles above are ready to use.
+      </p>
+      <a href="contact.html" class="btn btn--gold">Enquire Now</a>
+    </div>
+
+  </main>
+
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+
+      <div class="footer__grid">
+
+        <!-- Column 1: Brand -->
+        <div class="footer__brand">
+          <div class="footer__brand-name">Open Horizons</div>
+          <div class="footer__brand-tagline">UAE-Based. Globally Aligned. Personally Delivered.</div>
+          <p class="footer__brand-desc">
+            Evidence-informed online tutoring for international school students
+            across Dubai and Abu Dhabi. Maths, Science, and English — KS1 to KS3.
+          </p>
+          <!-- In-person permit soft CTA -->
+          <a href="contact.html?enquiry=inperson" class="footer__inperson">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <circle cx="8" cy="6" r="2.5"/>
+              <path d="M3 14c0-3 2.2-5 5-5s5 2 5 5"/>
+            </svg>
+            Interested in in-person sessions? Ask us
+          </a>
+        </div>
+
+        <!-- Column 2: Navigation -->
+        <div>
+          <div class="footer__col-title">Navigation</div>
+          <ul class="footer__list" role="list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Grant</a></li>
+            <li><a href="approach.html">Our Approach</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="success-stories.html">Results</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Services -->
+        <div>
+          <div class="footer__col-title">Services</div>
+          <ul class="footer__list" role="list">
+            <li><a href="services.html#individual">One-to-One Tutoring</a></li>
+            <li><a href="services.html#study-skills">Study Skills Coaching</a></li>
+            <li><a href="services.html#homeschool">Homeschool Support</a></li>
+            <li><a href="services.html#workshops">Parent Workshops</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Contact / Legal -->
+        <div>
+          <div class="footer__col-title">Contact</div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M2 4l6 5 6-5M2 4h12v9H2z"/>
+            </svg>
+            <a href="mailto:hello@openhorizonslearning.ae">hello@openhorizonslearning.ae</a>
+          </div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <circle cx="8" cy="6" r="2.5"/>
+              <path d="M3 14c0-3 2.2-5 5-5s5 2 5 5"/>
+            </svg>
+            <span>Serving Dubai &amp; Abu Dhabi</span>
+          </div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <rect x="2" y="2" width="12" height="12" rx="2"/>
+              <path d="M5 8h6M8 5v6"/>
+            </svg>
+            <a href="contact.html">Make an Enquiry</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="footer__bottom">
+        <div class="footer__legal">
+          &copy; <span id="footerYear"></span> Open Horizons Learning Support FZ-LLC. All rights reserved.<br>
+          <span style="font-size:11px;">openhorizonslearning.ae</span>
+        </div>
+        <div class="footer__licence">
+          <span class="footer__licence-dot"></span>
+          RAKEZ Licensed · Ras Al Khaimah Economic Zone
+          <span class="footer__licence-dot"></span>
+          Federal Private Tutoring Permit Holder
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ============================================================
+       SHARED JAVASCRIPT
+  ============================================================ -->
+
+  <script>
+    // --- Dynamic year in footer ---
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+    // --- Mobile nav toggle ---
+    const toggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('navMobile');
+
+    toggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen);
+      // Animate hamburger to X
+      const spans = toggle.querySelectorAll('span');
+      if (isOpen) {
+        spans[0].style.transform = 'translateY(6.5px) rotate(45deg)';
+        spans[1].style.opacity  = '0';
+        spans[2].style.transform = 'translateY(-6.5px) rotate(-45deg)';
+      } else {
+        spans[0].style.transform = '';
+        spans[1].style.opacity  = '';
+        spans[2].style.transform = '';
+      }
+    });
+
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', false);
+        toggle.querySelectorAll('span').forEach(s => {
+          s.style.transform = '';
+          s.style.opacity   = '';
+        });
+      });
+    });
+
+    // Close on outside click
+    document.addEventListener('click', e => {
+      if (!toggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+        mobileMenu.classList.remove('open');
+        toggle.setAttribute('aria-expanded', false);
+        toggle.querySelectorAll('span').forEach(s => {
+          s.style.transform = '';
+          s.style.opacity   = '';
+        });
+      }
+    });
+
+    // --- Active nav link (by current page filename) ---
+    const currentPage = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav__links a, .nav__mobile a').forEach(link => {
+      const linkPage = link.getAttribute('href').split('?')[0];
+      if (linkPage === currentPage) {
+        link.classList.add('active');
+        link.setAttribute('aria-current', 'page');
+      }
+    });
+
+    // --- Scroll-triggered fade-up ---
+    const observer = new IntersectionObserver(
+      entries => entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      }),
+      { threshold: 0.12 }
+    );
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // --- Nav scroll shadow ---
+    const nav = document.querySelector('.nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 8) {
+        nav.style.boxShadow = '0 2px 24px rgba(15,31,56,0.35)';
+      } else {
+        nav.style.boxShadow = 'none';
+      }
+    }, { passive: true });
+  </script>
+
+</body>
+</html>
