@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enquiry Received — Open Horizons Learning Support</title>
+  <meta name="robots" content="noindex" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --navy:       #0f1f38;
+      --gold:       #c9a84c;
+      --gold-light: #e8c97a;
+      --cream:      #f9f6f0;
+      --warm-white: #fdfbf7;
+      --text:       #2a2a2a;
+      --text-light: #6b6b6b;
+      --border:     rgba(201,168,76,0.25);
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'DM Sans', sans-serif;
+      --nav-height: 72px;
+      --radius:     4px;
+      --transition: 0.25s ease;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font-body); background: var(--warm-white); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; }
+
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-height); background: var(--navy); border-bottom: 1px solid rgba(201,168,76,0.15); display: flex; align-items: center; }
+    .nav__inner { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 clamp(20px,5vw,48px); }
+    .nav__logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1.15; }
+    .nav__logo-primary { font-family: var(--font-display); font-weight: 600; font-size: 18px; color: var(--warm-white); }
+    .nav__logo-sub { font-size: 10px; font-weight: 300; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); }
+
+    .main { flex: 1; display: flex; align-items: center; justify-content: center; padding: calc(var(--nav-height) + 64px) clamp(20px,5vw,48px) 80px; }
+
+    .thankyou {
+      max-width: 560px;
+      text-align: center;
+    }
+    .thankyou__icon {
+      width: 64px; height: 64px;
+      border: 1.5px solid var(--gold);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 28px;
+    }
+    .thankyou__icon svg { width: 28px; height: 28px; color: var(--gold); }
+    .thankyou__eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+    }
+    .thankyou__eyebrow::before,
+    .thankyou__eyebrow::after {
+      content: '';
+      display: block; width: 32px; height: 1.5px;
+      background: var(--gold); opacity: 0.5;
+    }
+    .thankyou__title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(36px, 5vw, 52px);
+      color: var(--navy);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .thankyou__title em { font-style: italic; font-weight: 300; color: var(--gold-light); }
+    .thankyou__text {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--text-light);
+      line-height: 1.85;
+      margin-bottom: 40px;
+    }
+    .thankyou__text strong { font-weight: 500; color: var(--text); }
+    .thankyou__actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    .btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-body); font-weight: 500; font-size: 13px; letter-spacing: 0.06em; text-decoration: none; border: none; cursor: pointer; transition: background var(--transition), color var(--transition), transform var(--transition); border-radius: var(--radius); padding: 12px 24px; }
+    .btn--gold { background: var(--gold); color: var(--navy); }
+    .btn--gold:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn--outline { background: transparent; color: var(--gold); border: 1.5px solid var(--gold); }
+    .btn--outline:hover { background: var(--gold); color: var(--navy); }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        <span class="nav__logo-primary">Open Horizons</span>
+        <span class="nav__logo-sub">Learning Support</span>
+      </a>
+    </div>
+  </nav>
+
+  <main class="main">
+    <div class="thankyou">
+      <div class="thankyou__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M20 6L9 17l-5-5"/>
+        </svg>
+      </div>
+      <div class="thankyou__eyebrow">Enquiry Received</div>
+      <h1 class="thankyou__title">
+        Thank you for<br>
+        <em>getting in touch.</em>
+      </h1>
+      <p class="thankyou__text">
+        Your enquiry has been received. <strong>Grant will respond personally
+        within 24 hours</strong> with a clear recommendation based on your
+        child's situation — not a template reply.
+      </p>
+      <div class="thankyou__actions">
+        <a href="index.html" class="btn btn--gold">Back to Home</a>
+        <a href="services.html" class="btn btn--outline">View Services</a>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
