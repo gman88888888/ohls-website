@@ -791,13 +791,15 @@
             <form
               class="enquiry-form"
               id="enquiryForm"
-              action="https://formspree.io/f/XXXXXXXX"
+              name="contact"
               method="POST"
               novalidate
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
               aria-label="Enquiry form"
             >
-              <!-- NOTE: Replace the Formspree action URL above with your actual endpoint -->
-              <!-- Sign up free at formspree.io — no server required -->
+              <input type="hidden" name="form-name" value="contact" />
+              <p style="display:none;"><label>Don't fill this out: <input name="bot-field" /></label></p>
 
               <!-- Name row -->
               <div class="form-row">
@@ -1236,7 +1238,7 @@
       if (serviceSelect) serviceSelect.value = 'In-Person Sessions';
     }
 
-    // Form submission — Formspree with success state
+    // Form submission — Netlify Forms with success state
     const form = document.getElementById('enquiryForm');
     const successBox = document.getElementById('formSuccess');
 
@@ -1261,10 +1263,11 @@
       submitBtn.disabled = true;
 
       try {
-        const response = await fetch(form.action, {
+        const formData = new FormData(form);
+        const response = await fetch('/', {
           method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(formData).toString(),
         });
 
         if (response.ok) {
