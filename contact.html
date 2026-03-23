@@ -1214,7 +1214,7 @@
     const mobileMenu = document.getElementById('navMobile');
     toggle.addEventListener('click', () => {
       const isOpen = mobileMenu.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', isOpen);
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       const spans = toggle.querySelectorAll('span');
       if (isOpen) {
         spans[0].style.transform = 'translateY(6.5px) rotate(45deg)';
@@ -1227,14 +1227,14 @@
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.remove('open');
-        toggle.setAttribute('aria-expanded', false);
+        toggle.setAttribute('aria-expanded', 'false');
         toggle.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
       });
     });
     document.addEventListener('click', e => {
       if (!toggle.contains(e.target) && !mobileMenu.contains(e.target)) {
         mobileMenu.classList.remove('open');
-        toggle.setAttribute('aria-expanded', false);
+        toggle.setAttribute('aria-expanded', 'false');
         toggle.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
       }
     });
@@ -1246,11 +1246,11 @@
         const isOpen = item.classList.contains('open');
         document.querySelectorAll('.faq-item').forEach(i => {
           i.classList.remove('open');
-          i.querySelector('.faq-item__trigger').setAttribute('aria-expanded', false);
+          i.querySelector('.faq-item__trigger').setAttribute('aria-expanded', 'false');
         });
         if (!isOpen) {
           item.classList.add('open');
-          trigger.setAttribute('aria-expanded', true);
+          trigger.setAttribute('aria-expanded', 'true');
         }
       });
     });

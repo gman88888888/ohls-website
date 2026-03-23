@@ -1456,14 +1456,14 @@
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.remove('open');
-        toggle.setAttribute('aria-expanded', false);
+        toggle.setAttribute('aria-expanded', 'false');
         toggle.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
       });
     });
     document.addEventListener('click', e => {
       if (!toggle.contains(e.target) && !mobileMenu.contains(e.target)) {
         mobileMenu.classList.remove('open');
-        toggle.setAttribute('aria-expanded', false);
+        toggle.setAttribute('aria-expanded', 'false');
         toggle.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
       }
     });
