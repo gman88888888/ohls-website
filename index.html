@@ -1443,7 +1443,7 @@
     const mobileMenu = document.getElementById('navMobile');
     toggle.addEventListener('click', () => {
       const isOpen = mobileMenu.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', isOpen);
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       const spans = toggle.querySelectorAll('span');
       if (isOpen) {
         spans[0].style.transform = 'translateY(6.5px) rotate(45deg)';
