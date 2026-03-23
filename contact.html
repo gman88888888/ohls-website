@@ -599,6 +599,12 @@
     .footer__inperson { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 500; color: var(--gold); text-decoration: none; letter-spacing: 0.04em; border-bottom: 1px solid rgba(201,168,76,0.3); padding-bottom: 2px; transition: color var(--transition), border-color var(--transition); }
     .footer__inperson:hover { color: var(--gold-light); border-color: var(--gold-light); }
     .footer__inperson svg { width: 13px; height: 13px; flex-shrink: 0; }
+    .footer__social { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; margin-top: 20px; }
+    .footer__social-label { font-family: var(--font-body); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+    .footer__social-links { display: flex; align-items: center; gap: 12px; }
+    .footer__social-link { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1px solid rgba(201,168,76,0.22); border-radius: 50%; color: rgba(253,251,247,0.75); transition: color var(--transition), border-color var(--transition), background var(--transition); }
+    .footer__social-link:hover { color: var(--gold-light); border-color: rgba(201,168,76,0.45); background: rgba(201,168,76,0.08); }
+    .footer__social-link svg { width: 18px; height: 18px; }
     .footer__col-title { font-family: var(--font-body); font-weight: 500; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
     .footer__list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
     .footer__list a { font-size: 14px; font-weight: 300; color: rgba(253,251,247,0.68); text-decoration: none; transition: color var(--transition); }
@@ -1150,6 +1156,14 @@
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="6" r="2.5"/><path d="M3 14c0-3 2.2-5 5-5s5 2 5 5"/></svg>
             Interested in in-person sessions? Ask us
           </a>
+          <div class="footer__social" aria-label="Social media">
+            <span class="footer__social-label">Follow us</span>
+            <div class="footer__social-links">
+              <a href="https://www.instagram.com/openhorizonslearning/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Open Horizons on Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              </a>
+            </div>
+          </div>
         </div>
         <div>
           <div class="footer__col-title">Navigation</div>
