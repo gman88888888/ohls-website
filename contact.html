@@ -84,6 +84,11 @@
     .btn--outline:hover { background: var(--gold); color: var(--navy); }
     .btn--ghost   { background: transparent; color: var(--warm-white); border: 1.5px solid rgba(255,255,255,0.3); }
     .btn--ghost:hover { border-color: var(--gold); color: var(--gold); }
+    .btn--whatsapp { background: #25d366; color: #fff; }
+    .btn--whatsapp:hover { background: #1ebe57; color: #fff; transform: translateY(-1px); }
+    .btn--whatsapp svg { flex-shrink: 0; }
+    .whatsapp-form-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 28px; margin-bottom: 28px; padding: 20px 22px; border: 1px solid rgba(37, 211, 102, 0.35); border-radius: var(--radius); background: rgba(37, 211, 102, 0.06); }
+    .whatsapp-form-cta__hint { font-size: 13.5px; font-weight: 300; color: var(--text-light); max-width: 340px; line-height: 1.55; margin: 0; }
 
     .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.55s ease, transform 0.55s ease; }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
@@ -731,6 +736,20 @@
           <!-- Right: contact methods -->
           <div class="contact-hero__methods">
 
+            <a href="https://wa.me/971509705112?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20tutoring." class="contact-method contact-method--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Open Horizons">
+              <div class="contact-method__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M3 21l1.5-5.5A8.5 8.5 0 1 1 9 17.5L3 21z"/>
+                  <path d="M9.5 8.5c.5 1 1.5 3 3.5 3.5"/>
+                </svg>
+              </div>
+              <div>
+                <div class="contact-method__label">WhatsApp</div>
+                <div class="contact-method__value">+971 50 970 5112</div>
+                <div class="contact-method__note">Fastest way to say hello — we reply in working hours</div>
+              </div>
+            </a>
+
             <!-- Email -->
             <a href="mailto:hello@openhorizonslearning.ae" class="contact-method" aria-label="Email hello@openhorizonslearning.ae">
               <div class="contact-method__icon" aria-hidden="true">
@@ -741,22 +760,7 @@
               <div>
                 <div class="contact-method__label">Email</div>
                 <div class="contact-method__value">hello@openhorizonslearning.ae</div>
-                <div class="contact-method__note">Preferred for initial enquiries</div>
-              </div>
-            </a>
-
-            <!-- WhatsApp — PLACEHOLDER number, update before launch -->
-            <a href="https://wa.me/971509705112" class="contact-method contact-method--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Open Horizons">
-              <div class="contact-method__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <path d="M3 21l1.5-5.5A8.5 8.5 0 1 1 9 17.5L3 21z"/>
-                  <path d="M9.5 8.5c.5 1 1.5 3 3.5 3.5"/>
-                </svg>
-              </div>
-              <div>
-                <div class="contact-method__label">WhatsApp</div>
-                <div class="contact-method__value">+971 50 970 5112</div>
-                <div class="contact-method__note">Quick questions and scheduling</div>
+                <div class="contact-method__note">Great when you want to share detail upfront</div>
               </div>
             </a>
 
@@ -798,6 +802,17 @@
               The more context you can share, the more useful the first response will be.
               All fields marked <span style="color: var(--gold);">✦</span> are required.
             </p>
+
+            <div class="whatsapp-form-cta">
+              <a href="https://wa.me/971509705112?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20tutoring." class="btn btn--whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Open WhatsApp to message Open Horizons">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M3 21l1.5-5.5A8.5 8.5 0 1 1 9 17.5L3 21z"/>
+                  <path d="M9.5 8.5c.5 1 1.5 3 3.5 3.5"/>
+                </svg>
+                Message on WhatsApp
+              </a>
+              <p class="whatsapp-form-cta__hint">Prefer to start with a quick message? Many parents in the UAE do — you can reach us on WhatsApp and still use this form later if you prefer.</p>
+            </div>
 
             <!-- Success message (shown after submit) -->
             <div class="form-success" id="formSuccess" role="alert" aria-live="polite">
@@ -1162,6 +1177,9 @@
               <a href="https://www.instagram.com/openhorizonlearningsupport/" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Open Horizons on Instagram">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
               </a>
+              <a href="https://wa.me/971509705112?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20tutoring." class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="Message Open Horizons on WhatsApp">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 21l1.5-5.5A8.5 8.5 0 1 1 9 17.5L3 21z"/><path d="M9.5 8.5c.5 1 1.5 3 3.5 3.5"/></svg>
+              </a>
             </div>
           </div>
         </div>
@@ -1190,6 +1208,10 @@
           <div class="footer__contact-item">
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 4l6 5 6-5M2 4h12v9H2z"/></svg>
             <a href="mailto:hello@openhorizonslearning.ae">hello@openhorizonslearning.ae</a>
+          </div>
+          <div class="footer__contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 21l1.5-5.5A8.5 8.5 0 1 1 9 17.5L3 21z"/><path d="M9.5 8.5c.5 1 1.5 3 3.5 3.5"/></svg>
+            <a href="https://wa.me/971509705112?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20tutoring." target="_blank" rel="noopener noreferrer">WhatsApp +971 50 970 5112</a>
           </div>
           <div class="footer__contact-item">
             <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="6" r="2.5"/><path d="M3 14c0-3 2.2-5 5-5s5 2 5 5"/></svg>
