@@ -322,21 +322,22 @@
       text-align: center;
     }
 
-    .about-hero__avatar {
-      width: 96px;
-      height: 96px;
-      border-radius: 50%;
-      background: var(--navy-mid);
-      border: 2px solid var(--gold);
+    .about-hero__photo-frame {
+      width: 140px;
+      height: 168px;
       margin: 0 auto 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-display);
-      font-weight: 600;
-      font-size: 32px;
-      color: var(--gold);
-      letter-spacing: 0.02em;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid var(--gold);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+    }
+
+    .about-hero__photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 15%;
+      display: block;
     }
 
     .about-hero__name {
@@ -851,7 +852,17 @@
 
           <!-- Right: profile card -->
           <div class="about-hero__card" aria-label="Grant Crossman profile summary">
-            <div class="about-hero__avatar" aria-hidden="true">GC</div>
+            <div class="about-hero__photo-frame">
+              <img
+                class="about-hero__photo"
+                src="assets/images/grant-crossman-portrait.png"
+                alt="Grant Crossman, founder and lead tutor, in a white shirt and red plaid tie."
+                width="560"
+                height="672"
+                loading="eager"
+                decoding="async"
+              />
+            </div>
             <div class="about-hero__name">Grant Crossman</div>
             <div class="about-hero__role">Founder &amp; Lead Tutor</div>
             <div class="about-hero__stats" role="list">
