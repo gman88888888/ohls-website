@@ -354,7 +354,29 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 24px;
+      margin-bottom: 10px;
+    }
+
+    .about-hero__linkedin-wrap {
+      margin-bottom: 22px;
+    }
+
+    .about-hero__linkedin {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--gold-light);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.45);
+      transition: color var(--transition), border-color var(--transition);
+    }
+
+    .about-hero__linkedin:hover {
+      color: var(--warm-white);
+      border-bottom-color: rgba(232, 201, 122, 0.75);
     }
 
     .about-hero__stats {
@@ -865,6 +887,9 @@
             </div>
             <div class="about-hero__name">Grant Crossman</div>
             <div class="about-hero__role">Founder &amp; Lead Tutor</div>
+            <div class="about-hero__linkedin-wrap">
+              <a href="https://www.linkedin.com/in/grant-crossman-9b1a7886/" class="about-hero__linkedin" target="_blank" rel="noopener noreferrer" aria-label="Grant Crossman on LinkedIn">LinkedIn profile</a>
+            </div>
             <div class="about-hero__stats" role="list">
               <div class="about-hero__stat" role="listitem">
                 <div class="about-hero__stat-num">10+</div>
