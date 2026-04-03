@@ -35,7 +35,7 @@
     "@type": "EducationalOrganization",
     "name": "Open Horizons Learning Support",
     "url": "https://openhorizonslearning.ae",
-    "logo": "https://openhorizonslearning.ae/assets/images/og-image.jpg",
+    "logo": "https://openhorizonslearning.ae/assets/images/open_horizons_logo/open_horizons_inline_light.svg",
     "description": "Evidence-based tutoring for KS1, KS2 & KS3 (including iGCSE) at international schools in Dubai and Abu Dhabi.",
     "areaServed": ["Dubai", "Abu Dhabi"],
     "email": "hello@openhorizonslearning.ae",
@@ -127,9 +127,9 @@
     ============================================================ */
     .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-height); background: var(--navy); border-bottom: 1px solid rgba(201,168,76,0.15); display: flex; align-items: center; }
     .nav__inner { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 clamp(20px, 5vw, 48px); }
-    .nav__logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1.15; }
-    .nav__logo-primary { font-family: var(--font-display); font-weight: 600; font-size: 18px; letter-spacing: 0.02em; color: var(--warm-white); }
-    .nav__logo-sub { font-family: var(--font-body); font-weight: 300; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); }
+    .nav__logo { text-decoration: none; display: flex; align-items: center; line-height: 1; }
+    .nav__logo:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; border-radius: 2px; }
+    .nav__logo-mark { height: 44px; width: auto; max-width: min(300px, 75vw); object-fit: contain; object-position: left center; }
     .nav__links { display: flex; align-items: center; gap: 4px; list-style: none; }
     .nav__links a { font-family: var(--font-body); font-weight: 400; font-size: 13px; letter-spacing: 0.03em; color: rgba(253,251,247,0.78); text-decoration: none; padding: 6px 14px; border-radius: var(--radius); transition: color var(--transition), background var(--transition); position: relative; }
     .nav__links a:hover { color: var(--warm-white); background: rgba(255,255,255,0.06); }
@@ -822,7 +822,9 @@
     ============================================================ */
     .footer { background: var(--navy); border-top: 1px solid rgba(201,168,76,0.2); padding: 64px 0 0; color: rgba(253,251,247,0.72); }
     .footer__grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(201,168,76,0.15); }
-    .footer__brand-name    { font-family: var(--font-display); font-weight: 600; font-size: 20px; color: var(--warm-white); margin-bottom: 4px; }
+    .footer__brand-logo    { display: inline-block; text-decoration: none; margin-bottom: 16px; line-height: 0; }
+    .footer__brand-logo:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; border-radius: 2px; }
+    .footer__logo-mark     { height: 40px; width: auto; max-width: 280px; object-fit: contain; object-position: left center; opacity: 0.95; }
     .footer__brand-tagline { font-family: var(--font-body); font-weight: 300; font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
     .footer__brand-desc    { font-size: 13.5px; font-weight: 300; line-height: 1.75; margin-bottom: 24px; max-width: 280px; }
     .footer__inperson { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 500; color: var(--gold); text-decoration: none; letter-spacing: 0.04em; border-bottom: 1px solid rgba(201,168,76,0.3); padding-bottom: 2px; transition: color var(--transition), border-color var(--transition); }
@@ -882,8 +884,7 @@
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav__inner">
       <a href="index.html" class="nav__logo" aria-label="Open Horizons Learning Support — Home">
-        <span class="nav__logo-primary">Open Horizons</span>
-        <span class="nav__logo-sub">Learning Support</span>
+        <img src="assets/images/open_horizons_logo/open_horizons_inline_light.svg" alt="" class="nav__logo-mark" width="280" height="44" decoding="async" />
       </a>
       <ul class="nav__links" role="list">
         <li><a href="index.html" class="active" aria-current="page">Home</a></li>
@@ -1325,7 +1326,9 @@
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
-          <div class="footer__brand-name">Open Horizons</div>
+          <a href="index.html" class="footer__brand-logo" aria-label="Open Horizons Learning Support — Home">
+            <img src="assets/images/open_horizons_logo/open_horizons_inline_light.svg" alt="" class="footer__logo-mark" width="253" height="40" decoding="async" />
+          </a>
           <div class="footer__brand-tagline">UAE-Based. Globally Aligned. Personally Delivered.</div>
           <p class="footer__brand-desc">Evidence-informed online tutoring for international school students across Dubai and Abu Dhabi. Maths, Science, and English — KS1, KS2 & KS3 (including iGCSE).</p>
           <a href="contact.html?enquiry=inperson" class="footer__inperson">

@@ -276,25 +276,22 @@
     .nav__logo {
       text-decoration: none;
       display: flex;
-      flex-direction: column;
-      line-height: 1.15;
+      align-items: center;
+      line-height: 1;
     }
 
-    .nav__logo-primary {
-      font-family: var(--font-display);
-      font-weight: 600;
-      font-size: 18px;
-      letter-spacing: 0.02em;
-      color: var(--warm-white);
+    .nav__logo:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 4px;
+      border-radius: 2px;
     }
 
-    .nav__logo-sub {
-      font-family: var(--font-body);
-      font-weight: 300;
-      font-size: 10px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--gold);
+    .nav__logo-mark {
+      height: 44px;
+      width: auto;
+      max-width: min(300px, 75vw);
+      object-fit: contain;
+      object-position: left center;
     }
 
     /* Links */
@@ -422,12 +419,26 @@
     }
 
     /* Brand column */
-    .footer__brand-name {
-      font-family: var(--font-display);
-      font-weight: 600;
-      font-size: 20px;
-      color: var(--warm-white);
-      margin-bottom: 4px;
+    .footer__brand-logo {
+      display: inline-block;
+      text-decoration: none;
+      margin-bottom: 16px;
+      line-height: 0;
+    }
+
+    .footer__brand-logo:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 4px;
+      border-radius: 2px;
+    }
+
+    .footer__logo-mark {
+      height: 40px;
+      width: auto;
+      max-width: 280px;
+      object-fit: contain;
+      object-position: left center;
+      opacity: 0.95;
     }
 
     .footer__brand-tagline {
@@ -713,8 +724,7 @@
 
       <!-- Logo -->
       <a href="index.html" class="nav__logo" aria-label="Open Horizons Learning Support — Home">
-        <span class="nav__logo-primary">Open Horizons</span>
-        <span class="nav__logo-sub">Learning Support</span>
+        <img src="assets/images/open_horizons_logo/open_horizons_inline_light.svg" alt="" class="nav__logo-mark" width="280" height="44" decoding="async" />
       </a>
 
       <!-- Desktop links -->
@@ -783,7 +793,9 @@
 
         <!-- Column 1: Brand -->
         <div class="footer__brand">
-          <div class="footer__brand-name">Open Horizons</div>
+          <a href="index.html" class="footer__brand-logo" aria-label="Open Horizons Learning Support — Home">
+            <img src="assets/images/open_horizons_logo/open_horizons_inline_light.svg" alt="" class="footer__logo-mark" width="253" height="40" decoding="async" />
+          </a>
           <div class="footer__brand-tagline">UAE-Based. Globally Aligned. Personally Delivered.</div>
           <p class="footer__brand-desc">
             Evidence-informed online tutoring for international school students

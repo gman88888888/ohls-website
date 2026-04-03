@@ -32,9 +32,9 @@
 
     .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-height); background: var(--navy); border-bottom: 1px solid rgba(201,168,76,0.15); display: flex; align-items: center; }
     .nav__inner { display: flex; align-items: center; justify-content: space-between; width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 clamp(20px,5vw,48px); }
-    .nav__logo { text-decoration: none; display: flex; flex-direction: column; line-height: 1.15; }
-    .nav__logo-primary { font-family: var(--font-display); font-weight: 600; font-size: 18px; color: var(--warm-white); }
-    .nav__logo-sub { font-size: 10px; font-weight: 300; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); }
+    .nav__logo { text-decoration: none; display: flex; align-items: center; line-height: 1; }
+    .nav__logo:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; border-radius: 2px; }
+    .nav__logo-mark { height: 44px; width: auto; max-width: min(300px, 75vw); object-fit: contain; object-position: left center; }
 
     .main { flex: 1; display: flex; align-items: center; justify-content: center; padding: calc(var(--nav-height) + 64px) clamp(20px,5vw,48px) 80px; }
 
@@ -95,9 +95,8 @@
 
   <nav class="nav">
     <div class="nav__inner">
-      <a href="index.html" class="nav__logo">
-        <span class="nav__logo-primary">Open Horizons</span>
-        <span class="nav__logo-sub">Learning Support</span>
+      <a href="index.html" class="nav__logo" aria-label="Open Horizons Learning Support — Home">
+        <img src="assets/images/open_horizons_logo/open_horizons_inline_light.svg" alt="" class="nav__logo-mark" width="280" height="44" decoding="async" />
       </a>
     </div>
   </nav>
